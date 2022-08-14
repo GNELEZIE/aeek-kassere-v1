@@ -1,0 +1,34 @@
+Paris le: 13/08/2022
+Adresse IP de la personne ayant demandé les identifiants : 160.120.242.66demande
+Objet : Identifiant et mot de passe LwsPanel.
+
+
+Gnelezie arouna Ouattara
+
+Suite à votre inscription effectuée sur notre site, nous vous communiquons vos
+identifiants pour vous connecter sur votre espace client LWS
+( vos commandes passées sur notre site apparaîtront à cet endroit )
+
+Connectez vous à votre espace client via ce lien : https://panel.lws.fr
+Identifiant : LWS-575614
+Mot de passe : f5Q4D6U5N8a8
+
+
+Nous vous remercions de la confiance que vous nous accordez.
+
+Cordialement,
+(mail 83)
+---------------------------------------
+Ces paramètres vont vous permettre de mettre votre site en ligne :
+
+Serveur FTP : ftp.aeek-kassere.com                       
+Nom d'utilisateur : aeek-1940127                 
+Mot de passe : Q5r6U6p4m2m
+Port : 21   
+Dossier distant (directory path) : laissez vide ou /
+
+-------------------------------------------
+
+Webmail
+
+f5Q4D6U5N8a8@

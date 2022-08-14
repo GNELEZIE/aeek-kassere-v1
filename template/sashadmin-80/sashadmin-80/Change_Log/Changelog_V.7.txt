@@ -1,0 +1,156 @@
+
+Project Name: Sash – HTML Admin & Dashboard Template.
+
+Version : V.7
+
+Updated-date:  23-Mar-2022 
+
+ 
+Updates :- 
+
+		1) New Page Added.
+		2) Few js files are updated.
+		3) Few HTML pages are updated.
+		4) App Header section updated.
+		5) UI issues are fixed.
+
+***********************************************************************************************************************************************************************************************
+
+
+---------------------------------------------------------------------------------------------
+1) New Page Added.
+---------------------------------------------------------------------------------------------
+
+Step:-1
+
+	Added Page is :-
+
+		1. extension-tables.html
+
+Step:-2 
+
+	Please add below folder, js files and SCSS files. 
+
+		Add extension-datatable folder in plugins. root---->(assets/plugins/)
+
+		Add below js files. 	root---->(assets/js/)
+			
+			1. autofill-table.js
+			2. datetime-table.js
+
+		Please replace complete SCSS folder.
+
+		Please replace below files in css folder :
+
+	  	1. dark-style.scss           		root---->(assets/css/dark-style.scss)
+	  	3. transparent-style.scss    		root---->(assets/css/transparent-style.scss)
+	
+Note:- run the gulp command for above scss files after replacing. 
+
+Note:- Refer Documentaion for more information about extension-datatable.
+
+------------------------------------------------------------------------------------------------------
+2) Few js files are updated.
+------------------------------------------------------------------------------------------------------
+
+	please replace below mentioned js files for sidemenu issues. 
+
+		1. custom.js                       	root---->(assets/js/custom.js)
+		2. custom1.js                      	root---->(assets/js/custom1.js)
+		2. themeColors.js                       root---->(assets/js/themeColors.js)
+
+		3. sidemenu.js                      	root---->(assets/plugins/sidemenu.js)
+
+------------------------------------------------------------------------------------------------------
+3) Few HTML pages are updated.
+------------------------------------------------------------------------------------------------------
+
+Step:-1
+
+	Updated Page are :-
+
+		1. file-attachments.html
+		2. shop.html
+		3. shop-description.html
+		4. wishlist.html
+		5. email-inbox.html ( Sticky Sidebar Scroll is added )
+
+Step:-2 
+    
+	Please replace two scss files for updated pages.
+
+		1. _file-manager.scss			root---->(assets/scss/custom)
+		2. _custom-styles.scss			root---->(assets/scss/custom)
+
+Note:- After replacing above scss files run the gulp command. 
+
+Step:-3
+
+	Please replace email-inbox.html page.
+
+	Add jquery-sticky plugin in plugins folder.	root---->(assets/plugin/)
+
+------------------------------------------------------------------------------------------
+4) App header section updated.
+------------------------------------------------------------------------------------------
+
+Step:-1
+
+	Please replace App Header Section.
+
+	Please replace SCSS folder.			root---->(assets/scss)
+
+Note:- After replacing above scss files run the gulp command. 
+
+Step:-2
+
+	Please replace below js file.
+
+		1. pscroll.js				root---->(assets/plugins/p-scroll/pscroll.js)	
+
+-------------------------------------------------------------------------------------------------------
+5) UI issues are fixed.
+-------------------------------------------------------------------------------------------------------
+
+	Please replace below files in css folder :
+
+	  1. dark-style.scss           		root---->(assets/css/dark-style.scss)
+	  3. transparent-style.scss    		root---->(assets/css/transparent-style.scss)
+	  3. skin-modes.scss    		root---->(assets/css/skin-modes.scss)
+
+	Please replace complete SCSS folder.
+	
+
+Thanking you,
+@spruko.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

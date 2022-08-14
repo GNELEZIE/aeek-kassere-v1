@@ -1,0 +1,60 @@
+
+Project Name: Sash – HTML Admin & Dashboard Template.
+
+Version : V.8
+
+Updated-date:  24-Mar-2022 
+
+ 
+Updates :- 
+
+		1) Few js files are updated.
+
+***********************************************************************************************************************************************************************************************
+
+
+---------------------------------------------------------------------------------------------
+1) Few js files are updated.
+---------------------------------------------------------------------------------------------
+
+	Authentication pages are not working with respect to switcher and have console issue in all athentication pages so that below js files are updated. Please replace below js files.
+
+		1. custom.js				root---->(assets/js/)
+		2. custom1.js				root---->(assets/js/)
+		3. themeColors.js			root---->(assets/js/)
+		4. sidemenu.js				root---->(assets/plugins/sidemenu)
+
+
+Thanking you,
+@spruko.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

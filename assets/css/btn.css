@@ -1,0 +1,8 @@
+.btn-transparence-orange{
+    background: #ff46003b !important;
+    color: #ff4600 !important;
+}
+.btn-transparence-orange:hover{
+    background: #ff4600 !important;
+    color: #fff !important;
+}
