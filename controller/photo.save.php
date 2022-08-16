@@ -1,11 +1,12 @@
 <?php
+session_start();
+include_once '../model/Connexion.class.php';
+include_once '../model/Membre.class.php';
+include_once "../function/domaine.php";
 $data_info = '';
 $data_photo = '';
-echo $data['email'];
-exit;
+
 if(isset($_SESSION['membreaeek'])){
-    echo "ok";
-    exit;
 
     extract($_POST);
 
@@ -21,12 +22,12 @@ if(isset($_SESSION['membreaeek'])){
 
         if (in_array($photo_ext, $extensionValide)) {
             $photo = uniqid().'.'.$photo_ext;
-            $destination = '../media/users/'.$photo;
+            $destination = '../assets/media/users/'.$photo;
             $tmp_name = $_FILES['userImg']['tmp_name'];
 
             if(move_uploaded_file($tmp_name,$destination)){
                 if($ex_photo  != ''){
-                    $fichier ='../media/users/'.$ex_photo;
+                    $fichier ='../assets/media/users/'.$ex_photo;
                     if(file_exists($fichier)){
                         unlink($fichier);
                     }

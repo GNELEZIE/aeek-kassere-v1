@@ -82,7 +82,7 @@ while($data = $liste->fetch()){
                 <ul class="post-meta">
                     <li><a href="#"><span><?=(date('N', strtotime($data['date_article'])))?></span><?=month_fr(date('m', strtotime($data['date_article']))).','.date('Y', strtotime($data['date_article']))?></a></li>
                     <li><span class="icon flaticon-user"></span><a href="#">Par <?=$authors['nom']?></a></li>
-                    <li><span class="icon flaticon-like"></span><a href="#">12 Like</a></li>
+<!--                    <li><span class="icon flaticon-like"></span><a href="#">12 Like</a></li>-->
                     <li><span class="icon flaticon-chat"></span>
                         <a href="<?=$domaine?>/show/<?=$data['slug']?>">
                             <?=$nbrComt?>

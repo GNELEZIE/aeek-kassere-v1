@@ -141,12 +141,12 @@ require_once 'layout/header.php';
                                         <ul class="social-media-list">
                                             <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                                             <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
+<!--                                            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>-->
+<!--                                            <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>-->
                                         </ul>
                                     </li>
                                     <li><img src="<?=$asset?>/images/12-09-18/blog/icon/comment.png" alt="icon"><span><?=$nbrComt?></span></li>
-                                    <li><img src="<?=$asset?>/images/12-09-18/blog/icon/heart.png" alt="icon"><span>25</span></li>
+<!--                                    <li><img src="--><?//=$asset?><!--/images/12-09-18/blog/icon/heart.png" alt="icon"><span>25</span></li>-->
                                 </ul>
                                 <div class="content-part">
                                     <h4><a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="font-17"  style="text-transform: initial !important;"><?=reduit_text(html_entity_decode(stripslashes($dat['titre'])),'27');?></a></h4>

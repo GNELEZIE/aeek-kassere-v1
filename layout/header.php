@@ -65,6 +65,9 @@
 
 
 
+.bgimg2{
+    background: url("<?=$asset?>/img/bg/aeek-2.jpeg") !important;
+}
 .bgimg1{
     background: url("<?=$asset?>/img/bg/bg1.png") !important;
 }

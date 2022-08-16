@@ -333,6 +333,14 @@ require_once 'layout/footer.php';
 <script src="<?=$asset?>/plugins/ticker/js/jquery.newsTicker.js"></script>
 <script>
 
+    var nt_example1 = $('#flash-infos').newsTicker({
+        row_height: 80,
+        max_rows: 3,
+        duration: 4000,
+        prevButton: $('#nt-example1-prev'),
+        nextButton: $('#nt-example1-next')
+    });
+
 
     var nt_example2 = $('#nt-example2').newsTicker({
         row_height: 60,
