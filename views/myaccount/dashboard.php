@@ -21,16 +21,9 @@ require_once 'layout/header.php';
         <div class="container py-5">
             <div class="row pt-5">
                 <div class="col-md-3">
-                    <div class="ts-box-comte">
-                        <img src="<?=$asset?>/media/users/<?php if($_SESSION['membreaeek']['photo'] != ''){echo $_SESSION['membreaeek']['photo'];}else{echo 'default.png';}?>" id="img" alt=""/>
-                        <div class="btnedit text-center" style="padding-top: 30px;">
-                            <a href="javascript:void(0);" class="btn-transparence-orange btn-edit" id="btn-img"> <i class="fa fa-edit"></i> Modifier la photo</a>
-                        </div>
-                        <div class="tsbox-footer text-center pt-3">
-                            <h3 class="font-17">Ouattara Zie</h3>
-                            <small>ouattara@gmail.com</small>
-                        </div>
-                    </div>
+                    <?php
+                    include_once "layout/compte-side.php";
+                    ?>
                     <form method="post" id="userImgForm">
                         <input type="file" name="userImg" id="userImg" style="display: none"/>
                     </form>
@@ -42,26 +35,31 @@ require_once 'layout/header.php';
                     <div class="box-body bg-white">
                         <div class="row">
                             <div class="col-md-6">
-                                <p>Nom : Ouattara</p>
+                                <p>Nom : <?=html_entity_decode(stripslashes($data['nom']));?></p>
                             </div>
                             <div class="col-md-6">
-                                <p>Prénom : Arouna Gnelezie</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p>Email : Ouattara@gmail.com</p>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Fonction : Etudiant</p>
+                                <p>Prénom : <?=html_entity_decode(stripslashes($data['prenom']));?></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <p>Téléphone : +225 05 46 85 99 36</p>
+                                <p>Email : <?=html_entity_decode(stripslashes($data['email']));?></p>
                             </div>
                             <div class="col-md-6">
-                                <p>Adresse : Abidjan Adjamé</p>
+                                <p>Fonction : <?=html_entity_decode(stripslashes($data['fonction']));?></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Téléphone : <?=$data['iso_phone'].' '.$data['phone'];?></p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Adresse : <?=html_entity_decode(stripslashes($data['adresse']));?></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center pt-3">
+                                <a href="javascript:void(0);" class="btn-transparence-orange btn-edit" id="btn-img"> <i class="fa fa-edit"></i> Modifier les informations</a>
                             </div>
                         </div>
                     </div>

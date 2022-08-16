@@ -35,16 +35,16 @@ require_once 'layout/header.php';
         <div class="row">
         <div class="col-lg-8 col-md-12 col-xs-12 sticky-widget">
             <div class="blog-item single">
-                <div class="image">
+                <div class="image wow bounceInUp center">
                     <img src="<?=$domaine?>/uploads/<?=$data['couverture'];?>" alt="Blog image" class="img-responsive">
                 </div>
                 <!-- image -->
-                <div class="blog-content">
+                <div class="blog-content wow bounceInUp center">
                     <div>
                         <ul class="post-meta">
                             <li><a href="#"><span><?=(date('N', strtotime($data['date_article'])))?></span><?=month_fr(date('m', strtotime($data['date_article']))).','.date('Y', strtotime($data['date_article']))?></a></li>
                             <li><span class="icon flaticon-user"></span><a href="#">Par <?=$authors['nom']?></a></li>
-                            <li><span class="icon flaticon-like"></span><a href="#">12 Like</a></li>
+<!--                            <li><span class="icon flaticon-like"></span><a href="#">12 Like</a></li>-->
                             <li><span class="icon flaticon-chat"></span>
                                 <a href="<?=$domaine?>/show/<?=$data['slug']?>">
                                     <?=$nbrComt?>
@@ -68,7 +68,7 @@ require_once 'layout/header.php';
                     </div>
                 </div>
                 <!-- blog-content -->
-                <div class="post-bottom">
+                <div class="post-bottom wow bounceInUp center">
                     <ul class="tags">
                         <li><span style="text-transform: inherit !important;">Tags :</span></li>
                         <?php
@@ -83,20 +83,20 @@ require_once 'layout/header.php';
 
 
                     </ul>
-                    <ul class="share event-social">
-                        <li><span style="text-transform: inherit !important;">Partager sur :</span></li>
+                    <ul class="share event-social wow bounceInUp center">
+<!--                        <li><span style="text-transform: inherit !important;">12 Like :</span></li>-->
                         <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+<!--                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>-->
+<!--                        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>-->
+<!--                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>-->
+<!--                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>-->
                     </ul>
                 </div>
             </div>
             <!-- blog item -->
 
-            <div class="comments"  id="rep">
+            <div class="comments wow bounceInUp center"  id="rep">
                 <h4>
                     <?=$nbrComt?>
                     <?php
@@ -210,7 +210,7 @@ require_once 'layout/header.php';
                 </ul>
             </div>
             <!-- comment -->
-            <div class="comment-form">
+            <div class="comment-form wow bounceInUp center">
                 <h4>Commenter</h4>
 
                 <form method="post" id="formComment">

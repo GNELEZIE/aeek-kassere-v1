@@ -9,7 +9,7 @@ if($lastArticle = $lastArticl->fetch()){
 }
 ?>
 <div class="sidebar">
-    <div class="sidebar-item">
+    <div class="sidebar-item wow slideInRight">
         <h4 class="sidebar-title pt-3">Flash info</h4>
 
         <div id="nt-example2-container m-3">
@@ -38,7 +38,7 @@ if($lastArticle = $lastArticl->fetch()){
             </div>
         </div>
     </div>
-    <div class="sidebar-item">
+    <div class="sidebar-item wow slideInRight">
         <?php
         //setcookie('confirm','oui',time()+3600,'/',false,true,true);
         $inputSearch = '';
@@ -51,7 +51,7 @@ if($lastArticle = $lastArticl->fetch()){
             <button style="background: #040404;color: #fff;important;font-size: 16px;border-radius: 0 6px 6px 0;"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
     </div>
-    <div class="sidebar-item">
+    <div class="sidebar-item wow slideInRight">
         <h4 class="sidebar-title pt-3">Catégories</h4>
         <ul class="categores">
             <?php
@@ -68,7 +68,7 @@ if($lastArticle = $lastArticl->fetch()){
 
         </ul>
     </div>
-    <div class="sidebar-item">
+    <div class="sidebar-item wow slideInRight">
         <h4 class="sidebar-title pt-3">Articles récents</h4>
 
         <div class="latest-posts">

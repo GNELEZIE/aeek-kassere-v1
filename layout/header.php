@@ -29,10 +29,11 @@
 <link href="<?=$asset?>/css/btn.css" rel="stylesheet">
 <link href="<?=$asset?>/plugins/ticker/css/main.css" rel="stylesheet">
 <link href="<?=$asset?>/plugins/sweetalert/sweet-alert.css" rel="stylesheet" />
-<link href="cplugins/animate/animate.min.css" rel="stylesheet" />
+<!--<link href="cplugins/animate/animate.min.css" rel="stylesheet" />-->
 <!--<link href="--><?//=$asset?><!--/plugins/lity/assets/style.css" media="all" rel="stylesheet" type="text/css">-->
 <!--<link href="--><?//=$asset?><!--/plugins/lity/assets/prism.css" media="all" rel="stylesheet" type="text/css">-->
 <link href="<?=$asset?>/plugins/lity/dist/lity.css" rel="stylesheet"/>
+<link rel="stylesheet" href="<?=$asset?>/plugins/ani/animate.css"/>
 <style>
 
 .btn-edit{
@@ -65,6 +66,11 @@
 
 
 
+.bgimg2{
+    background: url("<?=$asset?>/media/aeek-2.jpeg") !important;
+    background-size: cover !important;
+    background-position: top !important;
+}
 .bgimg1{
     background: url("<?=$asset?>/img/bg/bg1.png") !important;
 }
@@ -722,12 +728,29 @@ header.style-3 div.menu-fixed::before {
 .ourTeam .i .c:hover .more {
     bottom: 0
 }
-
+.home-title1{
+    background: #ff4600;
+    padding: 10px 20px;
+    line-height:1.5;
+}
 
 
 
 
 @media(max-width: 767px) {
+
+    .home-title1{
+        font-size: 17px !important;
+        padding: 10px 10px  !important;
+    }
+    .home-title2{
+        font-size: 12px !important;
+        line-height: 1.2 !important;
+    }
+    .offset-4, .offset-3 {
+        margin-left: 0 !important;
+    }
+
     .padd-home{
         padding: 18px 18px 50px 18px !important;
     }
@@ -754,7 +777,7 @@ header.style-3 div.menu-fixed::before {
     }
 
     .h-600{
-        height: 253px !important;
+        height: 215px !important;
     }
     #carouselExampleCaptions{
         margin-top: 73px !important;

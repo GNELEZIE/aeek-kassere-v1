@@ -73,7 +73,7 @@ while($data = $liste->fetch()){
     }
 
     ?>
-    <div class="blog-item">
+    <div class="blog-item wow bounceInUp center">
         <div class="image">
             <a href="<?=$domaine?>/show/<?=$data['slug']?>"><img src="<?=$domaine?>/uploads/<?=$data['couverture'];?>" alt="Blog image" class="img-responsive"></a>
         </div>
@@ -82,7 +82,7 @@ while($data = $liste->fetch()){
                 <ul class="post-meta">
                     <li><a href="#"><span><?=(date('N', strtotime($data['date_article'])))?></span><?=month_fr(date('m', strtotime($data['date_article']))).','.date('Y', strtotime($data['date_article']))?></a></li>
                     <li><span class="icon flaticon-user"></span><a href="#">Par <?=$authors['nom']?></a></li>
-                    <li><span class="icon flaticon-like"></span><a href="#">12 Like</a></li>
+<!--                    <li><span class="icon flaticon-like"></span><a href="#">12 Like</a></li>-->
                     <li><span class="icon flaticon-chat"></span>
                         <a href="<?=$domaine?>/show/<?=$data['slug']?>">
                             <?=$nbrComt?>
@@ -111,7 +111,7 @@ while($data = $liste->fetch()){
 ?>
 
 
-<div class="text-center">
+<div class="text-center wow bounceInUp center">
     <ul class="pagination" style="display: inherit !important;">
         <?php
         if(isset($_GET['page']) and is_numeric($_GET['page'])){
