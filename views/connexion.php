@@ -13,7 +13,7 @@ require_once 'layout/header.php';
     <div class="container">
         <div class="row">
             <div class="col-md-5 offset-4">
-                <div class="ts-box">
+                <div class="ts-box  wow bounceInUp center">
                     <h3 class="text-center">Connexion</h3>
                     <form method="post" class="text-center" id="formLogin">
                         <?php
@@ -24,9 +24,7 @@ require_once 'layout/header.php';
                                 <?php }?>
                             </div>
                         <?php } ?>
-
                         <div class="row">
-
                             <div class="col-md-12 pt-4">
                                 <input type="email" name="email" placeholder="Email" class="input-register" required>
                                 <input type="hidden" class="form-control" name="formkey" value="<?=$token?>">

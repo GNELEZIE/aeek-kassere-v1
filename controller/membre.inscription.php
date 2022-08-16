@@ -35,7 +35,7 @@ if(isset($_SESSION['myformkey']) and isset($_POST['nom']) and isset($_POST['pren
             if ($idUser > 0) {
                 $mailToken = str_replace('+', '-', my_encrypt($email));
                 $subject = trim('Félicitation pour votre email.');
-                include_once 'mail/valid-email.php';
+                include_once '../mail/valid-email.php';
                 sendMailNoReply($email, $subject, $message);
                 header('location:' .$domaine.'/succes');
             } else {

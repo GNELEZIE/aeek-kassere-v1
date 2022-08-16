@@ -36,7 +36,7 @@ class Article{
     }
     public function getHomeAllArticle(){
         $query = "SELECT * FROM article
-          ORDER BY id_article DESC LIMIT 3";
+          WHERE statut = 0 ORDER BY id_article DESC LIMIT 3";
         $rs = $this->bdd->query($query);
         return $rs;
     }
@@ -118,7 +118,8 @@ class Article{
 //Count
 
     public function getAllNbrArticle(){
-        $query = "SELECT COUNT(*) as nb FROM article";
+        $query = "SELECT COUNT(*) as nb FROM article
+          WHERE statut = 0  ";
         $rs = $this->bdd->query($query);
         return $rs;
     }
@@ -133,7 +134,7 @@ class Article{
     }
     public function getAllNbrArticles($debut, $fin){
         $query = "SELECT * FROM article
-        ORDER BY id_article DESC LIMIT $debut, $fin";
+        WHERE statut = 0 ORDER BY id_article DESC LIMIT $debut, $fin";
         $rs = $this->bdd->query($query);
         return $rs;
     }

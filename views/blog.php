@@ -73,7 +73,7 @@ while($data = $liste->fetch()){
     }
 
     ?>
-    <div class="blog-item">
+    <div class="blog-item wow bounceInUp center">
         <div class="image">
             <a href="<?=$domaine?>/show/<?=$data['slug']?>"><img src="<?=$domaine?>/uploads/<?=$data['couverture'];?>" alt="Blog image" class="img-responsive"></a>
         </div>
@@ -111,7 +111,7 @@ while($data = $liste->fetch()){
 ?>
 
 
-<div class="text-center">
+<div class="text-center wow bounceInUp center">
     <ul class="pagination" style="display: inherit !important;">
         <?php
         if(isset($_GET['page']) and is_numeric($_GET['page'])){

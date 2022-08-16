@@ -18,16 +18,16 @@ if(!function_exists('sendMailNoReply')){
             $mail->CharSet = 'UTF-8';
             $mail->isSMTP();
             $mail->SMTPDebug = 0;
-            $mail->Host       = 'smtp.gmail.com';
+            $mail->Host       = 'mail.aeek-kassere.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'zie.nanien@gmail.com';
-            $mail->Password   = '46859936';
+            $mail->Username   = 'no-reply@aeek-kassere.com';
+            $mail->Password   = 'f5Q4D6U5N8a8@';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port       = 587;
 
-            $mail->setFrom('no-reply@ecoldecroshi.ci', 'Ecoldecroshi');
+            $mail->setFrom('no-reply@aeek-kassere.com', 'Aeek Kassere');
             $mail->addAddress($to);
-            $mail->addReplyTo('no-reply@ecoldecroshi.ci', 'Ecoldecroshi');
+            $mail->addReplyTo('no-reply@aeek-kassere.com', 'Aeek Kassere');
 
             $mail->isHTML(true);
             $mail->Subject = $subject;
@@ -80,7 +80,7 @@ if(!function_exists('sendMailToMe')){
             $mail->SMTPDebug = 0;
             $mail->setFrom($from, $fromName);
             $mail->addReplyTo($from, $fromName);
-            $mail->addAddress('zie.nanien@gmail.com', 'Ecoldecroshi');
+            $mail->addAddress('contact@aeek-kassere.com', 'Aeek Kassere');
 
             $mail->isHTML(true);
             $mail->Subject = $subject;

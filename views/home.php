@@ -1,6 +1,7 @@
 <?php
 
 $listes = $article->getHomeAllArticle();
+$artNb = $article->getAllNbrArticle();
 $vus = $compter->compter_visite();
 $team = $admin->getAllAdmin();
 require_once 'layout/header.php';
@@ -22,10 +23,17 @@ require_once 'layout/header.php';
 
                     ?>
                     <div class="carousel-item h-600 <?php if($counter == 1){echo " active"; } ?>">
-                        <img src="<?=$domaine?>/uploads/<?=$ban['photo']?>" class="d-block w-100 animate__animated animate__lightSpeedInRight" alt="...">
+                        <img src="<?=$domaine?>/uploads/<?=$ban['photo']?>" class="d-block w-100 w-ban animate__animated animate__lightSpeedInRight" alt="...">
                         <div class="carousel-caption d-md-block">
-                            <h1 class="font-40 animate__animated animate__zoomIn mb-3" style="background: #ff4600; padding: 10px 20px;line-height:1.5;"> <span ><?=html_entity_decode(stripslashes($ban['titre']))?></span> </h1>
-                            <p class="text-white font-30 pt-3 animate__animated animate__slideInUp"><?=html_entity_decode(stripslashes($ban['sous_titre']))?></p>
+                            <?php if($ban['titre'] != ''){
+                                $titres = '<h1 class="font-40 home-title1 animate__animated animate__zoomIn wow slideInRight"> <span > '.html_entity_decode(stripslashes($ban['titre'])).'</span> </h1>
+';
+                            }else{
+                                $titres = '';
+                            }
+                            ?>
+                            <?=$titres?>
+                            <p class="text-white home-title2 font-30 pt-2 animate__animated animate__slideInUp wow slideInLeft"><?=html_entity_decode(stripslashes($ban['sous_titre']))?></p>
                         </div>
                     </div>
                     <?php
@@ -71,18 +79,18 @@ require_once 'layout/header.php';
     <!--        </div>-->
     <!--    </section>-->
 
-    <section class="about about-two py-5" style="background: rgba(232, 246, 255, 0.69)">
+    <section class="about about-two" style="background: rgba(232, 246, 255, 0.69)">
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="image">
+                    <div class="image wow slideInLeft">
                         <img src="<?=$asset?>/media/aeek-2.jpeg" alt="about iamge" class="img-responsive">
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="content">
+                    <div class="content wow slideInRight">
                         <div class="section-header">
-                            <h2>A propos</h2>
+                            <h2>Qu'est ce que l'AEEK ?</h2>
                             <p><em>L'Association des Elèves et Etudiants de Kasséré(AEEK)</em></p>
                         </div>
                         <p class="text-justify">Phoslorescently ntiate principle-centered networks via magnetic services a
@@ -97,7 +105,7 @@ require_once 'layout/header.php';
 
                         </p>
                         <ul class="about-button">
-                            <li><a href="#" class="default-button btn-green-transparent" style="padding: 7px 13px !important;">En savoir plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a></li>
+                            <li><a href="<?=$domaine?>/a-propos" class="default-button btn-green-transparent" style="padding: 7px 13px !important;">En savoir plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a></li>
                         </ul>
                     </div>
                 </div>
@@ -110,9 +118,11 @@ require_once 'layout/header.php';
         <div class="container p-5 padd-home">
             <div class="row">
                 <div class="col-md-12 text-center pb-3">
-                    <h3>Notre actualité</h3>
+                    <h3 class="wow bounceInUp center">Notre actualité</h3>
                 </div>
                 <?php
+                if($artNb > 0){
+
 
                 while($dat = $listes->fetch()){
                     $commentExiste = $comment->getCommentById($dat['id_article']);
@@ -131,7 +141,7 @@ require_once 'layout/header.php';
                     }
                     ?>
                     <div class="col-md-4">
-                        <div class="blog-item">
+                        <div class="blog-item wow bounceInUp center">
                             <div class="blog-thumb">
                                 <a href="<?=$domaine?>/show/<?=$dat['slug']?>"><img src="<?=$domaine?>/uploads/<?=$dat['couverture'];?>" style="object-fit: cover; height: 250px;" alt="thumb"></a>
                             </div>
@@ -149,12 +159,12 @@ require_once 'layout/header.php';
 <!--                                    <li><img src="--><?//=$asset?><!--/images/12-09-18/blog/icon/heart.png" alt="icon"><span>25</span></li>-->
                                 </ul>
                                 <div class="content-part">
-                                    <h4><a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="font-17"  style="text-transform: initial !important;"><?=reduit_text(html_entity_decode(stripslashes($dat['titre'])),'27');?></a></h4>
+                                    <h4><a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="font-17"  style="text-transform: initial !important;"><?=myTruncate2(html_entity_decode(stripslashes($dat['titre'])),'27');?></a></h4>
                                     <div class="param">
-                                        <?=reduit_text(html_entity_decode(stripslashes($dat['description'])),'250','...');?>
+                                        <?=myTruncate2(html_entity_decode(stripslashes($dat['description'])),'250','...');?>
                                     </div>
                                     <div class="link pt-3">
-                                        <a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="btn-transparence-orange" style="padding: 10px 18px !important;">Lire plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
+                                        <a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="btn-transparence-orange " style="padding: 10px 18px !important;">Lire plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
                                     </div>
 
                                 </div>
@@ -166,10 +176,11 @@ require_once 'layout/header.php';
                     </div>
                 <?php
                 }
+                }
                 ?>
                 <div class="col-md-12">
                     <div class="read text-center">
-                        <a href="<?=$domaine?>/blog" class="btn-green-transparent p-3" style="padding: 12px 44px !important; border-radius: 3px;">Lire plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
+                        <a href="<?=$domaine?>/blog" class="btn-green-transparent p-3 wow slideInLeft" style="padding: 12px 44px !important; border-radius: 3px;">Lire plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
                     </div>
                 </div>
             </div>
@@ -181,7 +192,7 @@ require_once 'layout/header.php';
         <div class="container">
             <div class="row">
                 <div class="section-header style2">
-                    <h3>La Gallerie de nos evenements</h3>
+                    <h3 class="wow slideInLeft">La Gallerie de nos evenements</h3>
 
                 </div>
                 <div class="section-wrapper row">
@@ -196,7 +207,7 @@ require_once 'layout/header.php';
                         }
                         ?>
                         <div class="col-lg-4 col-md-6">
-                            <div class="gallery-item">
+                            <div class="gallery-item wow bounceInUp center">
                                 <span></span>
 
                                 <div class="gallery-item-inner">
@@ -218,7 +229,7 @@ require_once 'layout/header.php';
                     }
                     ?>
                     <div class="col-md-12 text-center pt-3">
-                        <a href="<?=$domaine?>/events" class="btn-transparence-orange" style="padding: 10px 18px !important;">Voir plus d'evènements <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
+                        <a href="<?=$domaine?>/events" class="btn-transparence-orange wow bounceInUp center" style="padding: 10px 18px !important;">Voir plus d'evènements <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
                     </div>
                 </div>
             </div>
@@ -229,7 +240,7 @@ require_once 'layout/header.php';
         <div class="container">
             <div class="section ourTeam">
                 <div class="section-header style2">
-                    <h3>Notre équipe</h3>
+                    <h3 class="wow slideInRight">Notre équipe</h3>
                 </div>
 
                 <div class="row">
@@ -238,7 +249,7 @@ require_once 'layout/header.php';
                     while($teamData = $team->fetch()){
                         ?>
                         <div class="col-md-3 i">
-                            <div class="c text-center teamBox">
+                            <div class="c text-center teamBox wow slideInLeft">
                                 <div class="wrap">
                                     <img src="<?=$domaine?>/uploads/<?=$teamData['photo'];?>" alt="#" class="img-responsive" style="object-fit: cover; height: 248px;">
                                     <div class="info">

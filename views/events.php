@@ -5,7 +5,7 @@ require_once 'layout/header.php';
 
 <section class="container-fluid head-pag" style="margin-top: 75px">
     <div class="container text-center" style="padding-top: 29px;">
-        <h1>La Gallerie de nos evenements</h1>
+        <h1 class="wow slideInLeft">La Gallerie de nos evenements</h1>
     </div>
 </section>
 <section class="multi-gallery-section style2 padding-120 top-home">
@@ -23,7 +23,7 @@ require_once 'layout/header.php';
                     }
                     ?>
                     <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
+                        <div class="gallery-item wow bounceInUp center">
                             <span></span>
 
                             <div class="gallery-item-inner">

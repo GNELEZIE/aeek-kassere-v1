@@ -49,7 +49,7 @@
 		</div>
         <div class="container-fluid" style="background: #2b2b2b; padding: 27px;">
             <div class="container">
-                <p class="text-center">Copyright &copy;AEEK 2022. Design and Development by <a href="#" class="color-orange">OGA INNOVE </a></p>
+                <p class="text-center">Copyright &copy;AEEK 2022. Design and Development by <a href="#" class="color-orange">Gnelezie Ouattara </a></p>
             </div>
         </div>
 	</footer>
@@ -58,7 +58,7 @@
 
 	<!-- Bootstrap -->
 	<script src="<?=$asset?>/js/bootstrap.min.js"></script>
-
+    <script src="<?=$asset?>/plugins/ani/wow.js"></script>
 	<!-- Coundown -->
 	<script src="<?=$asset?>/js/jquery.countdown.min.js"></script>
 
@@ -106,7 +106,18 @@
 <!--    <script src="--><?//=$asset?><!--/plugins/lity/assets/prism.js"></script>-->
 
 
-
+    <script>
+        wow = new WOW(
+            {
+                animateClass: 'animated',
+                offset:       100,
+                callback:     function(box) {
+                    console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+                }
+            }
+        );
+        wow.init();
+    </script>
 </body>
 
 </html>

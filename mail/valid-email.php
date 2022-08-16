@@ -197,7 +197,7 @@ $message = '
                                 </tr>
                                 <tr>
                                     <td class="content-block" valign="top">
-                                        <p>Félicitation <strong>Ouattara Arouna</strong> pour votre inscription !</p>
+                                        <p>Félicitation <strong>'.$_POST['prenom'].'</strong> pour votre inscription !</p>
                                     </td>
                                 </tr>
                                  <tr>

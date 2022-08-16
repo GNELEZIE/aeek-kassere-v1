@@ -28,7 +28,7 @@ require_once 'layout/header.php';
 <section class="banner banner-blog banner-five">
     <div class="banner-overlay"></div>
 
-    <div class="p-3 text-center position-text"><h2><span class="bg-orange px-3 mb-3 text-white"> Offres d'emploi</span></h2>
+    <div class="p-3 text-center position-text wow slideInLeft"><h2><span class="bg-orange px-3 mb-3 text-white"> Offres d'emploi</span></h2>
     </div>
 </section>
 <section class="page-header">
@@ -63,7 +63,7 @@ require_once 'layout/header.php';
                     $contract = 'Frulence';
                 }
                 ?>
-                <div class="col-md-4 mb-30 pb-5" style="margin-bottom: 35px">
+                <div class="col-md-4 mb-30 pb-5 wow bounceInUp center" style="margin-bottom: 35px">
                     <a class="box-card h-339 p-3" href="<?=$dataEmploi['lien_detail']?>" target="_blank">
                         <div class="box-shadow bg-white rounded-circle mx-auto text-center" style="width: 90px; height: 90px; margin-top: -45px;">
                             <img src="<?=$domaine?>/uploads/<?=$dataEmploi['logo']?>" alt="" class="head-icon offre-icon">
@@ -83,7 +83,7 @@ require_once 'layout/header.php';
 
         </div>
         <div class="text-center">
-            <ul class="pagination" style="display: inherit !important;">
+            <ul class="pagination wow slideInLeft" style="display: inherit !important;">
                 <?php
                 if(isset($_GET['page']) and is_numeric($_GET['page'])){
                     if($pages < 2 ){

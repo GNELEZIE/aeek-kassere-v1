@@ -41,13 +41,12 @@ require_once 'layout/header.php';
 ?>
 
 <section class="container-fluid head-pag" style="margin-top: 75px">
-    <div class="container text-center" style="padding-top: 29px;">
+    <div class="container text-center wow bounceInUp center" style="padding-top: 29px;">
         <h1><?=html_entity_decode(stripcslashes($eventsData['nom'])).' '.month_fr(date('m', strtotime($eventsData['date_events']))).','.date('Y', strtotime($eventsData['date_events']));?></h1>
     </div>
 </section>
 <section class="gallery gallery-two gallery-uhv padding-120">
     <div class="container">
-
 
         <div class="section-wrapper">
             <div class="gallery-items grid">
@@ -55,10 +54,8 @@ require_once 'layout/header.php';
                 <?php
                 while($galData = $liste->fetch()){
                     ?>
-
-
                 <div class="gallery-item grid-item">
-                    <div class="gallery-thumb">
+                    <div class="gallery-thumb wow bounceInUp center">
                         <img src="<?=$domaine?>/uploads/<?=$galData['photo'];?>" alt="gallery image" class="img-responsive">
                         <div class="overlay"></div>
                         <a href="<?=$domaine?>/uploads/<?=$galData['photo'];?>" data-rel="lightcase:myCollection">
@@ -71,7 +68,7 @@ require_once 'layout/header.php';
                 ?>
             </div>
             <div class="text-center">
-                <ul class="pagination" style="display: inherit !important;">
+                <ul class="pagination wow bounceInUp center" style="display: inherit !important;">
                     <?php
                     if(isset($_GET['page']) and is_numeric($_GET['page'])){
 

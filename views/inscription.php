@@ -13,7 +13,7 @@ require_once 'layout/header.php';
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-3">
-                <div class="ts-box">
+                <div class="ts-box wow bounceInUp center">
                     <h3 class="text-center">Inscription</h3>
                     <div class="tab-content" id="nav-tabContent">
                             <form method="post" class="text-center pt-5" id="formInscription">

@@ -12,6 +12,22 @@ if(!function_exists('pourcentage')){
         return $resPourcen;
     }
 }
+if(!function_exists('myTruncate2')){
+    function myTruncate2($string, $limit, $break=" ", $pad="...")
+    {
+        // return with no change if string is shorter than $limit
+        if(strlen($string) <= $limit) return $string;
+
+        $string = substr($string, 0, $limit);
+        if(false !== ($breakpoint = strrpos($string, $break))) {
+            $string = substr($string, 0, $breakpoint);
+        }
+
+        return $string . $pad;
+    }
+}
+
+
 if(!function_exists('month_fr')){
     function month_fr($mois){
         $mounth_french = array(
