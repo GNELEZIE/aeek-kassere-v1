@@ -779,6 +779,10 @@ header.style-3 div.menu-fixed::before {
     .h-600{
         height: 215px !important;
     }
+    .w-ban{
+        object-fit: cover !important;
+        height: 215px !important;
+    }
     #carouselExampleCaptions{
         margin-top: 73px !important;
     }

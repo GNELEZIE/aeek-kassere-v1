@@ -47,7 +47,21 @@ class Emplois{
 
         return $rs;
     }
+    //Update
+    public function updateEmplois($etat,$id){
+        $query = "UPDATE emplois
+            SET statut = :etat
+            WHERE id_emplois = :id ";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "etat" => $etat,
+            "id" => $id
+        ));
 
+        $nb = $rs->rowCount();
+        return $nb;
+
+    }
     // Delete
     public function deleteArticle($id){
 
