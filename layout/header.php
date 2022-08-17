@@ -40,7 +40,9 @@
     padding: 10px 20px;
     border-radius: 6px;
 }
-
+.font-bold{
+    font-weight : bold !important;
+}
 .text-right{
     text-align : right !important;
 }
@@ -736,6 +738,10 @@ header.style-3 div.menu-fixed::before {
     background: #ff4600;
     padding: 10px 20px;
     line-height:1.5;
+}
+
+.hover-orange:hover{
+color : #ff4600 !important;
 }
 
 

@@ -121,10 +121,7 @@ require_once 'layout/header.php';
                     <h3 class="wow bounceInUp center">Notre actualité</h3>
                 </div>
                 <?php
-                if($artNb > 0){
-
-
-                while($dat = $listes->fetch()){
+                if($dat = $listes->fetch()){
                     $commentExiste = $comment->getCommentById($dat['id_article']);
                     if($nbCom = $commentExiste->fetch()){
                         $nbComments = $comment->nbComment($dat['id_article'])->fetch();
@@ -140,7 +137,7 @@ require_once 'layout/header.php';
                         $nbrComt = 0;
                     }
                     ?>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="blog-item wow bounceInUp center">
                             <div class="blog-thumb">
                                 <a href="<?=$domaine?>/show/<?=$dat['slug']?>"><img src="<?=$domaine?>/uploads/<?=$dat['couverture'];?>" style="object-fit: cover; height: 250px;" alt="thumb"></a>
@@ -159,9 +156,9 @@ require_once 'layout/header.php';
 <!--                                    <li><img src="--><?//=$asset?><!--/images/12-09-18/blog/icon/heart.png" alt="icon"><span>25</span></li>-->
                                 </ul>
                                 <div class="content-part">
-                                    <h4><a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="font-17"  style="text-transform: initial !important;"><?=myTruncate2(html_entity_decode(stripslashes($dat['titre'])),'27');?></a></h4>
+                                    <h4><a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="font-17 font-bold hover-orange"  style="text-transform: initial !important;"><?=reduit_text(html_entity_decode(stripslashes($dat['titre'])),'40');?></a></h4>
                                     <div class="param">
-                                        <?=myTruncate2(html_entity_decode(stripslashes($dat['description'])),'250','...');?>
+                                        <?=reduit_text(html_entity_decode(stripslashes($dat['description'])),'250','...');?>
                                     </div>
                                     <div class="link pt-3">
                                         <a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="btn-transparence-orange " style="padding: 10px 18px !important;">Lire plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
@@ -176,7 +173,61 @@ require_once 'layout/header.php';
                     </div>
                 <?php
                 }
+
+                ?><?php
+                if($dat = $listes->fetch()){
+                    $commentExiste = $comment->getCommentById($dat['id_article']);
+                    if($nbCom = $commentExiste->fetch()){
+                        $nbComments = $comment->nbComment($dat['id_article'])->fetch();
+                        $nbCom = $comment->getCommentByIdNb($dat['id_article'])->fetch();
+                        $nbRepon = $reponse->nbReponses($nbCom['id_comment']);
+                        if($nbReponses = $nbRepon->fetch()) {
+                            $nbreps = $nbReponses['nb'];
+                        }else{
+                            $nbreps = 0;
+                        }
+                        $nbrComt = $nbComments['nb'] + $nbreps ;
+                    }else{
+                        $nbrComt = 0;
+                    }
+                    ?>
+                    <div class="col-md-6">
+                        <div class="blog-item wow bounceInUp center">
+                            <div class="blog-thumb">
+                                <a href="<?=$domaine?>/show/<?=$dat['slug']?>"><img src="<?=$domaine?>/uploads/<?=$dat['couverture'];?>" style="object-fit: cover; height: 250px;" alt="thumb"></a>
+                            </div>
+                            <div class="blog-content">
+                                <ul class="meta-post style2">
+                                    <li><img src="<?=$asset?>/images/12-09-18/blog/icon/share.png" alt="icon">
+                                        <ul class="social-media-list">
+                                            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+<!--                                            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>-->
+<!--                                            <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>-->
+                                        </ul>
+                                    </li>
+                                    <li><img src="<?=$asset?>/images/12-09-18/blog/icon/comment.png" alt="icon"><span><?=$nbrComt?></span></li>
+<!--                                    <li><img src="--><?//=$asset?><!--/images/12-09-18/blog/icon/heart.png" alt="icon"><span>25</span></li>-->
+                                </ul>
+                                <div class="content-part">
+                                    <h4><a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="font-17 font-bold hover-orange"  style="text-transform: initial !important;"><?=reduit_text(html_entity_decode(stripslashes($dat['titre'])),'40');?></a></h4>
+                                    <div class="param">
+                                        <?=reduit_text(html_entity_decode(stripslashes($dat['description'])),'250','...');?>
+                                    </div>
+                                    <div class="link pt-3">
+                                        <a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="btn-transparence-orange " style="padding: 10px 18px !important;">Lire plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                <?php
                 }
+
                 ?>
                 <div class="col-md-12">
                     <div class="read text-center">
