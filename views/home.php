@@ -229,7 +229,7 @@ require_once 'layout/header.php';
                     }
                     ?>
                     <div class="col-md-12 text-center pt-3">
-                        <a href="<?=$domaine?>/events" class="btn-transparence-orange wow bounceInUp center" style="padding: 10px 18px !important;">Voir plus d'evènements <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
+                        <a href="<?=$domaine?>/events" class="btn-orange wow bounceInUp center radius-6" style="padding: 10px 18px !important;">Voir plus d'evènements <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
                     </div>
                 </div>
             </div>
