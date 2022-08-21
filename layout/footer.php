@@ -18,7 +18,7 @@
                             <li><a href="<?=$domaine?>/blog">Actualité</a> </li>
                             <li><a href="<?=$domaine?>/events">Galerie</a> </li>
                             <li><a href="<?=$domaine?>/emplois">Ofres d'emplois</a> </li>
-                            <li><a href="<?=$domaine?>/aeek-tv">Web tv</a> </li>
+                            <li><a href="https://www.youtube.com/channel/UCDhp_Sepv7QJEmiTdCRAuXg" target="_blank">Web tv</a> </li>
                         </ul>
                     </div>
                     <div class="col-md-3">
@@ -32,7 +32,7 @@
                     <div class="col-md-3">
                         <h2>Contacts</h2>
                         <ul class="pb-3">
-                            <li><a href="#"><i class="fa fa-envelope"></i> aeek@aeek-kassere.com</a> </li>
+                            <li><a href="mailTo:contact@aeek-kassere.com"><i class="fa fa-envelope"></i>  contact@aeek-kassere.com</a> </li>
                             <li><a href="#"><i class="fa fa-phone"></i> +255 05 46 85 99 36</a> </li>
                             <li><a href="#"><i class="fa fa-whatsapp"></i> +255 05 46 85 99 36</a> </li>
                         </ul>
