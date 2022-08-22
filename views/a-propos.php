@@ -1,4 +1,5 @@
 <?php
+$lisPropos = $propos->getAllpropos();
 require_once 'layout/header.php';
 ?>
 
@@ -9,45 +10,23 @@ require_once 'layout/header.php';
 </section>
 <section class="about about-two">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-12 col-xs-12">
+        <div class="row pt-5 pb-5">
+            <?php
+            if($propData = $lisPropos->fetch()){
+            ?>
+            <div class="col-lg-5 col-md-12 col-xs-12">
                 <div class="image">
-                    <img src="<?=$asset?>/images/about/about_01.png" alt="about iamge" class="img-responsive">
+                    <img src="<?=$domaine?>/uploads/<?=$propData['photo']?>" alt="about iamge" class="img-responsive">
                 </div>
             </div>
-            <div class="col-lg-8 col-md-12 col-xs-12">
-                <div class="content padding-120">
+            <div class="col-lg-7 col-md-12 col-xs-12">
+                <div class="content about-padding">
                     <div class="section-header">
-                        <h2>L'histoire de l'AEEK</h2>
-                        <p><em>Creative Thinking for Event Conference</em></p>
+                        <h2><?=html_entity_decode(stripslashes($propData['titre']))?></h2>
+                        <p><em><?=html_entity_decode(stripslashes($propData['sous_titre']));?></em></p>
                     </div>
                     <p>
-                        Phoslorescently ntiate principle-centered networks via magnetic services a
-                        Entusiastically streamline fullys tested metrics without freproof web services enabled
-                        experiences bricks clicks are aparadigms Rapidiously evisculate standards compliant web
-                        services are afor error-free Assertively engineer are Rapidiously evisculate standards
-                        compliant fullys tested metrics without futureproof web services an fullys tested
-                        metrics without futureproof web services Phoslorescently ntiate principle-centered networks via magnetic services a
-                        Entusiastically streamline fullys tested metrics without freproof web services enabled
-                        experiences bricks clicks are aparadigms Rapidiously evisculate standards compliant web
-                        services are afor error-free Assertively engineer are Rapidiously evisculate standards
-                        compliant fullys tested metrics without futureproof web services an fullys tested
-                        metrics without futureproof web servicesPhoslorescently ntiate principle-centered networks via magnetic services a
-                        Entusiastically streamline fullys tested metrics without freproof web services enabled
-                        experiences bricks clicks are aparadigms Rapidiously evisculate standards compliant web
-                        services are afor error-free Assertively engineer are Rapidiously evisculate standards
-                        compliant fullys tested metrics without futureproof web services an fullys tested
-                        metrics without futureproof web servicesPhoslorescently ntiate principle-centered networks via magnetic services a
-                        Entusiastically streamline fullys tested metrics without freproof web services enabled
-                        experiences bricks clicks are aparadigms Rapidiously evisculate standards compliant web
-                        services are afor error-free Assertively engineer are Rapidiously evisculate standards
-                        compliant fullys tested metrics without futureproof web services an fullys tested
-                        metrics without futureproof web servicesPhoslorescently ntiate principle-centered networks via magnetic services a
-                        Entusiastically streamline fullys tested metrics without freproof web services enabled
-                        experiences bricks clicks are aparadigms Rapidiously evisculate standards compliant web
-                        services are afor error-free Assertively engineer are Rapidiously evisculate standards
-                        compliant fullys tested metrics without futureproof web services an fullys tested
-                        metrics without futureproof web services
+                        <?=html_entity_decode(stripslashes($propData['description']))?>
                     </p>
 <!--                    <ul class="about-button">-->
 <!--                        <li><a href="#" class="default-button">read more</a></li>-->
@@ -55,6 +34,9 @@ require_once 'layout/header.php';
 <!--                    </ul>-->
                 </div>
             </div>
+            <?php
+            }
+            ?>
         </div>
 
     </div>

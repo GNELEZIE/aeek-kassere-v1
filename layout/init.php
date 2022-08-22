@@ -29,7 +29,7 @@ include_once 'model/Events.class.php';
 include_once 'model/Gallerie.class.php';
 include_once 'model/Emplois.class.php';
 include_once 'model/Membre.class.php';
-
+include_once 'model/Propos.class.php';
 
 
 

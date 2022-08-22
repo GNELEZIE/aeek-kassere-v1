@@ -36,6 +36,18 @@
 <link rel="stylesheet" href="<?=$asset?>/plugins/ani/animate.css"/>
 <style>
 
+.about-padding{
+
+}
+
+
+
+.about-two .section-header h2 {
+    font-size: 30px !important;
+}
+.about .section-header p {
+    font-size: 17px !important;
+}
 .btn-edit{
     padding: 10px 20px;
     border-radius: 6px;

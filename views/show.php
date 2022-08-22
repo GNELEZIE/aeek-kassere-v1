@@ -83,11 +83,7 @@ require_once 'layout/header.php';
 
 
                     </ul>
-<<<<<<< HEAD
-                    <ul class="share event-social">
-=======
                     <ul class="share event-social wow bounceInUp center">
->>>>>>> 2316b1ce4d70911f0d729040a82a506949623b16
 <!--                        <li><span style="text-transform: inherit !important;">12 Like :</span></li>-->
                         <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>

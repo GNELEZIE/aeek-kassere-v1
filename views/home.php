@@ -1,5 +1,6 @@
 <?php
 
+$lisPropos = $propos->getAllpropos();
 $listes = $article->getHomeAllArticle();
 $artNb = $article->getAllNbrArticle();
 $vus = $compter->compter_visite();
@@ -82,33 +83,31 @@ require_once 'layout/header.php';
     <section class="about about-two" style="background: rgba(232, 246, 255, 0.69)">
         <div class="container py-5">
             <div class="row">
+                <?php
+                  if($propData = $lisPropos->fetch()){
+                    ?>
                 <div class="col-md-6">
                     <div class="image wow slideInLeft">
-                        <img src="<?=$asset?>/media/aeek-2.jpeg" alt="about iamge" class="img-responsive">
+                        <img src="<?=$domaine?>/uploads/<?=$propData['photo']?>" alt="about iamge" class="img-responsive">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="content wow slideInRight">
+
                         <div class="section-header">
-                            <h2>Qu'est ce que l'AEEK ?</h2>
-                            <p><em>L'Association des Elèves et Etudiants de Kasséré(AEEK)</em></p>
+                            <h2 class=""> <?=html_entity_decode(stripslashes($propData['titre']))?></h2>
+                            <p> <?=html_entity_decode(stripslashes($propData['sous_titre']));?></p>
                         </div>
-                        <p class="text-justify">Phoslorescently ntiate principle-centered networks via magnetic services a
-                            Entusiastically streamline fullys tested metrics without freproof web services enabled
-                            experiences bricks clicks are aparadigms Rapidiously evisculate standards compliant web
-                            services are afor error-free Assertively engineer are Rapidiously evisculate standards
-                            compliant fullys tested metrics without futureproof web services an fullys testedscu
-                            compliant fullys tested metrics without futureproof web services an fullys tested
-                            metrics without futureproof webfutureproof web services an fullys tested
-                            metrics without futureproof webfutureproof web services an fullys tested
+                        <p class="text-justify"> <?=reduit_text(html_entity_decode(stripslashes($propData['description'])),'250','...');?>  </p>
 
-
-                        </p>
                         <ul class="about-button">
                             <li><a href="<?=$domaine?>/a-propos" class="default-button btn-green-transparent" style="padding: 7px 13px !important;">En savoir plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a></li>
                         </ul>
                     </div>
                 </div>
+                <?php
+                }
+                ?>
             </div>
 
         </div>
