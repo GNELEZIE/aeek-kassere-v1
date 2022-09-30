@@ -39,7 +39,7 @@ class Membre {
 
         return $rs;
     }
-  public function getMmembreById($id){
+    public function getMmembreById($id){
 
         $query = "SELECT * FROM membre
         WHERE id_membre = :id";
@@ -48,6 +48,14 @@ class Membre {
             "id" => $id
         ));
 
+        return $rs;
+    }
+
+    //Count
+
+    public function nbrMmembre(){
+        $query = "SELECT COUNT(*) as nb FROM membre";
+        $rs = $this->bdd->query($query);
         return $rs;
     }
 

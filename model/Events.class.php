@@ -49,7 +49,12 @@ class Events{
         return $rs;
     }
 
-
+// Count
+    public function nbrEvents(){
+        $query = "SELECT COUNT(*) as nb FROM events";
+        $rs = $this->bdd->query($query);
+        return $rs;
+    }
 
     // Delete
     public function deleteEvent($id){

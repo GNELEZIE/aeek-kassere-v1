@@ -71,6 +71,11 @@ class Gallerie{
 
     //Count
 
+    public function nbrGaler(){
+        $query = "SELECT COUNT(*) as nb FROM gallerie";
+        $rs = $this->bdd->query($query);
+        return $rs;
+    }
     public function nbPhotoByEvents($eventId){
         $query = "SELECT COUNT(*) as nb FROM gallerie
         WHERE event_id = :eventId ";

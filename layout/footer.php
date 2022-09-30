@@ -5,15 +5,13 @@
                 <div class="row">
                     <div class="col-md-3">
                         <h2>A propos</h2>
-                        <p>Phoslorescently ntiate principle-centered networks via magnetic services a Entusiastically
-                            streamline fullys tested metrics without freproof ...
+                        <p>AEEK est la seule association des élèves et étudiants de Kasséré ....
                             <a href="<?=$domaine?>/a-propos" style="color: #696969 !important;">en savoir plus</a>
                         </p>
                     </div>
                     <div class="col-md-3">
                         <h2>Navigation</h2>
                         <ul>
-                            <li><a href="<?=$domaine?>/a-propos">A propos</a> </li>
                             <li><a href="<?=$domaine?>/contact">Contact</a> </li>
                             <li><a href="<?=$domaine?>/blog">Actualité</a> </li>
                             <li><a href="<?=$domaine?>/events">Galerie</a> </li>
@@ -33,11 +31,11 @@
                         <h2>Contacts</h2>
                         <ul class="pb-3">
                             <li><a href="mailTo:contact@aeek-kassere.com"><i class="fa fa-envelope"></i>  contact@aeek-kassere.com</a> </li>
-                            <li><a href="#"><i class="fa fa-phone"></i> +255 05 46 85 99 36</a> </li>
+                            <li><a href="tel:0022546859936"><i class="fa fa-phone"></i> +255 05 46 85 99 36</a> </li>
                             <li><a href="#"><i class="fa fa-whatsapp"></i> +255 05 46 85 99 36</a> </li>
                         </ul>
                         <ul class="event-social">
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.facebook.com/aeekkassere" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                         </ul>

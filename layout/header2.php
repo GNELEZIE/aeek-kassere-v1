@@ -54,6 +54,7 @@
     padding: 7px 29px;
     margin-bottom: 0;
     font-size: 18px;
+    border-radius: 6px !important;
 }
 
 
@@ -657,6 +658,7 @@ width: 51px;
 .btn-green{
     background: #039003 !important;
     border: 2px solid #039003 !important;
+    border-radius: 6px !important;
 }
 .btn-green:hover{
     background: #ffffff !important;
@@ -1009,22 +1011,10 @@ color : #ff4600 !important;
 #scholership-promo .scholership-promo-text h2 span {
     color: #039003 !important;
 
-}
 
-.carousel-control-prev, .carousel-control-next{
-    z-index: 999 !important;
-}
-.flash-title{
-    font-size: 25px !important;
-    font-weight: bold;
-}
-.up-event-date{
-    font-size: 20px !important;
-}
-.font-20{
-    font-size: 20px !important;
-    line-height: 1.5 !important;
-}
+
+
+
 
 
 
@@ -1032,6 +1022,19 @@ color : #ff4600 !important;
 
 
 @media(max-width: 767px) {
+
+    .offset-1 {
+        margin-left: 0 !important;
+    }
+
+
+
+
+    #scholership-promo .scholership-promo-text h2 {
+        font-size: 25px;
+        line-height: 1.3;
+    }
+
     #funfact-area {
         padding: 5px 0 !important;
     }
@@ -1059,14 +1062,9 @@ color : #ff4600 !important;
         font-size: 25px !important;
     }
 
-    .offset-1 {
-        margin-left: 0 !important;
-    }
 
-    #scholership-promo .scholership-promo-text h2 {
-        font-size: 25px;
-        line-height: 1.3;
-    }
+
+
 
 
 
@@ -1080,7 +1078,7 @@ color : #ff4600 !important;
     }
     .home-title2{
         font-size: 12px !important;
-        line-height: 1.5 !important;
+        line-height: 1.2 !important;
     }
     .offset-4, .offset-3 {
         margin-left: 0 !important;
