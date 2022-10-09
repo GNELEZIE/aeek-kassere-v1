@@ -173,7 +173,8 @@ require_once 'layout/header.php';
                 <?php
                 }
 
-                ?><?php
+                ?>
+                <?php
                 if($dat = $listes->fetch()){
                     $commentExiste = $comment->getCommentById($dat['id_article']);
                     if($nbCom = $commentExiste->fetch()){

@@ -17,8 +17,14 @@ if(isset($_GET)){
     $lien = $g[0];
     $page = $lien;
 }
-if(!file_exists('views/'.$lien.'.php')){
-    header('location:'.$domaine.'/error');
-}else{
+if(file_exists('views/'.$lien.'.php')){
+
     require_once 'views/'.$lien.'.php';
+
+}elseif(file_exists('views/learn/'.$lien.'.php')){
+
+    require_once 'views/learn/'.$lien.'.php';
+}
+else{
+    header('location:'.$domaine.'/error');
 }

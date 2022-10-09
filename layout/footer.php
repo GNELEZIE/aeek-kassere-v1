@@ -11,7 +11,7 @@
                         </p>
                     </div>
                     <div class="col-md-3">
-                        <h2>Navigation</h2>
+                        <h2 >Navigation</h2>
                         <ul>
                             <li><a href="<?=$domaine?>/a-propos">A propos</a> </li>
                             <li><a href="<?=$domaine?>/contact">Contact</a> </li>
@@ -19,10 +19,11 @@
                             <li><a href="<?=$domaine?>/events">Galerie</a> </li>
                             <li><a href="<?=$domaine?>/emplois">Ofres d'emplois</a> </li>
                             <li><a href="https://www.youtube.com/channel/UCDhp_Sepv7QJEmiTdCRAuXg" target="_blank">Web tv</a> </li>
+                        
                         </ul>
                     </div>
                     <div class="col-md-3">
-                        <h2>Liens utils</h2>
+                        <h2 >Liens utils</h2>
                         <ul>
                             <li><a href="#">Nos statuts</a> </li>
                             <li><a href="#">Bureau</a> </li>
@@ -30,7 +31,7 @@
                         </ul>
                     </div>
                     <div class="col-md-3">
-                        <h2>Contacts</h2>
+                        <h2 >Contacts</h2>
                         <ul class="pb-3">
                             <li><a href="mailTo:contact@aeek-kassere.com"><i class="fa fa-envelope"></i>  contact@aeek-kassere.com</a> </li>
                             <li><a href="#"><i class="fa fa-phone"></i> +255 05 46 85 99 36</a> </li>

@@ -14,7 +14,6 @@ if($lastArticle = $lastArticl->fetch()){
 
         <div id="nt-example2-container m-3">
             <div id="flash-infos-container">
-                <!--            <i class="fa fa-arrow-up" id="flash-infos-prev"></i>-->
                 <ul id="flash-infos">
                     <?php
 
@@ -32,9 +31,8 @@ if($lastArticle = $lastArticl->fetch()){
                         </li>
                     <?php
                     }
-                    //                ?>
+                        ?>
                 </ul>
-                <!--            <i class="fa fa-arrow-down" id="flash-infos-next"></i>-->
             </div>
         </div>
     </div>
