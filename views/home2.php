@@ -33,7 +33,7 @@ require_once 'layout/header.php';
                             }
                             ?>
                             <?=$titres?>
-                            <p class="text-white home-title2 font-20 pt-2 animate__animated animate__slideInUp wow slideInLeft"><?=html_entity_decode(stripslashes($ban['sous_titre']))?></p>
+                            <p class="text-white home-title2 font-30 pt-2 animate__animated animate__slideInUp wow slideInLeft"><?=html_entity_decode(stripslashes($ban['sous_titre']))?></p>
                         </div>
                     </div>
                     <?php
@@ -95,7 +95,7 @@ require_once 'layout/header.php';
                                          </div>
                                          <h3 class="py-3"><a href="#"  class="text-white flash-title"><?= html_entity_decode(stripslashes($flashData['titre']))?></a></h3>
                                          <p class="text-white"><?= html_entity_decode(stripslashes($flashData['sous_titre']))?></p>
-<!--                                         <a href="--><?//=$domaine?><!--/evenement/--><?//=$flashData['slug']?><!--" class="btns btn-white py30 font-15">En savoir plus</a>-->
+                                         <a href="<?=$domaine?>/evenement/<?=$flashData['slug']?>" class="btns btn-white py30 font-15">En savoir plus</a>
                                      </div>
                                  </div>
                              </div>
@@ -138,7 +138,7 @@ require_once 'layout/header.php';
                     <div class="col-md-6">
                         <div class="blog-item wow bounceInUp center">
                             <div class="blog-thumb">
-                                <a href="<?=$domaine?>/blog/<?=$dat['slug']?>"><img src="<?=$domaine?>/uploads/<?=$dat['couverture'];?>" style="object-fit: cover; height: 250px;" alt="thumb"></a>
+                                <a href="<?=$domaine?>/show/<?=$dat['slug']?>"><img src="<?=$domaine?>/uploads/<?=$dat['couverture'];?>" style="object-fit: cover; height: 250px;" alt="thumb"></a>
                             </div>
                             <div class="blog-content">
                                 <ul class="meta-post style2">
@@ -154,12 +154,12 @@ require_once 'layout/header.php';
 <!--                                    <li><img src="--><?//=$asset?><!--/images/12-09-18/blog/icon/heart.png" alt="icon"><span>25</span></li>-->
                                 </ul>
                                 <div class="content-part">
-                                    <h4><a href="<?=$domaine?>/blog/<?=$dat['slug']?>" class="font-17 font-bold hover-orange"  style="text-transform: initial !important;"><?=reduit_text(html_entity_decode(stripslashes($dat['titre'])),'40');?></a></h4>
+                                    <h4><a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="font-17 font-bold hover-orange"  style="text-transform: initial !important;"><?=reduit_text(html_entity_decode(stripslashes($dat['titre'])),'40');?></a></h4>
                                     <div class="param">
                                         <?=reduit_text(html_entity_decode(stripslashes($dat['description'])),'250','...');?>
                                     </div>
                                     <div class="link pt-3">
-                                        <a href="<?=$domaine?>/blog/<?=$dat['slug']?>" class="btn-transparence-orange " style="padding: 10px 18px !important;">Lire plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
+                                        <a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="btn-transparence-orange " style="padding: 10px 18px !important;">Lire plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
                                     </div>
 
                                 </div>
@@ -172,8 +172,7 @@ require_once 'layout/header.php';
                 <?php
                 }
 
-                ?>
-                <?php
+                ?><?php
                 if($dat = $listes->fetch()){
                     $commentExiste = $comment->getCommentById($dat['id_article']);
                     if($nbCom = $commentExiste->fetch()){
@@ -193,7 +192,7 @@ require_once 'layout/header.php';
                     <div class="col-md-6">
                         <div class="blog-item wow bounceInUp center">
                             <div class="blog-thumb">
-                                <a href="<?=$domaine?>/blog/<?=$dat['slug']?>"><img src="<?=$domaine?>/uploads/<?=$dat['couverture'];?>" style="object-fit: cover; height: 250px;" alt="thumb"></a>
+                                <a href="<?=$domaine?>/show/<?=$dat['slug']?>"><img src="<?=$domaine?>/uploads/<?=$dat['couverture'];?>" style="object-fit: cover; height: 250px;" alt="thumb"></a>
                             </div>
                             <div class="blog-content">
                                 <ul class="meta-post style2">
@@ -209,12 +208,12 @@ require_once 'layout/header.php';
 <!--                                    <li><img src="--><?//=$asset?><!--/images/12-09-18/blog/icon/heart.png" alt="icon"><span>25</span></li>-->
                                 </ul>
                                 <div class="content-part">
-                                    <h4><a href="<?=$domaine?>/blog/<?=$dat['slug']?>" class="font-17 font-bold hover-orange"  style="text-transform: initial !important;"><?=reduit_text(html_entity_decode(stripslashes($dat['titre'])),'40');?></a></h4>
+                                    <h4><a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="font-17 font-bold hover-orange"  style="text-transform: initial !important;"><?=reduit_text(html_entity_decode(stripslashes($dat['titre'])),'40');?></a></h4>
                                     <div class="param">
                                         <?=reduit_text(html_entity_decode(stripslashes($dat['description'])),'250','...');?>
                                     </div>
                                     <div class="link pt-3">
-                                        <a href="<?=$domaine?>/blog/<?=$dat['slug']?>" class="btn-transparence-orange " style="padding: 10px 18px !important;">Lire plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
+                                        <a href="<?=$domaine?>/show/<?=$dat['slug']?>" class="btn-transparence-orange " style="padding: 10px 18px !important;">Lire plus <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
                                     </div>
 
                                 </div>
@@ -358,15 +357,56 @@ require_once 'layout/header.php';
             <div class="col-lg-9 offset-1 text-center">
                 <div class="scholership-promo-text">
                     <h2>S'inscrire pour suivre<span> la formation </span> de l'AEEK</h2>
-                    <p>L'association des élèves et étudiants de Kasséré dans le but d'améliorer le rendement scolaire va mettre en place une plateforme d'auto-evaluation. L'élève peut suivre un cours et après faire une interrogation qui est noté automatiquement.</p>
-                    <a href="<?=$domaine?>/inscription" class="btns btn-green text-white font-15">S'inscrire maintenant</a>
+                    <p>Alumni Needs enables you to harness the power of your alumni network. Whatever may be the need academic, relocation, career, projects, mentorship, etc you can ask the community and get </p>
+                    <a href="#" class="btns btn-green text-white font-15">S'inscrire maintenant</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+    <section class="speakers speakers-two padding-120" style="background: #e8f6ff73 !important;">
+        <div class="container">
+            <div class="section ourTeam">
+                <div class="section-header style2">
+                    <h3 class="wow slideInRight">Notre équipe</h3>
+                </div>
 
+                <div class="row">
+
+                    <?php
+                    while($teamData = $team->fetch()){
+                        ?>
+                        <div class="col-md-3 i">
+                            <div class="c text-center teamBox wow slideInLeft">
+                                <div class="wrap">
+                                    <img src="<?=$domaine?>/uploads/<?=$teamData['photo'];?>" alt="#" class="img-responsive" style="object-fit: cover; height: 248px;">
+                                    <div class="info">
+                                        <h3 class="name" style="font-size: 20px !important;"><?=html_entity_decode(stripcslashes($teamData['nom'])).' '.html_entity_decode(stripcslashes($teamData['prenom'])) ?></h3>
+                                        <h4 class="position"  style="font-size: 17px !important;"><?=html_entity_decode(stripcslashes($teamData['fonction']))?></h4>
+                                    </div>
+                                </div>
+                                <div class="more">
+                                    <p><?=html_entity_decode(stripcslashes($teamData['biographie']))?></p>
+                                    <div class="socials">
+                                        <a href="<?=$teamData['facebook']?>" title="Facebook" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                                        <a href="<?=$teamData['twitter']?>" title="Twitter" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                                        <a href="<?=$teamData['linkedin']?>" title="Linkedin" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                        <a href="<?=$teamData['instagram']?>" title="Instagram" class="instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
 
 <?php require_once 'layout/footer.php';?>
 <script>
