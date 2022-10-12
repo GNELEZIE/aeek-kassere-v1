@@ -132,12 +132,11 @@ if(isset($doc[1]) and !isset($doc[2])) {
                 </ul>
                 <ul class="share event-social wow bounceInUp center">
                     <!--                        <li><span style="text-transform: inherit !important;">12 Like :</span></li>-->
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <!--                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>-->
-                    <!--                        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>-->
-                    <!--                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>-->
-                    <!--                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>-->
+                    <li><span>Partager :</span></li>
+                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="https://wa.me/002250546859936?text=<?=$data['slug']?>"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>

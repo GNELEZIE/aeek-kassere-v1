@@ -19,13 +19,33 @@
                 <div class="inner-circle"><i class="fa fa-cogs"></i><span>404</span></div>
                 <span class="inner-status">Oops! page introuvable </span>
                 <span class="inner-detail">Nous ne pouvons pas trouver la page que vous recherchez.</span>
-                <a href="<?=$domaine?>" class="btn btn-info mtl"><i class="fa fa-home"></i>&nbsp;Page d'accueil </a>
+               <div class="text-center">
+                   <a href="<?=$domaine?>" class="btn btn-orange mtl"><i class="fa fa-home"></i>&nbsp;Page d'accueil </a>
+               </div>
             </div>
         </div>
     </div>
 </div>
 
 <style type="text/css">
+    .text-center{
+        text-align: center;
+    }
+    .text-center a:hover{
+        color: #ff4500 !important;
+        background: #ffffff;
+
+    }
+    .text-center a{
+        padding: 6px 20px;
+        border-radius: 6px;
+        color: #fff !important;
+        text-decoration: none;
+        border : 1px solid #ff4500;
+    }
+    .btn-orange{
+        background-color: #ff4500;
+    }
     .btn-info{
         background-color: #008000 !important;
     }
