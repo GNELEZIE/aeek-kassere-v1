@@ -1032,6 +1032,9 @@ color : #ff4600 !important;
 
 
 @media(max-width: 767px) {
+    html, body {
+        overflow-x: hidden !important;
+    }
     #funfact-area {
         padding: 5px 0 !important;
     }
