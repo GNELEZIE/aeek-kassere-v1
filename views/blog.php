@@ -52,7 +52,9 @@ if(isset($doc[1]) and !isset($doc[2])) {
 
 $vus = $compter->compter_visite();
 
-
+$token = openssl_random_pseudo_bytes(16);
+$token = bin2hex($token);
+$_SESSION['myformkey'] = $token;
 
 require_once 'layout/header.php';
 ?>
@@ -79,7 +81,7 @@ require_once 'layout/header.php';
 <div class="row">
 <?php
 if(isset($doc[1]) and !isset($doc[2])) {
- ?>
+    ?>
     <div class="col-lg-8 col-md-12 col-xs-12 sticky-widget">
         <div class="blog-item single">
             <div class="image wow bounceInUp center">
@@ -133,16 +135,16 @@ if(isset($doc[1]) and !isset($doc[2])) {
                 <ul class="share event-social wow bounceInUp center">
                     <!--                        <li><span style="text-transform: inherit !important;">12 Like :</span></li>-->
                     <li><span>Partager :</span></li>
-                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="https://wa.me/002250546859936?text=<?=$data['slug']?>"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="https://wa.me/002250546859936?text=<?=$data['slug']?>"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>
         <!-- blog item -->
 
-        <div class="comments wow bounceInUp center"  id="rep">
+        <div class="comments"  id="refresComt">
             <h4>
                 <?=$nbrComt?>
                 <?php
@@ -166,7 +168,7 @@ if(isset($doc[1]) and !isset($doc[2])) {
                         $nom =$com['nom'];
                     }
                     ?>
-                    <li class="comment-item">
+                    <li class="comment-item wow ">
                         <div class="image"><img src="<?=$asset?>/media/anonym.png" alt="Blog image" class="img-responsive"></div>
                         <div class="com-content">
                             <h4><?=html_entity_decode(stripslashes($nom))?></h4>
@@ -182,18 +184,15 @@ if(isset($doc[1]) and !isset($doc[2])) {
                                             <div class="succesR"></div>
                                             <div class="errosR"></div>
                                             <div class="row">
-                                                <div class="col-lg-4 col-md-4 col-xs-12">
-                                                    <input type="text" name="nomR" id="nomR" placeholder="Nom*" class="comment-input input-style" required>
-                                                </div>
-                                                <div class="col-lg-4 col-md-4 col-xs-12">
-                                                    <input type="email" name="emailR" id="emailR" placeholder="Email*" class="comment-input input-style" required>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="nomR" id="nomR" placeholder="Nom é Prénom" class="comment-input input-style" required>
                                                     <input type="hidden" class="form-control " name="formkey" value="<?= $token ?>">
                                                     <input type="hidden" class="form-control " name="article_id" value="<?= $data['id_article'] ?>">
                                                     <input type="hidden" class="form-control " name="com_id" id="com_id" value="<?=$com['id_comment']?>">
                                                 </div>
                                             </div>
                                             <textarea rows="3" name="messageR" id="messageR" class="comment-input input-style" placeholder="Message"></textarea>
-                                            <button type="submit" name="submit" class="comment-submit btn-transparence-orange mb-3" style="text-transform: inherit !important;font-weight: inherit !important;"> <i class="load"></i> Répondre</button>
+                                            <button type="submit" name="submit" class="comment-submit btn-transparence-orange mb-3" style="text-transform: inherit !important;font-weight: inherit !important;"> <i class="loadRepondre"></i> Répondre</button>
                                         </form>
                                     </div>
                                 </div>
@@ -263,17 +262,14 @@ if(isset($doc[1]) and !isset($doc[2])) {
                 <div class="succes"></div>
                 <div class="erros"></div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-xs-12">
-                        <input type="text" name="nom" id="nom" placeholder="Nom*" class="comment-input input-style" required>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-xs-12">
-                        <input type="email" name="email" id="email" placeholder="Email*" class="comment-input input-style" required>
+                    <div class="col-md-12">
+                        <input type="text" name="nom" id="nom" placeholder="Nom & Prénom" class="comment-input input-style" required>
                         <input type="hidden" class="form-control " name="formkey" value="<?= $token ?>">
                         <input type="hidden" class="form-control " name="article_id" value="<?= $data['id_article'] ?>">
                     </div>
                 </div>
                 <textarea rows="6" name="message" id="message" class="comment-input input-style" placeholder="Message"></textarea>
-                <button type="submit" name="submit" class="comment-submit" style="text-transform: inherit !important;font-weight: inherit !important;"> <i class="load"></i> Commenter</button>
+                <button type="submit" name="submit" class="comment-submit" style="text-transform: inherit !important;font-weight: inherit !important;"> <i class="loadComment"></i> Commenter</button>
             </form>
         </div>
         <!-- comment-form -->
@@ -281,7 +277,7 @@ if(isset($doc[1]) and !isset($doc[2])) {
     </div>
 <?php
 }else{
-?>
+    ?>
     <div class="col-lg-8 col-md-12 col-xs-12 sticky-widget">
     <?php
     while($data = $liste->fetch()){
@@ -558,11 +554,111 @@ require_once 'layout/footer.php';
 ?>
 <script src="<?=$asset?>/plugins/ticker/js/jquery.newsTicker.js"></script>
 <script>
-    var nt_example1 = $('#flash-infos').newsTicker({
-        row_height: 80,
-        max_rows: 3,
-        duration: 4000,
-        prevButton: $('#nt-example1-prev'),
-        nextButton: $('#nt-example1-next')
+    $(document).ready(function(){
+        var nt_example1 = $('#flash-infos').newsTicker({
+            row_height: 80,
+            max_rows: 3,
+            duration: 4000,
+            prevButton: $('#nt-example1-prev'),
+            nextButton: $('#nt-example1-next')
+        });
+
+        $('#formComment').submit(function(e){
+            e.preventDefault();
+            $('.loadComment').html('<i class="loader-btn"></i>');
+            var value = document.getElementById('formComment');
+            var form = new FormData(value);
+
+            $.ajax({
+                method: 'post',
+                url: '<?=$domaine?>/controle/save.comment',
+                data: form,
+                contentType:false,
+                cache:false,
+                processData:false,
+                dataType: 'json',
+                success: function(data){
+//                alert(data.data_info);
+                    if(data.data_info == "ok"){
+                        $('#message').val('');
+                        $('.loadComment').html('');
+                        swal("Commentaire ajouté!", "Votre commentaire a été ajouté avec succès !", "success");
+                        $("#refresComt").load(window.location.href + " #refresComt" );
+                    }else {
+                        $('#message').val('');
+                        $('.loadComment').html('');
+                        swal("Impossible!", "Une erreur s\'est produite lors de l\'ajoiut de votre commentaire", "error");
+                    }
+                },
+                error: function (error, ajaxOptions, thrownError) {
+                    alert(error.responseText);
+                }
+            });
+        });
+
+        $('#formRepondre').submit(function(e){
+            e.preventDefault();
+            $('.loadRepondre').html('<i class="loader-btn"></i>');
+            var value = document.getElementById('formRepondre');
+            var form = new FormData(value);
+
+            $.ajax({
+                method: 'post',
+                url: '<?=$domaine?>/controle/save.reponse',
+                data: form,
+                contentType:false,
+                cache:false,
+                processData:false,
+                dataType: 'json',
+                success: function(data){
+//                alert(data.data_info);
+                    if(data.data_info == "ok"){
+                        $("#rep").load(location.href + " #rep");
+                        $('#messageR').val('');
+                        $('.loadRepondre').html('');
+                        swal("Réponse ajoutée!", "Votre réponse a été ajouté avec succès !", "success")
+                        $("#refresComt").load(window.location.href + " #refresComt" );
+                    }else {
+                        $('#message').val('');
+                        $('.loadRepondre').html('');
+                        swal("Impossible!", "Une erreur s\'est produite lors de l\'ajoiut de votre réponse", "error");
+                    }
+                },
+                error: function (error, ajaxOptions, thrownError) {
+                    alert(error.responseText);
+                }
+            });
+        });
+        $('#formRepondreR').submit(function(e){
+            e.preventDefault();
+            $('.load').html('<i class="loader-btn"></i>');
+            var value = document.getElementById('formRepondreR');
+            var form = new FormData(value);
+
+            $.ajax({
+                method: 'post',
+                url: '<?=$domaine?>/controller/save.reponse.php',
+                data: form,
+                contentType:false,
+                cache:false,
+                processData:false,
+                dataType: 'json',
+                success: function(data){
+//                alert(data.data_info);
+                    if(data.data_info == "ok"){
+                        $("#rep").load(location.href + " #rep");
+                        $('#messageR').val('');
+                        $('.load').html('');
+                        swal("Réponse ajoutée!", "Votre réponse a été ajouté avec succès !", "success")
+                    }else {
+                        $('#message').val('');
+                        swal("Impossible!", "Une erreur s\'est produite lors de l\'ajoiut de votre réponse", "error");
+                    }
+                },
+                error: function (error, ajaxOptions, thrownError) {
+                    alert(error.responseText);
+                }
+            });
+        });
     });
 </script>

@@ -7,14 +7,13 @@ class Reponse{
 
 
     //Create
-    public function addReponse($date_reponse,$nom,$email,$message, $comment_id,$articles_id){
-        $query = "INSERT INTO reponse(date_reponse,nom,email,message,comment_id,article_id)
-            VALUES (:date_reponse,:nom,:email,:message, :comment_id,:articles_id)";
+    public function addReponse($date_reponse,$nom,$message, $comment_id,$articles_id){
+        $query = "INSERT INTO reponse(date_reponse,nom,message,comment_id,article_id)
+            VALUES (:date_reponse,:nom,:message, :comment_id,:articles_id)";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "date_reponse" => $date_reponse,
             "nom" => $nom,
-            "email" => $email,
             "message" => $message,
             "comment_id" => $comment_id,
             "articles_id" => $articles_id

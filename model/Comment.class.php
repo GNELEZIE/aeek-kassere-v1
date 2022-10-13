@@ -7,14 +7,13 @@ class Comment{
 
 
     //Create
-    public function addComment($date_comment,$nom,$email,$message,$article_id){
-        $query = "INSERT INTO comment(date_comment,nom,email,message,article_id)
-            VALUES (:date_comment,:nom,:email,:message,:article_id)";
+    public function addComment($date_comment,$nom,$message,$article_id){
+        $query = "INSERT INTO comment(date_comment,nom,message,article_id)
+            VALUES (:date_comment,:nom,:message,:article_id)";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "date_comment" => $date_comment,
             "nom" => $nom,
-            "email" => $email,
             "message" => $message,
             "article_id" => $article_id
         ));
@@ -35,7 +34,7 @@ class Comment{
 
     public function getCommentById($id){
         $query = "SELECT * FROM comment
-        WHERE  statut =!0  AND article_id = :id ORDER BY id_comment DESC";
+        WHERE  article_id = :id ORDER BY id_comment DESC";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "id" => $id
@@ -44,7 +43,7 @@ class Comment{
     }
     public function getCommentBSyId($id){
         $query = "SELECT * FROM comment
-        WHERE  statut =!0  AND  article_id = :id ORDER BY id_comment DESC";
+        WHERE article_id = :id ORDER BY id_comment DESC";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "id" => $id
@@ -53,7 +52,7 @@ class Comment{
     }
     public function getCommentByIdNb($id){
         $query = "SELECT * FROM comment
-        WHERE article_id = :id AND statut =!0 ";
+        WHERE article_id = :id";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "id" => $id
@@ -72,7 +71,7 @@ class Comment{
     }
     public function nbComment($id){
         $query = "SELECT  COUNT(*) as nb FROM comment
-        WHERE article_id = :id AND   statut =!0 ";
+        WHERE article_id = :id ";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "id" => $id

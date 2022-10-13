@@ -32,6 +32,13 @@
 <link href="<?=$asset?>/plugins/lity/dist/lity.css" rel="stylesheet"/>
 <link rel="stylesheet" href="<?=$asset?>/plugins/ani/animate.css"/>
 <style>
+.comment-item h4{
+    font-size: 17px !important;
+}
+.comments .comment-item .image {
+    height: 35px !important;
+    width: 35px !important;
+}
 .box-btns{
     padding: 7px 18px !important;
     font-size: 17px !important;
