@@ -32,6 +32,115 @@
 <link href="<?=$asset?>/plugins/lity/dist/lity.css" rel="stylesheet"/>
 <link rel="stylesheet" href="<?=$asset?>/plugins/ani/animate.css"/>
 <style>
+.box-btns{
+    padding: 7px 18px !important;
+    font-size: 17px !important;
+}
+.cand-img{
+    object-fit: cover;
+    width: 100% !important;
+}
+.card_with_image {
+    float: left;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 1px 5px 0 rgb(5 5 5 / 20%);
+    border-radius: 10px;
+    padding-bottom: 0;
+}
+.box-heart-mble {
+    padding: 3px 7px 2px 7px;
+    top: 15px;
+    right: 15px;
+    color: #f83600;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.card_with_image .blog_card_image {
+    background: #212121;
+    display: block;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+.box-cover {
+    height: 150px;
+    object-fit: cover;
+}
+.box-data {
+    padding: 0 10px 15px 10px;
+}
+.box-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    border: solid 4px #fff;
+    position: relative;
+    top: -25px;
+}
+.box-user {
+    color: #696969;
+    position: relative;
+    top: -15px;
+    font-size: 14px;
+}
+.box-heart {
+    float: right;
+    margin-top: 3px;
+    padding: 3px 8px;
+    color: #f83600;
+}
+.box-action-content {
+    border-top: solid 1px #f0f0f0;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+.box-action-star {
+    float: left;
+    margin-top: 5px;
+}
+
+.btn-orange-transparent {
+    background: rgb(248 54 0 / 7%) !important;
+    color: #f83600 !important;
+    border-radius: 6px !important;
+}
+.box-btn {
+    float: right;
+    margin-bottom: 15px;
+}
+.buy-btn {
+    padding: 3px 9px !important;
+    font-size: 13px !important;
+}
+.he-300{
+    height: 350px !important;
+}
+.sec-award{
+    padding: 50px 0 !important;
+}
+.sweet-alert h2 {
+    font-size: 20px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.blog-page .blog-item .content p {
+    text-align: justify !important;
+}
 .h1, .h2, .h3, .h4, .h5, .h6, body, h1, h2, h3, h4, h5, h5.title, h6, ol, ul {
     font-family: Roboto,sans-serif !important;
 }
@@ -274,16 +383,21 @@
     padding-top: 30px;
 }
 
-
+.btn-greens-transparent {
+    background: #0080002e;
+    color: #008000!important;
+    border-radius: 6px !important;
+}
 
 .bgimg2{
-<<<<<<< HEAD
-    background: url("<?=$asset?>/img/bg/aeek-2.jpeg") !important;
-=======
     background: url("<?=$asset?>/media/aeek-2.jpeg") !important;
     background-size: cover !important;
     background-position: top !important;
->>>>>>> 2316b1ce4d70911f0d729040a82a506949623b16
+}
+.bg-award{
+    background: url("<?=$asset?>/media/w2.jpg") !important;
+    background-size: cover !important;
+    background-position: top !important;
 }
 .bgimg1{
     background: url("<?=$asset?>/img/bg/bg1.png") !important;

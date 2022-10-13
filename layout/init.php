@@ -31,6 +31,8 @@ include_once 'model/Emplois.class.php';
 include_once 'model/Membre.class.php';
 include_once 'model/Propos.class.php';
 include_once 'model/Flash.class.php';
+include_once 'model/Voter.class.php';
+include_once 'model/Candidat.class.php';
 
 
  if(isset($_COOKIE['cookieaeek']) AND !isset($_SESSION['membreaeek'])){
