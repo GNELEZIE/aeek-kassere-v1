@@ -87,8 +87,7 @@ require_once 'layout/header.php';
             ?>
             <div class="row">
                 <div class="col-lg-12 text-center mt-5">
-                    <h2>Prix du meilleur membre de l'AEEK</h2>
-                    <p>Vous pouvez voter pour votre membre préferé</p>
+                    <h4 class="pb-3">Vous pouvez voter pour votre membre préferé</h4>
                 </div>
                 <?php
                 $liste = $candidat->getAllCandidat();
@@ -101,7 +100,7 @@ require_once 'layout/header.php';
                         $btnVote = '<div  id="changeEtat" ><a href="javascript:void(0)" class="buy-btn btn-orange-transparent box-btn" onclick="voter('.$dataCandidat['id_candidat'].')">Voter</a></div>';
                     }
                     ?>
-                    <div class="col-md-3" >
+                    <div class="col-md-3 col3-award">
                         <div class="grid-item">
                             <div class="card_with_image">
                                 <div class="blog_card_image">
@@ -115,7 +114,7 @@ require_once 'layout/header.php';
                                         <span class="box-user"><?=html_entity_decode(stripslashes($dataCandidat['prenom']))?></span>
                                         <input type="hidden" id="nom" name="nom" value="<?=html_entity_decode(stripslashes($dataCandidat['prenom']))?>"/>
                                     </a>
-                                    <a href="<?=$domaine?>/award/<?=$dataCandidat['slug']?>"><h6 class="box-title"><?=html_entity_decode(stripslashes($dataCandidat['fonction']))?></h6></a>
+                                    <a href="<?=$domaine?>/award/<?=$dataCandidat['slug']?>"><h6 class="box-title h6-award"><?=html_entity_decode(stripslashes($dataCandidat['fonction']))?></h6></a>
                                     <div class="box-action-content">
                                     <span class="box-action-star" id="reload<?=$dataCandidat['id_candidat']?>">
                                        <input type="hidden" id="voix" name="voix" value="<?=$dataCandidat['nbvote']?>"/>

@@ -402,9 +402,9 @@
     background-position: top !important;
 }
 .bg-award{
-    background: url("<?=$asset?>/media/w2.jpg") !important;
+    background: url("<?=$asset?>/media/aw-4.png") !important;
     background-size: cover !important;
-    background-position: top !important;
+    background-position: center !important;
 }
 .bgimg1{
     background: url("<?=$asset?>/img/bg/bg1.png") !important;
@@ -1156,6 +1156,43 @@ color : #ff4600 !important;
     html, body {
         overflow-x: hidden !important;
     }
+    .bg-award{
+        background: url("<?=$asset?>/media/aw-m2.png") !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+.col3-award{
+    width: 50% !important;
+}
+
+.h6-award{
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+}
+
+    .box-action-content {
+        padding-top: 0  !important;
+    }
+
+    .box-img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        border: solid 3px #fff;
+        left: -16px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     #funfact-area {
         padding: 5px 0 !important;
     }
