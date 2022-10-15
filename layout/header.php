@@ -1148,7 +1148,9 @@ color : #ff4600 !important;
 }
 
 
-
+.col3-award{
+    padding: 0 30px;
+}
 
 
 
@@ -1163,6 +1165,8 @@ color : #ff4600 !important;
     }
 .col3-award{
     width: 50% !important;
+    margin-bottom: 20px !important;
+    padding: 0 10px !important;
 }
 
 .h6-award{
@@ -1171,7 +1175,7 @@ color : #ff4600 !important;
 }
 
     .box-action-content {
-        padding-top: 0  !important;
+        padding-top: 7px  !important;
     }
 
     .box-img{
@@ -1181,7 +1185,9 @@ color : #ff4600 !important;
         border: solid 3px #fff;
         left: -16px;
     }
-
+    .sec-award {
+        padding: 0 !important;
+    }
 
 
 

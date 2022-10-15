@@ -95,7 +95,8 @@ require_once 'layout/header.php';
                     $ip   = $_SERVER['REMOTE_ADDR'];
                     $votes = $voter->getVoterByIp($ip);
                     if($votesData = $votes->fetch()){
-                        $btnVote = '<a class="buy-btn btn-greens-transparent box-btn">Déjà voté</a>';
+                        $btnVote = '';
+//                        $btnVote = '<a class="buy-btn btn-greens-transparent box-btn">Déjà voté</a>';
                     }else{
                         $btnVote = '<div  id="changeEtat" ><a href="javascript:void(0)" class="buy-btn btn-orange-transparent box-btn" onclick="voter('.$dataCandidat['id_candidat'].')">Voter</a></div>';
                     }
@@ -351,7 +352,7 @@ require_once 'layout/footer.php';
                         $.post('<?=$domaine?>/controle/voter-save', {id : id}, function (data) {
                             if(data == "ok"){
                                 $('#changeEtats').html('<a class="buy-btn btn-greens-transparent box-btns">Vous avez déjà voté</a>');
-                                $('#changeEtat').html('<a class="buy-btn btn-greens-transparent box-btn">Déjà voté</a>');
+                                $('#changeEtat').html('');
                                 $('.voi').html(nbVoixs);
 //                                $('#reload'+id).load(location.href + '#reload'+id);
                                 swal("Opération effectuée avec succès!","", "success");
