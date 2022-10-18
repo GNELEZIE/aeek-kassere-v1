@@ -33,12 +33,12 @@ class Candidat {
     }
 
     public function getAllCandidatLimit($debut, $fin){
-        $query = "SELECT * FROM candidat ORDER BY id_candidat DESC LIMIT $debut, $fin";
+        $query = "SELECT * FROM candidat ORDER BY  RAND() LIMIT $debut, $fin";
         $rs = $this->bdd->query($query);
         return $rs;
     }
     public function getAllCandidat(){
-        $query = "SELECT * FROM candidat ORDER BY id_candidat DESC";
+        $query = "SELECT * FROM candidat ORDER BY RAND()";
         $rs = $this->bdd->query($query);
         return $rs;
     }

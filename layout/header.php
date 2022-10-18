@@ -1149,7 +1149,7 @@ color : #ff4600 !important;
 
 
 .col3-award{
-    padding: 0 30px;
+    padding: 18px 30px;
 }
 
 
