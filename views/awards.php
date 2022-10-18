@@ -62,7 +62,7 @@ require_once 'layout/header.php';
                 </div>
                 <div class="col-lg-6 col-md-12 col-xs-12">
                     <div class="speaker-content">
-                        <h4 class="pb-2"><?=html_entity_decode(stripslashes($dataCan['nom'])).' '.html_entity_decode(stripslashes($dataCan['prenom']))?></h4>
+                        <h4 class="pb-2 name-titlte"><?=html_entity_decode(stripslashes($dataCan['nom'])).' '.html_entity_decode(stripslashes($dataCan['prenom']))?></h4>
                         <span><?=html_entity_decode(stripslashes($dataCan['fonction']))?></span>
                         <p><?=html_entity_decode(stripslashes($dataCan['bio']))?></p>
                         <ul class="speaker-address pb-3">
@@ -105,12 +105,12 @@ require_once 'layout/header.php';
                         <div class="grid-item">
                             <div class="card_with_image">
                                 <div class="blog_card_image">
-                                    <a href="<?=$domaine?>/award/<?=$dataCandidat['slug']?>">
+                                    <a href="<?=$domaine?>/awards/<?=$dataCandidat['slug']?>">
                                         <img src="<?=$domaine?>/uploads/<?=$dataCandidat['photo']?>" alt="" class="img-responsive box-cover">
                                     </a>
                                 </div>
                                 <div class="box-data">
-                                    <a href="<?=$domaine?>/award/<?=$dataCandidat['slug']?>">
+                                    <a href="<?=$domaine?>/awards/<?=$dataCandidat['slug']?>">
                                         <img class="img-responsive box-img" src="<?=$domaine?>/uploads/<?=$dataCandidat['photo']?>" alt="">
                                         <span class="box-user"><?=html_entity_decode(stripslashes($dataCandidat['prenom']))?></span>
                                         <input type="hidden" id="nom" name="nom" value="<?=html_entity_decode(stripslashes($dataCandidat['prenom']))?>"/>

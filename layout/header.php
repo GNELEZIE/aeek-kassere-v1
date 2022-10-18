@@ -1188,7 +1188,12 @@ color : #ff4600 !important;
     .sec-award {
         padding: 0 !important;
     }
-
+    .speaker-content{
+        padding: 25px 10px;
+    }
+.name-titlte{
+    font-weight: 700;
+}
 
 
 
