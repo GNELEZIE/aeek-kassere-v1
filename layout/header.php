@@ -113,6 +113,10 @@
     color: #f83600 !important;
     border-radius: 6px !important;
 }
+.btn-orange-transparent:hover{
+    background: #f83600 !important;
+    color: #ffffff !important;
+}
 .box-btn {
     float: right;
     margin-bottom: 15px;
@@ -1152,12 +1156,28 @@ color : #ff4600 !important;
     padding: 18px 30px;
 }
 
-
+.pc-none{
+    display: none;
+}
 
 @media(max-width: 767px) {
     html, body {
         overflow-x: hidden !important;
     }
+
+  .mobile-none{
+      display: none;
+  }
+    .pc-none{
+        display: block;
+    }
+    .name-mobile{
+        font-size: 17px !important;
+        font-weight: 500 !important;
+    }
+
+
+
     .bg-award{
         background: url("<?=$asset?>/media/aw-m2.png") !important;
         background-size: cover !important;

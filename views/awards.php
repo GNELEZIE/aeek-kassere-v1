@@ -110,12 +110,20 @@ require_once 'layout/header.php';
                                 </a>
                             </div>
                             <div class="box-data">
-                                <a href="<?=$domaine?>/awards/<?=$dataCandidat['slug']?>">
-                                    <img class="img-responsive box-img" src="<?=$domaine?>/uploads/<?=$dataCandidat['photo']?>" alt="">
-                                    <span class="box-user"><?=html_entity_decode(stripslashes($dataCandidat['prenom']))?></span>
-                                    <input type="hidden" id="nom" name="nom" value="<?=html_entity_decode(stripslashes($dataCandidat['prenom']))?>"/>
+                                <div class="mobile-none">
+                                    <a href="<?=$domaine?>/awards/<?=$dataCandidat['slug']?>">
+                                        <img class="img-responsive box-img" src="<?=$domaine?>/uploads/<?=$dataCandidat['photo']?>" alt="">
+                                        <span class="box-user"><?=html_entity_decode(stripslashes($dataCandidat['prenom']))?></span>
+                                        <input type="hidden" id="nom" name="nom" value="<?=html_entity_decode(stripslashes($dataCandidat['prenom']))?>"/>
+                                    </a>
+                                </div>
+                                <div class="pc-none">
+                                    <p class="mb-0 py-2 name-mobile"><?=html_entity_decode(stripslashes($dataCandidat['prenom']))?></p>
+                                </div>
+
+                                <a href="<?=$domaine?>/awards/<?=$dataCandidat['slug']?>" class="h6-award box-title ">
+                                    <p class="mb-0" style="line-height: 17px;"><?=html_entity_decode(stripslashes($dataCandidat['fonction']))?></p>
                                 </a>
-                                <a href="<?=$domaine?>/awards/<?=$dataCandidat['slug']?>"><h6 class="box-title h6-award"><?=html_entity_decode(stripslashes($dataCandidat['fonction']))?></h6></a>
                                 <div class="box-action-content">
                                     <span class="box-action-star" id="reload<?=$dataCandidat['id_candidat']?>">
                                        <input type="hidden" id="voix" name="voix" value="<?=$dataCandidat['nbvote']?>"/>
@@ -330,7 +338,7 @@ require_once 'layout/footer.php';
 
 <script>
 
-    function voter(id = null){
+    function voter(id = null,name){
         var nom = $('#nom').val();
         var nbr1 = $('#voix').val();
         var nbr2 = 1;
@@ -338,7 +346,8 @@ require_once 'layout/footer.php';
 
         if(id){
             swal({
-                    title: "Voulez vous voter pour "+ nom +" ?",
+                    title: "Voulez vous voter ?",
+                    text: "L'action va voter  pour la personne  sélectionnée",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
