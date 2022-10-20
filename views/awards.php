@@ -69,6 +69,7 @@ require_once 'layout/header.php';
                         <li><span>Votant : </span> <?=$valVote?></li>
                         <li><span>Voix obtenu : </span> <?=$dataCan['nbvote']?></li>
                     </ul>
+                    <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Faeek-kassere.com%2Fawards%2F&layout=button_count&size=small&appId=415380650804169&width=91&height=20" width="91" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     <?php
                     $ip   = $_SERVER['REMOTE_ADDR'];
                     $votes = $voter->getVoterByIp($ip);
@@ -87,6 +88,29 @@ require_once 'layout/header.php';
         ?>
         <div class="row">
             <div class="col-lg-12 text-center mt-5">
+                        <div class="up-event-text awards-up">
+                            <div class="event-count-sect">
+                                <div class="event-countdown-counter-sec">
+                                    <div class="counter-item">
+                                        <span class="counter-label text-noire">Jours</span>
+                                        <span class="single-cont"> <i id="days">00</i> </span>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span class="counter-label text-noire">heure</span>
+                                        <span class="single-cont"> <i id="hours">00</i> </span>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span class="counter-label text-noire">min</span>
+                                        <span class="single-cont"> <i id="minutes">00</i> </span>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span class="counter-label text-noire">S</span>
+                                        <span class="single-cont"> <i id="second"></i> </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                </div>
                 <h4 class="pb-3">Vous pouvez voter pour votre membre préferé</h4>
             </div>
             <?php
@@ -335,7 +359,33 @@ if(isset($doc[0]) and !isset($doc[1])){
 <?php
 require_once 'layout/footer.php';
 ?>
+<script>
+    $(document).ready(function(){
+        var dateEvents = $('#dateEvents').val();
+        var countDownDate = new Date("2022-12-23 00:00:00").getTime();
 
+        var x = setInterval(function() {
+
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            $("#days").html(days);
+            $("#hours").html(hours);
+            $("#minutes").html(minutes);
+            $("#second").html(seconds);
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    });
+</script>
 <script>
 
     function voter(id = null,name){

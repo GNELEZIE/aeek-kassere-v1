@@ -6,6 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AEEK - KASSERE</title>
+<meta property="og:image"  content="https://aeek-kassere.com/uploads/634fcc541e14d.png" />
 <link rel="icon" href="<?=$asset?>/media/logoAEEK.png" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 <link href="<?=$asset?>/css/bootstrap.min.css" rel="stylesheet">
@@ -32,6 +33,19 @@
 <link href="<?=$asset?>/plugins/lity/dist/lity.css" rel="stylesheet"/>
 <link rel="stylesheet" href="<?=$asset?>/plugins/ani/animate.css"/>
 <style>
+.awards-up .event-count-sect .event-countdown-counter-sec .counter-item .single-cont {
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 700;
+    border: 1px solid #ff4500;
+    background-color: #ff4500;
+    padding: 10px;
+    display: inline-block;
+    color: #fff;
+}
+.text-noire{
+    color: #000000 !important;
+}
 .comment-item h4{
     font-size: 17px !important;
 }
