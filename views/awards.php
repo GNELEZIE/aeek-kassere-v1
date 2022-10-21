@@ -41,7 +41,10 @@ require_once 'layout/header.php';
 ?>
 
 <section class="container-fluid bg-award he-300" style="margin-top: 75px">
-
+  <div class="container">
+      <h1 class="prim-text">PRIM<span class="text-green">’</span>MA </h1>
+      <p class="text-center prim-textSous text-white">Prix du meilleur membre de l'AEEK</p>
+  </div>
 </section>
 <section class="about about-two sec-award">
 <div class="container">

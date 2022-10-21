@@ -420,7 +420,7 @@
     background-position: top !important;
 }
 .bg-award{
-    background: url("<?=$asset?>/media/aw-4.png") !important;
+    background: url("<?=$asset?>/media/bg0.png") !important;
     background-size: cover !important;
     background-position: center !important;
 }
@@ -440,7 +440,7 @@
     padding-bottom: 10px;
 }
 .box-header h3{
-   color: #fff;
+    color: #fff;
 }
 .box-header{
     background: #ff4600;
@@ -616,21 +616,21 @@ p, .p {
 .head-icon{
     margin-top:18px;
     color:#FF4500;
-width: 51px;
+    width: 51px;
 }
- .offre-icon{
-     object-fit: cover;
-     height: 90px;
-     width: 90px;
-     border-radius: 50px;
-     margin-top: 0;
- }
+.offre-icon{
+    object-fit: cover;
+    height: 90px;
+    width: 90px;
+    border-radius: 50px;
+    margin-top: 0;
+}
 
 #flash-infos{
     height: 275px !important;
 }
 #flash-infos li{
-   background: inherit !important;
+    background: inherit !important;
     height: 140px !important;
     padding: 0 !important;
     border-bottom : 0 !important;
@@ -1098,7 +1098,7 @@ header.style-3 div.menu-fixed::before {
 }
 
 .hover-orange:hover{
-color : #ff4600 !important;
+    color : #ff4600 !important;
 }
 
 #funfact-area {
@@ -1173,15 +1173,34 @@ color : #ff4600 !important;
 .pc-none{
     display: none;
 }
+.prim-text{
+    text-align: center;
+    font-size: 90px;
+    font-weight: bold;
+    padding-top: 100px;
+    padding-right: 251px;
+}
+.text-green{
+    color: #ff4500;
+}
+.prim-textSous{
+    padding-right: 251px;
+    font-size: 25px;
+    padding-top: 20px;
+    font-weight: 700;
+}
+
+
+
 
 @media(max-width: 767px) {
     html, body {
         overflow-x: hidden !important;
     }
 
-  .mobile-none{
-      display: none;
-  }
+    .mobile-none{
+        display: none;
+    }
     .pc-none{
         display: block;
     }
@@ -1189,24 +1208,26 @@ color : #ff4600 !important;
         font-size: 17px !important;
         font-weight: 500 !important;
     }
-
-
-
-    .bg-award{
-        background: url("<?=$asset?>/media/aw-m2.png") !important;
-        background-size: cover !important;
-        background-position: center !important;
+    .prim-textSous {
+        padding-right: inherit;
+        font-size: 25px;
+        line-height: 1.5;
     }
-.col3-award{
-    width: 50% !important;
-    margin-bottom: 20px !important;
-    padding: 0 10px !important;
-}
+    .prim-text {
+        font-size: 60px;
+        padding-right: inherit;
+    }
 
-.h6-award{
-    font-size: 12px !important;
-    line-height: 1.5 !important;
-}
+    .col3-award{
+        width: 50% !important;
+        margin-bottom: 20px !important;
+        padding: 0 10px !important;
+    }
+
+    .h6-award{
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+    }
 
     .box-action-content {
         padding-top: 7px  !important;
@@ -1225,9 +1246,9 @@ color : #ff4600 !important;
     .speaker-content{
         padding: 25px 10px;
     }
-.name-titlte{
-    font-weight: 700;
-}
+    .name-titlte{
+        font-weight: 700;
+    }
 
 
 
@@ -1368,13 +1389,13 @@ color : #ff4600 !important;
                         <div class="menu-left">
                             <ul>
                                 <li><a href="<?=$domaine?>" class="<?php if($lien == 'home' || $lien == ''){echo 'current';} ;?>">Accueil</a></li>
-<!--                                <li><a href="--><?//=$domaine?><!--/a-propos"  class="--><?php //if($lien == 'a-propos'){echo 'current';} ;?><!--">A propos</a></li>-->
+                                <!--                                <li><a href="--><?//=$domaine?><!--/a-propos"  class="--><?php //if($lien == 'a-propos'){echo 'current';} ;?><!--">A propos</a></li>-->
                                 <li><a href="<?=$domaine?>/contact"  class="<?php if($lien == 'contact'){echo 'current';} ;?>">Contact</a></li>
                                 <li><a href="<?=$domaine?>/blog"  class="<?php if($lien == 'blog'){echo 'current';} ;?>">Actualité</a></li>
                                 <li><a href="<?=$domaine?>/events"  class="<?php if($lien == 'events'){echo 'current';} ;?>">Galerie</a></li>
                                 <li><a href="https://www.youtube.com/channel/UCDhp_Sepv7QJEmiTdCRAuXg" target="_blank" class="">Aeek tv</a></li>
                                 <li><a href="<?=$domaine?>/emplois"  class="<?php if($lien == 'emplois'){echo 'current';} ;?>"> Ofres d'emplois</a></li>
-<!--                                <li><a href="--><?//=$domaine?><!--/les-cv"  class="--><?php //if($lien == 'les-cv'){echo 'current';} ;?><!--"> Les CV</a></li>-->
+                                <!--                                <li><a href="--><?//=$domaine?><!--/les-cv"  class="--><?php //if($lien == 'les-cv'){echo 'current';} ;?><!--"> Les CV</a></li>-->
 
                             </ul>
                         </div>
@@ -1389,7 +1410,7 @@ color : #ff4600 !important;
                                     <li><a href="<?=$domaine?>/compte/dashboard" class="menu-button btn-transparence-orange">Mon compte</a></li>
                                 <?php
                                 }else{
-                                  ?>
+                                    ?>
                                     <li class="li-connect"><a href="<?=$domaine?>/connexion">Connexion</a></li>
                                     <li><a href="<?=$domaine?>/inscription" class="menu-button btn-transparence-orange">Inscription</a></li>
                                 <?php
