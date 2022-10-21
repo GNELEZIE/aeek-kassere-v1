@@ -6,7 +6,6 @@ $dateGmt = gmdate('Y-m-d H:i');
 //Pourcentage
 if(!function_exists('pourcentage')){
     function pourcentage($total, $nb){
-
         $res = ($nb * 100)/$total;
         $resPourcen = $res.'%';
         return $resPourcen;

@@ -122,10 +122,13 @@ require_once 'layout/header.php';
                 $ip   = $_SERVER['REMOTE_ADDR'];
                 $votes = $voter->getVoterByIp($ip);
                 if($votesData = $votes->fetch()){
+                    $totalV = $voter->getNbrVote()->fetch();
+                    $pourcent = pourcentage($totalV['nb'],$dataCandidat['nbvote']);
                     $btnVote = '';
 //                        $btnVote = '<a class="buy-btn btn-greens-transparent box-btn">Déjà voté</a>';
                 }else{
                     $btnVote = '<div  id="changeEtat" ><a href="javascript:void(0)" class="buy-btn btn-orange-transparent box-btn" onclick="voter('.$dataCandidat['id_candidat'].')">Voter</a></div>';
+                    $pourcent ='0 %';
                 }
                 ?>
                 <div class="col-md-3 col3-award">
@@ -154,8 +157,7 @@ require_once 'layout/header.php';
                                 <div class="box-action-content">
                                     <span class="box-action-star" id="reload<?=$dataCandidat['id_candidat']?>">
                                        <input type="hidden" id="voix" name="voix" value="<?=$dataCandidat['nbvote']?>"/>
-                                        <span class="voi"><?=$dataCandidat['nbvote']?></span> voix
-
+                                        <span class="voi"><?=$pourcent?></span>
                                     </span>
                                     <?=$btnVote?>
                                 </div>
@@ -415,7 +417,6 @@ require_once 'layout/footer.php';
                             if(data == "ok"){
                                 $('#changeEtats').html('<a class="buy-btn btn-greens-transparent box-btns">Vous avez déjà voté</a>');
                                 $('#changeEtat').html('');
-                                $('.voi').html(nbVoixs);
 //                                $('#reload'+id).load(location.href + '#reload'+id);
                                 swal("Opération effectuée avec succès!","", "success");
                             }else if(data == "1"){
