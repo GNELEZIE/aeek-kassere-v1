@@ -33,7 +33,7 @@ class Candidat {
     }
 
     public function getAllCandidatLimit($debut, $fin){
-        $query = "SELECT * FROM candidat ORDER BY  RAND() LIMIT $debut, $fin";
+        $query = "SELECT * FROM candidat ORDER BY  nbvote DESC LIMIT $debut, $fin";
         $rs = $this->bdd->query($query);
         return $rs;
     }

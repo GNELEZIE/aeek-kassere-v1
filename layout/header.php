@@ -27,9 +27,6 @@
 <link href="<?=$asset?>/css/btn.css" rel="stylesheet">
 <link href="<?=$asset?>/plugins/ticker/css/main.css" rel="stylesheet">
 <link href="<?=$asset?>/plugins/sweetalert/sweet-alert.css" rel="stylesheet" />
-<!--<link href="cplugins/animate/animate.min.css" rel="stylesheet" />-->
-<!--<link href="--><?//=$asset?><!--/plugins/lity/assets/style.css" media="all" rel="stylesheet" type="text/css">-->
-<!--<link href="--><?//=$asset?><!--/plugins/lity/assets/prism.css" media="all" rel="stylesheet" type="text/css">-->
 <link href="<?=$asset?>/plugins/lity/dist/lity.css" rel="stylesheet"/>
 <link rel="stylesheet" href="<?=$asset?>/plugins/ani/animate.css"/>
 <style>
@@ -138,6 +135,10 @@
 .buy-btn {
     padding: 3px 9px !important;
     font-size: 13px !important;
+}
+.vote-btn{
+    padding: 3px 9px !important;
+    font-size: 9px !important;
 }
 .he-300{
     height: 350px !important;

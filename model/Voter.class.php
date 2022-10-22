@@ -36,7 +36,18 @@ class Voter {
 
         return $rs;
     }
+    public function getAllvoters(){
+        $query = "SELECT * FROM voter
+          ORDER BY id_voter DESC ";
+        $rs = $this->bdd->query($query);
+        return $rs;
+    }
+    public function getAllVote(){
+        $query = "SELECT * FROM voter";
+        $rs = $this->bdd->query($query);
 
+        return $rs;
+    }
 
 
     //Count
