@@ -120,7 +120,7 @@ require_once 'layout/header.php';
             //                $liste = $candidat->getAllCandidat();
             while($dataCandidat = $liste->fetch()){
                 $ip   = $_SERVER['REMOTE_ADDR'];
-                $votes = $voter->getVoterByIp($ip);
+                $votId = $voter->getVoterByIp($ip);
                 $vot = $voter->getAllVote();
                 if($votDat = $vot->fetch()){
                     $totalV = $voter->getNbrVote()->fetch();
@@ -129,7 +129,7 @@ require_once 'layout/header.php';
                     $pourcent ='0 %';
                 }
 
-                if($votesData = $votes->fetch()){
+                if($votesData = $votId->fetch()){
                     $btnVote = '<a class="vote-btn btn-greens-transparent box-btn font-9">Déjà voté</a>';
                 }else{
                     $btnVote = '<div  id="changeEtat" ><a href="javascript:void(0)" class="buy-btn btn-orange-transparent box-btn" onclick="voter('.$dataCandidat['id_candidat'].')">Voter</a></div>';
