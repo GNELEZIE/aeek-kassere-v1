@@ -33,7 +33,7 @@ if(isset($doc[1]) and !isset($doc[2])) {
         $pages = 1;
     }
     $pagination_list = '';
-    $myPage = '/awards';
+    $myPage = '/tester';
     $liste = $candidat->getAllCandidatLimit($debut,$fin);
 }
 
@@ -82,6 +82,7 @@ require_once 'layout/header.php';
                         }else{
                             $btnVot = '';
                         }
+
                     }else{
                         $btnVot = '<div class="pt-5"  id="changeEtats" ><a href="javascript:void(0)" class="btn-orange-transparent box-btns" onclick="voter('.$dataCan['id_candidat'].')">Voter maintenant</a></div>';
                     }
@@ -147,13 +148,13 @@ require_once 'layout/header.php';
                     <div class="grid-item">
                         <div class="card_with_image">
                             <div class="blog_card_image">
-                                <a href="<?=$domaine?>/awards/<?=$dataCandidat['slug']?>">
+                                <a href="<?=$domaine?>/tester/<?=$dataCandidat['slug']?>">
                                     <img src="<?=$domaine?>/uploads/<?=$dataCandidat['photo']?>" alt="" class="img-responsive box-cover">
                                 </a>
                             </div>
                             <div class="box-data">
                                 <div class="mobile-none">
-                                    <a href="<?=$domaine?>/awards/<?=$dataCandidat['slug']?>">
+                                    <a href="<?=$domaine?>/tester/<?=$dataCandidat['slug']?>">
                                         <img class="img-responsive box-img" src="<?=$domaine?>/uploads/<?=$dataCandidat['photo']?>" alt="">
                                         <span class="box-user"><?=html_entity_decode(stripslashes($dataCandidat['prenom']))?></span>
                                         <input type="hidden" id="nom" name="nom" value="<?=html_entity_decode(stripslashes($dataCandidat['prenom']))?>"/>
@@ -163,7 +164,7 @@ require_once 'layout/header.php';
                                     <p class="mb-0 py-2 name-mobile"><?=html_entity_decode(stripslashes($dataCandidat['prenom']))?></p>
                                 </div>
 
-                                <a href="<?=$domaine?>/awards/<?=$dataCandidat['slug']?>" class="h6-award box-title ">
+                                <a href="<?=$domaine?>/tester/<?=$dataCandidat['slug']?>" class="h6-award box-title ">
                                     <p class="mb-0" style="line-height: 17px;"><?=html_entity_decode(stripslashes($dataCandidat['fonction']))?></p>
                                 </a>
                                 <div class="box-action-content">
@@ -381,7 +382,7 @@ require_once 'layout/footer.php';
 <script>
     $(document).ready(function(){
         var dateEvents = $('#dateEvents').val();
-        var countDownDate = new Date("2022-12-23 00:00:00").getTime();
+        var countDownDate = new Date("2022-11-01 00:00:00").getTime();
 
         var x = setInterval(function() {
 

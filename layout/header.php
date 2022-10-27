@@ -40,6 +40,10 @@
     display: inline-block;
     color: #fff;
 }
+.text-red{
+  color: #ff4500 !important;
+    font-weight: 600 !important;
+}
 .text-noire{
     color: #000000 !important;
 }
@@ -1396,6 +1400,7 @@ header.style-3 div.menu-fixed::before {
                                 <li><a href="<?=$domaine?>/events"  class="<?php if($lien == 'events'){echo 'current';} ;?>">Galerie</a></li>
                                 <li><a href="https://www.youtube.com/channel/UCDhp_Sepv7QJEmiTdCRAuXg" target="_blank" class="">Aeek tv</a></li>
                                 <li><a href="<?=$domaine?>/emplois"  class="<?php if($lien == 'emplois'){echo 'current';} ;?>"> Ofres d'emplois</a></li>
+                                <li><a href="<?=$domaine?>/awards"  class="<?php if($lien == 'awards'){echo 'current';} ;?>"> Voter</a></li>
                                 <!--                                <li><a href="--><?//=$domaine?><!--/les-cv"  class="--><?php //if($lien == 'les-cv'){echo 'current';} ;?><!--"> Les CV</a></li>-->
 
                             </ul>
