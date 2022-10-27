@@ -52,8 +52,6 @@ require_once 'layout/header.php';
             <div class="ts-box  wow bounceInUp center">
                 <h3 class="text-center text-red">Le vote débutera le samedi 29 octobre</h3>
 
-
-
             </div>
         </div>
     </div>

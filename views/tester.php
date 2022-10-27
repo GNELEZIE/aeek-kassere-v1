@@ -129,7 +129,8 @@ require_once 'layout/header.php';
                 $vot = $voter->getAllVote();
                 if($votDat = $vot->fetch()){
                     $totalV = $voter->getNbrVote()->fetch();
-                    $pourcent = pourcentage($totalV['nb'],$dataCandidat['nbvote']);
+                    $pourcents = pourcentage($totalV['nb'],$dataCandidat['nbvote']);
+                    $pourcent = number_format($pourcents,2).'%';
                 }else{
                     $pourcent ='0 %';
                 }
