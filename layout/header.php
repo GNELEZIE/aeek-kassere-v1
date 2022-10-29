@@ -425,7 +425,7 @@
     background-position: top !important;
 }
 .bg-award{
-    background: url("<?=$asset?>/media/bg0.png") !important;
+    background: url("<?=$asset?>/media/bg1.png") !important;
     background-size: cover !important;
     background-position: center !important;
 }

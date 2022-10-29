@@ -46,344 +46,335 @@ require_once 'layout/header.php';
       <p class="text-center prim-textSous text-white">Prix du meilleur membre de l'AEEK</p>
   </div>
 </section>
-<div class="container pt-5">
-    <div class="row">
-        <div class="col-md-5 offset-4">
-            <div class="ts-box  wow bounceInUp center">
-                <h3 class="text-center text-red">Le vote débutera le samedi 29 octobre</h3>
 
+
+<section class="about about-two sec-award">
+<div class="container">
+    <?php
+    if(isset($doc[1]) and !isset($doc[2])) {
+        $nVot = $voter->getNbrVote();
+        if($nbrVot = $nVot->fetch()){
+            $valVote =  $nbrVot['nb'];
+        }else{
+            $valVote = 0;
+        }
+        ?>
+        <div class="row pt-5">
+            <div class="col-lg-6 col-md-12 col-xs-12">
+                <div class="speaker-image">
+                    <img src="<?=$domaine?>/uploads/<?=$dataCan['photo']?>" alt="speaker image" class="cand-img img-responsive">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-xs-12">
+                <div class="speaker-content">
+                    <h4 class="pb-2 name-titlte"><?=html_entity_decode(stripslashes($dataCan['nom'])).' '.html_entity_decode(stripslashes($dataCan['prenom']))?></h4>
+                    <span><?=html_entity_decode(stripslashes($dataCan['fonction']))?></span>
+                    <p><?=html_entity_decode(stripslashes($dataCan['bio']))?></p>
+                    <ul class="speaker-address pb-3">
+                        <li><span>Votant : </span> <?=$valVote?></li>
+                        <li><span>Voix obtenu : </span> <?=$dataCan['nbvote']?></li>
+                    </ul>
+                    <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Faeek-kassere.com%2Fawards%2F&layout=button_count&size=small&appId=415380650804169&width=91&height=20" width="91" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    <?php
+                    $ip   = $_SERVER['REMOTE_ADDR'];
+                    $votes = $voter->getVoterByIp($ip);
+                    if($votesData = $votes->fetch()){
+                        if($votesData['ip'] == $ip and $dataCan['id_candidat'] == $votesData['id_candidat']){
+                            $btnVot = '<a class="buy-btn btn-greens-transparent box-btns mt-3">Vous avez déjà voté</a>';
+                        }else{
+                            $btnVot = '';
+                        }
+                    }else{
+                        $btnVot = '<div class="pt-5"  id="changeEtats" ><a href="javascript:void(0)" class="btn-orange-transparent box-btns" onclick="voter('.$dataCan['id_candidat'].')">Voter maintenant</a></div>';
+                    }
+                    ?>
+                    <?=$btnVot?>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    <?php
+    }else{
+        ?>
+        <div class="row">
+            <div class="col-lg-12 text-center mt-5">
+                        <div class="up-event-text awards-up">
+                            <div class="event-count-sect">
+                                <div class="event-countdown-counter-sec">
+                                    <div class="counter-item">
+                                        <span class="counter-label text-noire">Jours</span>
+                                        <span class="single-cont"> <i id="days">00</i> </span>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span class="counter-label text-noire">heure</span>
+                                        <span class="single-cont"> <i id="hours">00</i> </span>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span class="counter-label text-noire">min</span>
+                                        <span class="single-cont"> <i id="minutes">00</i> </span>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span class="counter-label text-noire">S</span>
+                                        <span class="single-cont"> <i id="second"></i> </span>
+                                    </div>
+                                </div>
+                            </div>
 
-<!--<section class="about about-two sec-award">-->
-<!--<div class="container">-->
-<!--    --><?php
-//    if(isset($doc[1]) and !isset($doc[2])) {
-//        $nVot = $voter->getNbrVote();
-//        if($nbrVot = $nVot->fetch()){
-//            $valVote =  $nbrVot['nb'];
-//        }else{
-//            $valVote = 0;
-//        }
-//        ?>
-<!--        <div class="row pt-5">-->
-<!--            <div class="col-lg-6 col-md-12 col-xs-12">-->
-<!--                <div class="speaker-image">-->
-<!--                    <img src="--><?//=$domaine?><!--/uploads/--><?//=$dataCan['photo']?><!--" alt="speaker image" class="cand-img img-responsive">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-lg-6 col-md-12 col-xs-12">-->
-<!--                <div class="speaker-content">-->
-<!--                    <h4 class="pb-2 name-titlte">--><?//=html_entity_decode(stripslashes($dataCan['nom'])).' '.html_entity_decode(stripslashes($dataCan['prenom']))?><!--</h4>-->
-<!--                    <span>--><?//=html_entity_decode(stripslashes($dataCan['fonction']))?><!--</span>-->
-<!--                    <p>--><?//=html_entity_decode(stripslashes($dataCan['bio']))?><!--</p>-->
-<!--                    <ul class="speaker-address pb-3">-->
-<!--                        <li><span>Votant : </span> --><?//=$valVote?><!--</li>-->
-<!--                        <li><span>Voix obtenu : </span> --><?//=$dataCan['nbvote']?><!--</li>-->
-<!--                    </ul>-->
-<!--                    <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Faeek-kassere.com%2Fawards%2F&layout=button_count&size=small&appId=415380650804169&width=91&height=20" width="91" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>-->
-<!--                    --><?php
-//                    $ip   = $_SERVER['REMOTE_ADDR'];
-//                    $votes = $voter->getVoterByIp($ip);
-//                    if($votesData = $votes->fetch()){
-//                        if($votesData['ip'] == $ip and $dataCan['id_candidat'] == $votesData['id_candidat']){
-//                            $btnVot = '<a class="buy-btn btn-greens-transparent box-btns mt-3">Vous avez déjà voté</a>';
-//                        }else{
-//                            $btnVot = '';
-//                        }
-//                    }else{
-//                        $btnVot = '<div class="pt-5"  id="changeEtats" ><a href="javascript:void(0)" class="btn-orange-transparent box-btns" onclick="voter('.$dataCan['id_candidat'].')">Voter maintenant</a></div>';
-//                    }
-//                    ?>
-<!--                    --><?//=$btnVot?>
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    --><?php
-//    }else{
-//        ?>
-<!--        <div class="row">-->
-<!--            <div class="col-lg-12 text-center mt-5">-->
-<!--                        <div class="up-event-text awards-up">-->
-<!--                            <div class="event-count-sect">-->
-<!--                                <div class="event-countdown-counter-sec">-->
-<!--                                    <div class="counter-item">-->
-<!--                                        <span class="counter-label text-noire">Jours</span>-->
-<!--                                        <span class="single-cont"> <i id="days">00</i> </span>-->
-<!--                                    </div>-->
-<!--                                    <div class="counter-item">-->
-<!--                                        <span class="counter-label text-noire">heure</span>-->
-<!--                                        <span class="single-cont"> <i id="hours">00</i> </span>-->
-<!--                                    </div>-->
-<!--                                    <div class="counter-item">-->
-<!--                                        <span class="counter-label text-noire">min</span>-->
-<!--                                        <span class="single-cont"> <i id="minutes">00</i> </span>-->
-<!--                                    </div>-->
-<!--                                    <div class="counter-item">-->
-<!--                                        <span class="counter-label text-noire">S</span>-->
-<!--                                        <span class="single-cont"> <i id="second"></i> </span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!---->
-<!--                </div>-->
-<!--                <h4 class="pb-3">Vous pouvez voter pour votre membre préferé</h4>-->
-<!--            </div>-->
-<!--            --><?php
-//            //                $liste = $candidat->getAllCandidat();
-//            while($dataCandidat = $liste->fetch()){
-//                $ip   = $_SERVER['REMOTE_ADDR'];
-//                $votId = $voter->getVoterByIp($ip);
-//                $vot = $voter->getAllVote();
-//                if($votDat = $vot->fetch()){
-//                    $totalV = $voter->getNbrVote()->fetch();
-//                     $pourcents = pourcentage($totalV['nb'],$dataCandidat['nbvote']);
-//                     $pourcent = number_format($pourcents,2).'%';
-//                }else{
-//                    $pourcent ='0 %';
-//                }
-//
-//                if($votesData = $votId->fetch()){
-//                    if($votesData['ip'] == $ip and $dataCandidat['id_candidat'] == $votesData['id_candidat']){
-//                        $btnVote = '<a class="vote-btn btn-greens-transparent box-btn font-9">Déjà voté</a>';
-//                    }else{
-//                        $btnVote = '';
-//                    }
-//                }else{
-//                    $btnVote = '<div  id="changeEtat'.$dataCandidat['id_candidat'].'" ><a href="javascript:void(0)" class="buy-btn btn-orange-transparent box-btn" onclick="voter('.$dataCandidat['id_candidat'].')">Voter</a></div>';
-//                }
-//                ?>
-<!--                <div class="col-md-3 col3-award">-->
-<!--                    <div class="grid-item">-->
-<!--                        <div class="card_with_image">-->
-<!--                            <div class="blog_card_image">-->
-<!--                                <a href="--><?//=$domaine?><!--/awards/--><?//=$dataCandidat['slug']?><!--">-->
-<!--                                    <img src="--><?//=$domaine?><!--/uploads/--><?//=$dataCandidat['photo']?><!--" alt="" class="img-responsive box-cover">-->
-<!--                                </a>-->
-<!--                            </div>-->
-<!--                            <div class="box-data">-->
-<!--                                <div class="mobile-none">-->
-<!--                                    <a href="--><?//=$domaine?><!--/awards/--><?//=$dataCandidat['slug']?><!--">-->
-<!--                                        <img class="img-responsive box-img" src="--><?//=$domaine?><!--/uploads/--><?//=$dataCandidat['photo']?><!--" alt="">-->
-<!--                                        <span class="box-user">--><?//=html_entity_decode(stripslashes($dataCandidat['prenom']))?><!--</span>-->
-<!--                                        <input type="hidden" id="nom" name="nom" value="--><?//=html_entity_decode(stripslashes($dataCandidat['prenom']))?><!--"/>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                                <div class="pc-none">-->
-<!--                                    <p class="mb-0 py-2 name-mobile">--><?//=html_entity_decode(stripslashes($dataCandidat['prenom']))?><!--</p>-->
-<!--                                </div>-->
-<!---->
-<!--                                <a href="--><?//=$domaine?><!--/awards/--><?//=$dataCandidat['slug']?><!--" class="h6-award box-title ">-->
-<!--                                    <p class="mb-0" style="line-height: 17px;">--><?//=html_entity_decode(stripslashes($dataCandidat['fonction']))?><!--</p>-->
-<!--                                </a>-->
-<!--                                <div class="box-action-content">-->
-<!--                                    <span class="box-action-star" id="reload--><?//=$dataCandidat['id_candidat']?><!--">-->
-<!--                                       <input type="hidden" id="voix" name="voix" value="--><?//=$dataCandidat['nbvote']?><!--"/>-->
-<!--                                        <span class="voi">--><?//=$pourcent?><!--</span>-->
-<!--                                    </span>-->
-<!--                                   <div class="changeEt">-->
-<!--                                       --><?//=$btnVote?>
-<!--                                   </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            --><?php
-//            }
-//            ?>
-<!--        </div>-->
-<!--    --><?php
-//    }
-//    ?>
-<!--</div>-->
+                </div>
+                <h4 class="pb-3">Vous pouvez voter pour votre membre préferé</h4>
+            </div>
+            <?php
+            //                $liste = $candidat->getAllCandidat();
+            while($dataCandidat = $liste->fetch()){
+                $ip   = $_SERVER['REMOTE_ADDR'];
+                $votId = $voter->getVoterByIp($ip);
+                $vot = $voter->getAllVote();
+                if($votDat = $vot->fetch()){
+                    $totalV = $voter->getNbrVote()->fetch();
+                     $pourcents = pourcentage($totalV['nb'],$dataCandidat['nbvote']);
+                     $pourcent = number_format($pourcents,2).'%';
+                }else{
+                    $pourcent ='0 %';
+                }
+
+                if($votesData = $votId->fetch()){
+                    if($votesData['ip'] == $ip and $dataCandidat['id_candidat'] == $votesData['id_candidat']){
+                        $btnVote = '<a class="vote-btn btn-greens-transparent box-btn font-9">Déjà voté</a>';
+                    }else{
+                        $btnVote = '';
+                    }
+                }else{
+                    $btnVote = '<div  id="changeEtat'.$dataCandidat['id_candidat'].'" ><a href="javascript:void(0)" class="buy-btn btn-orange-transparent box-btn" onclick="voter('.$dataCandidat['id_candidat'].')">Voter</a></div>';
+                }
+                ?>
+                <div class="col-md-3 col3-award">
+                    <div class="grid-item">
+                        <div class="card_with_image">
+                            <div class="blog_card_image">
+                                <a href="<?=$domaine?>/awards/<?=$dataCandidat['slug']?>">
+                                    <img src="<?=$domaine?>/uploads/<?=$dataCandidat['photo']?>" alt="" class="img-responsive box-cover">
+                                </a>
+                            </div>
+                            <div class="box-data">
+                                <div class="mobile-none">
+                                    <a href="<?=$domaine?>/awards/<?=$dataCandidat['slug']?>">
+                                        <img class="img-responsive box-img" src="<?=$domaine?>/uploads/<?=$dataCandidat['photo']?>" alt="">
+                                        <span class="box-user"><?=html_entity_decode(stripslashes($dataCandidat['prenom']))?></span>
+                                        <input type="hidden" id="nom" name="nom" value="<?=html_entity_decode(stripslashes($dataCandidat['prenom']))?>"/>
+                                    </a>
+                                </div>
+                                <div class="pc-none">
+                                    <p class="mb-0 py-2 name-mobile"><?=html_entity_decode(stripslashes($dataCandidat['prenom']))?></p>
+                                </div>
+
+                                <a href="<?=$domaine?>/awards/<?=$dataCandidat['slug']?>" class="h6-award box-title ">
+                                    <p class="mb-0" style="line-height: 17px;"><?=html_entity_decode(stripslashes($dataCandidat['fonction']))?></p>
+                                </a>
+                                <div class="box-action-content">
+                                    <span class="box-action-star" id="reload<?=$dataCandidat['id_candidat']?>">
+                                       <input type="hidden" id="voix" name="voix" value="<?=$dataCandidat['nbvote']?>"/>
+                                        <span class="voi"><?=$pourcent?></span>
+                                    </span>
+                                   <div class="changeEt">
+                                       <?=$btnVote?>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+    <?php
+    }
+    ?>
+</div>
 <?php
-//if(isset($doc[0]) and !isset($doc[1])){
-//    ?>
-<!--    <div class="text-center wow bounceInUp center">-->
-<!--        <ul class="pagination" style="display: inherit !important;">-->
-<!--            --><?php
-//            if(isset($_GET['page']) and is_numeric($_GET['page'])){
-//                if($pages < 2 ){
-//                    $pagination_list = '
-//                                            <li><a href="javascript:void(0)"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
-//                                            <li><a href="javascript:void(0)"  class="active">1</a></li>
-//                                            <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-//                                        ';
-//                }else{
-//                    if($_GET['page'] > 1 ){
-//                        $prec = $_GET['page']-1;
-//                        $pagination_list .= '
-//                                           <li> <a href="'.$domaine.$myPage.'?page='.$prec.'"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
-//                                        ';
-//                    }else{
-//                        $prec = 1;
-//                        $pagination_list .= '
-//                                           <li><a href="javascript:void(0)" style="cursor: not-allowed"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
-//                                        ';
-//                    }
-//
-//                    if($pages > 5){
-//                        for($i = 1; $i <= $pages ; $i++){
-//                            if($_GET['page'] > 2){
-//                                if($i > $_GET['page']-2 and $i < $_GET['page']+2){
-//                                    if($i != $pages){
-//                                        if($i == $_GET['page']){
-//                                            $pagination_list .='
-//                                                                 <li class="active"><a href="javascript:void(0)">'.$i.'</a></li>
-//                                                            ';
-//                                        }else{
-//                                            if($i < 3){
-//                                                $pagination_list .='
-//                                                                 <li><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
-//                                                            ';
-//                                            }else{
-//                                                $pagination_list .='
-//                                                                 <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
-//                                                            ';
-//                                            }
-//                                        }
-//                                    }
-//                                }
-//                            }else{
-//                                if($i < 6){
-//                                    if($i == $_GET['page']){
-//                                        $pagination_list .='
-//                                                             <li><a href="javascript:void(0)"  class="active">'.$i.'</a></li>
-//                                                        ';
-//                                    }else{
-//                                        if($i < 3){
-//                                            $pagination_list .='
-//                                                             <li><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
-//                                                        ';
-//                                        }else{
-//                                            $pagination_list .='
-//                                                             <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
-//                                                        ';
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                        }
-//                        if($_GET['page'] < $pages-2){
-//                            $pagination_list .='
-//                                                    <li class="hidden-xs"><a href="javascript:void(0)">...</a></li>
-//                                                ';
-//                        }
-//                        if($_GET['page'] == $pages){
-//                            $pagination_list .='
-//                                                    <li><a href="javascript:void(0)"  class="active">'.$i.'</a></li>
-//                                                ';
-//                        }else{
-//                            $pagination_list .='
-//                                                    <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$pages.'">'.$pages.'</a></li>
-//                                                ';
-//                        }
-//                    }else{
-//                        for($i = 1; $i <= $pages ; $i++){
-//                            if($i == $_GET['page']){
-//                                $pagination_list .='
-//                                                        <li><a href="javascript:void(0)"  class="active">'.$i.'</a></li>
-//                                                ';
-//                            }else{
-//                                if($i < 3){
-//                                    $pagination_list .='
-//                                                    <li><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
-//                                                ';
-//                                }else{
-//                                    $pagination_list .='
-//                                                    <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
-//                                                ';
-//                                }
-//                            }
-//                        }
-//                    }
-//
-//                    if($_GET['page'] < $pages ){
-//                        $suiv = $_GET['page']+1;
-//                        $pagination_list .= '
-//                                            <li><a href="'.$domaine.$myPage.'?page='.$suiv.'"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-//                                        ';
-//                    }else{
-//                        $suiv = $pages;
-//                        $pagination_list .= '
-//                                            <li><a href="javascript:void(0)" style="cursor: not-allowed"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-//                                        ';
-//                    }
-//
-//                }
-//            }else{
-//                if($pages < 2 ){
-//                    $pagination_list = '
-//                                            <li><a href="javascript:void(0)"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
-//                                            <li><a href="javascript:void(0)"  class="active">1</a></li>
-//                                            <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-//                                        ';
-//                }else{
-//                    $pagination_list .= '
-//                                            <li><a href="javascript:void(0)" style="cursor: not-allowed"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
-//                                        ';
-//                    if($pages > 5){
-//                        for($i = 1; $i <= $pages ; $i++){
-//                            if($i < 6){
-//                                if($i == 1){
-//                                    $pagination_list .='
-//                                                            <li><a href="javascript:void(0)"  class="active">'.$i.'</a></li>
-//                                                        ';
-//                                }else{
-//                                    if($i < 3){
-//                                        $pagination_list .='
-//                                                            <li><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
-//                                                        ';
-//                                    }else{
-//                                        $pagination_list .='
-//                                                            <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
-//                                                        ';
-//                                    }
-//                                }
-//                            }
-//                        }
-//                        $pagination_list .='
-//                                                    <li class="hidden-xs"><a href="javascript:void(0)">...</a></li>
-//                                            ';
-//                        $pagination_list .='
-//                                                    <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$pages.'">'.$pages.'</a></li>
-//                                            ';
-//                    }else{
-//                        for($i = 1; $i <= $pages ; $i++){
-//                            if($i == 1){
-//                                $pagination_list .='
-//                                                        <li><a href="javascript:void(0)"  class="active">'.$i.'</a></li>
-//                                                    ';
-//                            }else{
-//                                if($i < 3){
-//                                    $pagination_list .='
-//                                                    <li><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
-//                                                    ';
-//                                }else{
-//                                    $pagination_list .='
-//                                                    <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
-//                                                    ';
-//                                }
-//                            }
-//                        }
-//                    }
-//                    $pagination_list .= '
-//                                            <li><a href="'.$domaine.$myPage.'?page='.(1+1).'"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-//                                        ';
-//                }
-//            }
-//            ?>
-<!--            --><?//=$pagination_list?>
-<!--        </ul>-->
-<!--    </div>-->
+if(isset($doc[0]) and !isset($doc[1])){
+    ?>
+    <div class="text-center wow bounceInUp center">
+        <ul class="pagination" style="display: inherit !important;">
+            <?php
+            if(isset($_GET['page']) and is_numeric($_GET['page'])){
+                if($pages < 2 ){
+                    $pagination_list = '
+                                            <li><a href="javascript:void(0)"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+                                            <li><a href="javascript:void(0)"  class="active">1</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                                        ';
+                }else{
+                    if($_GET['page'] > 1 ){
+                        $prec = $_GET['page']-1;
+                        $pagination_list .= '
+                                           <li> <a href="'.$domaine.$myPage.'?page='.$prec.'"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+                                        ';
+                    }else{
+                        $prec = 1;
+                        $pagination_list .= '
+                                           <li><a href="javascript:void(0)" style="cursor: not-allowed"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+                                        ';
+                    }
+
+                    if($pages > 5){
+                        for($i = 1; $i <= $pages ; $i++){
+                            if($_GET['page'] > 2){
+                                if($i > $_GET['page']-2 and $i < $_GET['page']+2){
+                                    if($i != $pages){
+                                        if($i == $_GET['page']){
+                                            $pagination_list .='
+                                                                 <li class="active"><a href="javascript:void(0)">'.$i.'</a></li>
+                                                            ';
+                                        }else{
+                                            if($i < 3){
+                                                $pagination_list .='
+                                                                 <li><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
+                                                            ';
+                                            }else{
+                                                $pagination_list .='
+                                                                 <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
+                                                            ';
+                                            }
+                                        }
+                                    }
+                                }
+                            }else{
+                                if($i < 6){
+                                    if($i == $_GET['page']){
+                                        $pagination_list .='
+                                                             <li><a href="javascript:void(0)"  class="active">'.$i.'</a></li>
+                                                        ';
+                                    }else{
+                                        if($i < 3){
+                                            $pagination_list .='
+                                                             <li><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
+                                                        ';
+                                        }else{
+                                            $pagination_list .='
+                                                             <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
+                                                        ';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if($_GET['page'] < $pages-2){
+                            $pagination_list .='
+                                                    <li class="hidden-xs"><a href="javascript:void(0)">...</a></li>
+                                                ';
+                        }
+                        if($_GET['page'] == $pages){
+                            $pagination_list .='
+                                                    <li><a href="javascript:void(0)"  class="active">'.$i.'</a></li>
+                                                ';
+                        }else{
+                            $pagination_list .='
+                                                    <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$pages.'">'.$pages.'</a></li>
+                                                ';
+                        }
+                    }else{
+                        for($i = 1; $i <= $pages ; $i++){
+                            if($i == $_GET['page']){
+                                $pagination_list .='
+                                                        <li><a href="javascript:void(0)"  class="active">'.$i.'</a></li>
+                                                ';
+                            }else{
+                                if($i < 3){
+                                    $pagination_list .='
+                                                    <li><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
+                                                ';
+                                }else{
+                                    $pagination_list .='
+                                                    <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
+                                                ';
+                                }
+                            }
+                        }
+                    }
+
+                    if($_GET['page'] < $pages ){
+                        $suiv = $_GET['page']+1;
+                        $pagination_list .= '
+                                            <li><a href="'.$domaine.$myPage.'?page='.$suiv.'"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                                        ';
+                    }else{
+                        $suiv = $pages;
+                        $pagination_list .= '
+                                            <li><a href="javascript:void(0)" style="cursor: not-allowed"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                                        ';
+                    }
+
+                }
+            }else{
+                if($pages < 2 ){
+                    $pagination_list = '
+                                            <li><a href="javascript:void(0)"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+                                            <li><a href="javascript:void(0)"  class="active">1</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                                        ';
+                }else{
+                    $pagination_list .= '
+                                            <li><a href="javascript:void(0)" style="cursor: not-allowed"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+                                        ';
+                    if($pages > 5){
+                        for($i = 1; $i <= $pages ; $i++){
+                            if($i < 6){
+                                if($i == 1){
+                                    $pagination_list .='
+                                                            <li><a href="javascript:void(0)"  class="active">'.$i.'</a></li>
+                                                        ';
+                                }else{
+                                    if($i < 3){
+                                        $pagination_list .='
+                                                            <li><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
+                                                        ';
+                                    }else{
+                                        $pagination_list .='
+                                                            <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
+                                                        ';
+                                    }
+                                }
+                            }
+                        }
+                        $pagination_list .='
+                                                    <li class="hidden-xs"><a href="javascript:void(0)">...</a></li>
+                                            ';
+                        $pagination_list .='
+                                                    <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$pages.'">'.$pages.'</a></li>
+                                            ';
+                    }else{
+                        for($i = 1; $i <= $pages ; $i++){
+                            if($i == 1){
+                                $pagination_list .='
+                                                        <li><a href="javascript:void(0)"  class="active">'.$i.'</a></li>
+                                                    ';
+                            }else{
+                                if($i < 3){
+                                    $pagination_list .='
+                                                    <li><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
+                                                    ';
+                                }else{
+                                    $pagination_list .='
+                                                    <li class="hidden-xs"><a href="'.$domaine.$myPage.'?page='.$i.'">'.$i.'</a></li>
+                                                    ';
+                                }
+                            }
+                        }
+                    }
+                    $pagination_list .= '
+                                            <li><a href="'.$domaine.$myPage.'?page='.(1+1).'"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                                        ';
+                }
+            }
+            ?>
+            <?=$pagination_list?>
+        </ul>
+    </div>
 <?php
-//}
-//?>
-<!---->
-<!--</section>-->
+}
+?>
+
+</section>
 
 
 
@@ -393,7 +384,7 @@ require_once 'layout/footer.php';
 <script>
     $(document).ready(function(){
         var dateEvents = $('#dateEvents').val();
-        var countDownDate = new Date("2022-12-23 00:00:00").getTime();
+        var countDownDate = new Date("2022-12-01 00:00:00").getTime();
 
         var x = setInterval(function() {
 
