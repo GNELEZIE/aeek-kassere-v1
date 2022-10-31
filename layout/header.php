@@ -5,8 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AEEK - KASSERE</title>
-<meta property="og:image"  content="https://aeek-kassere.com/uploads/634fcc541e14d.png" />
+<meta name="keywords" content="Boundiali,Côte d'Ivoire, Etudiant, Elève,Kouto, Kasséré,Association">
+<meta name="description" content="L'Association des Elèves et Etudiants de Kasséré en abrégé AEEK est l'assocition la plus influente dans la région de la Bagoué">
+<meta name="author" content="Ouattara Gnelezie Arouna">
+<meta name="email" content="zie.nanien@gmail.com">
+<title>AEEK - <?=ucfirst($page)?></title>
+<meta property="og:image"  content="https://aeek-kassere.com/uploads/primma.png" />
 <link rel="icon" href="<?=$asset?>/media/logoAEEK.png" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 <link href="<?=$asset?>/css/bootstrap.min.css" rel="stylesheet">
