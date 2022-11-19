@@ -9,6 +9,12 @@ require_once 'layout/header.php';
     </div>
 </section>
 <section class="about about-two">
+
+
+
+
+
+
     <div class="container">
         <div class="row pt-5 pb-5">
             <?php

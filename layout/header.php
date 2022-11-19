@@ -39,6 +39,7 @@
     padding: 10px;
     display: inline-block;
     color: #fff;
+    border: 1px dashed;
 }
 .text-red{
   color: #ff4500 !important;
