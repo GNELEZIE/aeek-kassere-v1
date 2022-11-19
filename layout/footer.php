@@ -101,7 +101,7 @@
 
 <!--    <script src="--><?//=$asset?><!--/plugins/lity/vendor/jquery.js"></script>-->
     <script src="<?=$asset?>/plugins/lity/dist/lity.js"></script>
-
+    <script src="<?=$asset?>/plugins/intltelinput/js/intlTelInput.min.js"></script>
 <!--    <script src="--><?//=$asset?><!--/plugins/lity/assets/prism.js"></script>-->
 
 
