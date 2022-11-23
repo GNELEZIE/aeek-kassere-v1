@@ -29,7 +29,7 @@ if(isset($_SESSION['myformkey']) and isset($_POST['nom']) and isset($_POST['pren
             $errors['register'] = 'Votre adresse email existe déjà';
         } else {
 
-            $idUser = $membre->addMmebre($dateGmt,$nom,$prenom,$slug, $email, $phone,$isoPhone,$dialPhone,$ville);
+            $idUser = $membre->addMmebreReunion($dateGmt,$nom,$prenom,$slug, $email, $phone,$isoPhone,$dialPhone,$ville);
             if ($idUser > 0) {
                 header('location:' .$domaine.'/success');
             } else {

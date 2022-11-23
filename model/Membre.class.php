@@ -8,7 +8,26 @@ class Membre {
     // Read
 
 
-    public function addMmebre($date_mb,$nom,$prenom,$slug,$email,$phone,$isoPhone,$dialPhone,$ville){
+    public function addMmebre($date_mb,$nom,$prenom,$slug,$email,$mot_de_passe){
+        $query = "INSERT INTO membre(date_membre,nom,prenom,slug,email,mot_de_passe)
+            VALUES (:date_mb,:nom,:prenom,:slug,:email,:mot_de_passe)";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "date_mb" => $date_mb,
+            "nom" => $nom,
+            "prenom" => $prenom,
+            "slug" => $slug,
+            "email" => $email,
+            "mot_de_passe" => $mot_de_passe
+        ));
+        $nb = $rs->rowCount();
+        if($nb > 0){
+            $r = $this->bdd->lastInsertId();
+            return $r;
+        }
+    }
+
+    public function addMmebreReunion($date_mb,$nom,$prenom,$slug,$email,$phone,$isoPhone,$dialPhone,$ville){
         $query = "INSERT INTO membre(date_membre,nom,prenom,slug,email,phone,iso_phone,dial_phone,ville)
             VALUES (:date_mb,:nom,:prenom,:slug,:email,:phone,:isoPhone,:dialPhone, :ville)";
         $rs = $this->bdd->prepare($query);
