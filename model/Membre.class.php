@@ -8,9 +8,9 @@ class Membre {
     // Read
 
 
-    public function addMmebre($date_mb,$nom,$prenom,$slug,$email,$phone,$isoPhone,$dialPhone,$ville){
-        $query = "INSERT INTO membre(date_membre,nom,prenom,slug,email,phone,iso_phone,dial_phone,ville)
-            VALUES (:date_mb,:nom,:prenom,:slug,:email,:phone,:isoPhone,:dialPhone, :ville)";
+    public function addMmebre($date_mb,$nom,$prenom,$slug,$email,$phone,$isoPhone,$dialPhone,$ville,$bloquer){
+        $query = "INSERT INTO membre(date_membre,nom,prenom,slug,email,phone,iso_phone,dial_phone,ville,bloquer)
+            VALUES (:date_mb,:nom,:prenom,:slug,:email,:phone,:isoPhone,:dialPhone, :ville,:bloquer)";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "date_mb" => $date_mb,
@@ -21,7 +21,8 @@ class Membre {
             "phone" => $phone,
             "isoPhone" => $isoPhone,
             "dialPhone" => $dialPhone,
-            "ville" => $ville
+            "ville" => $ville,
+            "bloquer" => $bloquer
         ));
         $nb = $rs->rowCount();
         if($nb > 0){
