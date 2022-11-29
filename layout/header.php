@@ -1226,6 +1226,83 @@ header.style-3 div.menu-fixed::before {
 }
 
 
+.pieceDiv, .photoDiv {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    border: 2px dashed #888ea8;
+    border-radius: 6px;
+    transition: 0.2s;
+    min-height: 200px;
+    background: no-repeat center;
+    background-size: contain;
+}
+.pieceDiv.is-active,.photoDiv.is-active {
+    background-color: #eff7fa;
+}
+
+.file-msg {
+    text-align: center;
+    font-size: small;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+.file-input:focus {
+    outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media(max-width: 767px) {
     html, body {
         overflow-x: hidden !important;

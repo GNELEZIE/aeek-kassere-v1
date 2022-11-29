@@ -5,12 +5,9 @@ class Membre {
     }
 
 
-    // Read
-
-
-    public function addMmebre($date_mb,$nom,$prenom,$slug,$email,$phone,$isoPhone,$dialPhone,$ville,$bloquer){
-        $query = "INSERT INTO membre(date_membre,nom,prenom,slug,email,phone,iso_phone,dial_phone,ville,bloquer)
-            VALUES (:date_mb,:nom,:prenom,:slug,:email,:phone,:isoPhone,:dialPhone, :ville,:bloquer)";
+    public function addMmebre($date_mb,$nom,$prenom,$slug,$email,$mot_de_passe){
+        $query = "INSERT INTO membre(date_membre,nom,prenom,slug,email,mot_de_passe)
+            VALUES (:date_mb,:nom,:prenom,:slug,:email,:mot_de_passe)";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "date_mb" => $date_mb,
@@ -18,11 +15,7 @@ class Membre {
             "prenom" => $prenom,
             "slug" => $slug,
             "email" => $email,
-            "phone" => $phone,
-            "isoPhone" => $isoPhone,
-            "dialPhone" => $dialPhone,
-            "ville" => $ville,
-            "bloquer" => $bloquer
+            "mot_de_passe" => $mot_de_passe
         ));
         $nb = $rs->rowCount();
         if($nb > 0){
@@ -31,6 +24,42 @@ class Membre {
         }
     }
 
+    public function addMmebres($date_mb,$nom,$prenom,$slug,$phone,$isoPhone,$dialPhone,$ville,$pwd,$photo,$piece){
+        $query = "INSERT INTO membre(date_membre,nom,prenom,slug,phone,iso_phone,dial_phone,ville,mot_de_passe,photo,piece)
+            VALUES (:date_mb,:nom,:prenom,:slug,:phone,:isoPhone,:dialPhone,:ville,:pwd,:photo,:piece)";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "date_mb" => $date_mb,
+            "nom" => $nom,
+            "prenom" => $prenom,
+            "slug" => $slug,
+            "phone" => $phone,
+            "isoPhone" => $isoPhone,
+            "dialPhone" => $dialPhone,
+            "ville" => $ville,
+            "pwd" => $pwd,
+            "photo" => $photo,
+            "piece" => $piece
+        ));
+        $nb = $rs->rowCount();
+        if($nb > 0){
+            $r = $this->bdd->lastInsertId();
+            return $r;
+        }
+    }
+
+
+    public function getMembreByPhone($phone){
+
+        $query = "SELECT * FROM membre
+        WHERE phone = :phone";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "phone" => $phone
+        ));
+
+        return $rs;
+    }
 
     public function getMembreByEmail($mail){
 
@@ -94,6 +123,20 @@ class Membre {
 
     }
     // Verification valeur existant
+
+
+    public function getData2($propriete1,$val1,$propriete2,$val2){
+
+        $query = "SELECT * FROM membre WHERE $propriete1 = :val1 and $propriete2 = :val2";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "val1" => $val1,
+            "val2" => $val2
+        ));
+
+        return $rs;
+    }
+
     public function verifMembre($propriete,$val){
 
         $query = "SELECT * FROM membre WHERE $propriete = :val";

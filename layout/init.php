@@ -36,8 +36,8 @@ include_once 'model/Candidat.class.php';
 
 
  if(isset($_COOKIE['cookieaeek']) AND !isset($_SESSION['membreaeek'])){
-    $email = my_decrypt($_COOKIE['cookieaeek']);
-    $result = $membre->getMembreByEmail($email);
+    $phon = my_decrypt($_COOKIE['cookieaeek']);
+    $result = $membre->getMembreByPhone($phon);
     if($data = $result->fetch()){
         if($data['bloquer'] == 0){
             $_SESSION['membreaeek'] = $data;

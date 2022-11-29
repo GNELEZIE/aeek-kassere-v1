@@ -1,4 +1,13 @@
 <?php
+$myIp =  Detect::ip();
+$result = json_decode(getDataByUrl('http://ip-api.com/json/'.$myIp),true);
+if($result['status'] == 'success'){
+    $countryCode = $result['countryCode'];
+    $city = $result['city'];
+}else{
+    $city = '';
+    $countryCode = '';
+}
 
 
 
@@ -26,7 +35,9 @@ require_once 'layout/header.php';
                         <?php } ?>
                         <div class="row">
                             <div class="col-md-12 pt-4">
-                                <input type="email" name="email" placeholder="Email" class="input-register" required>
+                                <input type="tel" class="form-control input-style" id="phone" name="phone" required>
+                                <input type="hidden"  name="isoPhone" id="isoPhone" value="">
+                                <input type="hidden"  name="dialPhone" id="dialPhone" value="">
                                 <input type="hidden" class="form-control" name="formkey" value="<?=$token?>">
                             </div>
                             <div class="col-md-12 pt-4">
@@ -69,4 +80,36 @@ require_once 'layout/footer.php';
          $('.laodLogin').html('<i class="fa fa-circle-o-notch fa-spin"></i>');
        });
     });
+</script>
+<script>
+
+    $("#phone").keyup(function (event) {
+        if (/\D/g.test(this.value)) {
+            //Filter non-digits from input value.
+            this.value = this.value.replace(/\D/g, '');
+        }
+    });
+
+    var inputPhone = document.querySelector("#phone");
+    window.intlTelInput(inputPhone, {
+        initialCountry: '<?=$countryCode?>',
+        utilsScript: "<?=$asset?>/plugins/intltelinput/js/utils.js"
+    });
+    var iti = window.intlTelInputGlobals.getInstance(inputPhone);
+    var countryData = iti.getSelectedCountryData();
+    $('#isoPhone').val(countryData["iso2"]);
+    $('#dialPhone').val(countryData["dialCode"]);
+    inputPhone.addEventListener("countrychange", function() {
+        var iti = window.intlTelInputGlobals.getInstance(inputPhone);
+        var countryData = iti.getSelectedCountryData();
+        $('#isoPhone').val(countryData["iso2"]);
+        $('#dialPhone').val(countryData["dialCode"]);
+    });
+
+    $('#formCarte').submit(function(e){
+        $('.loaded').html('Envoie en cours...');
+    });
+
+
+
 </script>
