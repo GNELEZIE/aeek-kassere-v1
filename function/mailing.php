@@ -18,10 +18,10 @@ if(!function_exists('sendMailNoReply')){
             $mail->CharSet = 'UTF-8';
             $mail->isSMTP();
             $mail->SMTPDebug = 0;
-            $mail->Host       = 'mail.aeek-kassere.com';
+            $mail->Host       = 'smtp.aeek-kassere.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'no-reply@aeek-kassere.com';
-            $mail->Password   = 'f5Q4D6U5N8a8@';
+            $mail->Password   = 'mM5$kmzcHH2cPwp';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port       = 587;
 

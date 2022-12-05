@@ -13,7 +13,7 @@ if(isset($_SESSION['myformkey']) and isset($_POST['nom']) and isset($_POST['pren
     $slug = create_slug($_POST['prenom']);
     $propriete1 = 'nom';
     $propriete2 = 'prenom';
-
+    $bloquer = 1;
 
     $verifSlug = $membre->verifMembre($propriete2,$prenom);
     $rsSlug = $verifSlug->fetch();
@@ -29,7 +29,10 @@ if(isset($_SESSION['myformkey']) and isset($_POST['nom']) and isset($_POST['pren
             $errors['register'] = 'Votre adresse email existe déjà';
         } else {
 
+            $idUser = $membre->addMmebre($dateGmt,$nom,$prenom,$slug, $email, $phone,$isoPhone,$dialPhone,$ville,$bloquer);
+
             $idUser = $membre->addMmebreReunion($dateGmt,$nom,$prenom,$slug, $email, $phone,$isoPhone,$dialPhone,$ville);
+
             if ($idUser > 0) {
                 header('location:' .$domaine.'/success');
             } else {
