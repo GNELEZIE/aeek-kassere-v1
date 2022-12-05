@@ -85,7 +85,7 @@ require_once 'layout/header.php';
                             $btnVot = '';
                         }
                     }else{
-                        $btnVot = '';
+                        $btnVot = '<div class="pt-5"  id="changeEtats" ><a href="javascript:void(0)" class="btn-orange-transparent box-btns" onclick="voter('.$dataCan['id_candidat'].')">Voter maintenant</a></div>';
                     }
                     ?>
                     <?=$btnVot?>
@@ -97,7 +97,30 @@ require_once 'layout/header.php';
         ?>
         <div class="row">
             <div class="col-lg-12 text-center mt-5">
-                <h4 class="pb-3 font-25"><b>Le vote a pris  fin</b></h4>
+                        <div class="up-event-text awards-up">
+                            <div class="event-count-sect">
+                                <div class="event-countdown-counter-sec">
+                                    <div class="counter-item">
+                                        <span class="counter-label text-noire">Jours</span>
+                                        <span class="single-cont"> <i id="days">00</i> </span>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span class="counter-label text-noire">heure</span>
+                                        <span class="single-cont"> <i id="hours">00</i> </span>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span class="counter-label text-noire">min</span>
+                                        <span class="single-cont"> <i id="minutes">00</i> </span>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span class="counter-label text-noire">S</span>
+                                        <span class="single-cont"> <i id="second"></i> </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                </div>
+                <h4 class="pb-3">Vous pouvez voter pour votre membre préferé</h4>
             </div>
             <?php
             //                $liste = $candidat->getAllCandidat();
@@ -120,7 +143,7 @@ require_once 'layout/header.php';
                         $btnVote = '';
                     }
                 }else{
-                    $btnVote = '';
+                    $btnVote = '<div  id="changeEtat'.$dataCandidat['id_candidat'].'" ><a href="javascript:void(0)" class="buy-btn btn-orange-transparent box-btn" onclick="voter('.$dataCandidat['id_candidat'].')">Voter</a></div>';
                 }
                 ?>
                 <div class="col-md-3 col3-award">

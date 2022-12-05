@@ -20,7 +20,7 @@
                 <span class="inner-status">Oops! page introuvable </span>
                 <span class="inner-detail">Nous ne pouvons pas trouver la page que vous recherchez.</span>
                <div class="text-center">
-                   <a href="<?=$domaine?>/awards" class="btn btn-orange mtl"><i class="fa fa-home"></i>&nbsp;Voter maintenant </a>
+                   <a href="<?=$domaine?>" class="btn btn-orange mtl"><i class="fa fa-home"></i>&nbsp;Page d'accueil </a>
                </div>
             </div>
         </div>
