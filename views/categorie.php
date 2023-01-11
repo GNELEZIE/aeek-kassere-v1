@@ -17,7 +17,13 @@ if(isset($_GET['page']) and is_numeric($_GET['page'])){
 
 
 if(isset($doc[1]) and !isset($doc[2])) {
-    $cat = $categorie->getCategorieBySlug($doc[1]);
+    if(isset($_GET)){
+        $slg = explode('?',$doc[1]);
+        $slug_article = $slg[0];
+    }else{
+        $slug_article = $doc[1];
+    }
+    $cat = $categorie->getCategorieBySlug($slug_article);
     if($catIno = $cat->fetch()){
         $res = $article->getNbrCatByArticle($catIno['id_categorie']);
         $liste = $article->getAllNbrArticlesCat($debut,$fin,$catIno['id_categorie']);

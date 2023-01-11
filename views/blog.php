@@ -6,9 +6,14 @@ if(isset($doc[1])){
 }
 
 if(isset($doc[1]) and !isset($doc[2])) {
-
-    $list = $article->getArticleBySlug($doc[1]);
-    $listeNbr = $article->getArticleBySlugNbr($doc[1])->fetch();
+    if(isset($_GET)){
+        $slg = explode('?',$doc[1]);
+        $slug_article = $slg[0];
+    }else{
+        $slug_article = $doc[1];
+    }
+    $list = $article->getArticleBySlug($slug_article);
+    $listeNbr = $article->getArticleBySlugNbr($slug_article)->fetch();
 
     if ($data = $list->fetch()){
         $authors = $admin->getAdminById($data['user_id'])->fetch();
