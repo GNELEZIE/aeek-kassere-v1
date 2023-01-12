@@ -35,6 +35,7 @@
 <link rel="stylesheet" href="<?=$asset?>/plugins/ani/animate.css"/>
 <link rel="stylesheet" href="<?=$asset?>/plugins/intltelinput/css/intlTelInput.min.css"/>
 <style>
+
 .awards-up .event-count-sect .event-countdown-counter-sec .counter-item .single-cont {
     font-size: 18px;
     line-height: 1;
@@ -303,7 +304,7 @@
 }
 
 #wrap-slid #carouselExampleCaptions:after {
-    background-color: #00000080 !important;
+    background-color: #0000001c !important;
     content: "";
     left: 0;
     height: 100%;

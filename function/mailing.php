@@ -13,26 +13,21 @@ if(!function_exists('sendMailNoReply')){
     function sendMailNoReply($to,$subject,$message){
         $mail = new PHPMailer(true);
         try {
-            //Server settings
-
             $mail->CharSet = 'UTF-8';
             $mail->isSMTP();
             $mail->SMTPDebug = 0;
-            $mail->Host       = 'smtp.aeek-kassere.com';
+            $mail->Host       = 'mail56.lwspanel.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'no-reply@aeek-kassere.com';
-            $mail->Password   = 'mM5$kmzcHH2cPwp';
+            $mail->Username   = 'test@aeek-kassere.com';
+            $mail->Password   = 'xF1-2_nXJABV4$a';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-            $mail->Port       = 587;
-
-            $mail->setFrom('no-reply@aeek-kassere.com', 'Aeek Kassere');
+            $mail->Port       = 465;
+            $mail->setFrom('test@aeek-kassere.com', 'Aeek Kassere');
             $mail->addAddress($to);
-            $mail->addReplyTo('no-reply@aeek-kassere.com', 'Aeek Kassere');
-
+            $mail->addReplyTo('test@aeek-kassere.com', 'Aeek Kassere');
             $mail->isHTML(true);
             $mail->Subject = $subject;
             $mail->Body    = $message;
-
             $mail->send();
            return 'send';
         } catch (Exception $e) {
