@@ -10,7 +10,7 @@ if($result['status'] == 'success'){
     $countryCode = '';
 }
 
-require_once 'controller/reunion.inscription.php';
+require_once 'controller/sortie-save.php';
 
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
@@ -26,7 +26,14 @@ require_once 'layout/header.php';
                     <h3 class="text-center font-17 py-2">Places disponibles : <span class=""><b class="text-danger count_sortie"></b></span></h3>
                     <h3 class="text-center font-17 py-2">Infoline : 07 07 61 45 61</h3>
                         <form method="post" class="pt-3" id="SortieInscription" style="text-align: left;">
-
+                            <?php
+                            if(!empty($errors)) { ?>
+                                <div class="alert alert-danger mb-2 mt-2 p-2" style="font-size: 13px" role="alert">
+                                    <?php foreach( $errors as $error){  ?>
+                                        <?=$error?>
+                                    <?php }?>
+                                </div>
+                            <?php } ?>
                             <div class="row">
                                 <div class="col-md-12">
                                     <label for="nom">Nom et prénom</label>
@@ -78,7 +85,13 @@ require_once 'layout/footer.php';
                 }
             });
         }
+
         $('#SortieInscription').submit(function(e){
+            $('.laodForm').html('<i class="fa fa-circle-notch fa-spin"></i>')
+        });
+
+
+/*        $('#SortieInscription').submit(function(e){
             e.preventDefault();
             var value = document.getElementById('SortieInscription');
             var form = new FormData(value);
@@ -111,7 +124,7 @@ require_once 'layout/footer.php';
                 }
             });
 
-        });
+        })*/;
 
 
         $("select.select-type").change(function() {

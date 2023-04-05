@@ -13,11 +13,18 @@ if(isset($_POST['nom']) and isset($_POST['aeek']) and  isset($_POST['phone']) an
     $verif = $sortie->verifInscrit($propriete,$phone);
 
     if($dataS = $verif->fetch()){
-        echo '1';
+        $errors['register'] = 'Impossible de s\'inscrire, ce numéro a été déjà inscrit !';
     }else{
         $save = $sortie->addSortie($dateGmts,$nom,$phone,$aeek);
         if($save > 0){
-            echo 'ok';
+            $tab = array(
+                "type" => $aeek,
+            );
+            $_SESSION['_valid'] = $tab;
+            header('location:' .$domaine.'/sortie-detente-inscript');
+            exit();
+        }else{
+            $errors['register'] = 'Action Impossible une erreur s\'est produite !';
         }
     }
 
