@@ -5,6 +5,25 @@ class Membre {
     }
 
 
+    public function addMmebreReunion($date_mb,$nom,$prenom,$email,$phone,$ville){
+        $query = "INSERT INTO reunion(date_reunion,nom,prenom,email,phone,ville)
+            VALUES (:date_mb,:nom,:prenom,:email,:phone,:ville)";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "date_mb" => $date_mb,
+            "nom" => $nom,
+            "prenom" => $prenom,
+            "email" => $email,
+            "phone" => $phone,
+            "ville" => $ville
+        ));
+        $nb = $rs->rowCount();
+        if($nb > 0){
+            $r = $this->bdd->lastInsertId();
+            return $r;
+        }
+    }
+
     public function addMmebre($date_mb,$nom,$prenom,$slug,$email,$mot_de_passe){
         $query = "INSERT INTO membre(date_membre,nom,prenom,slug,email,mot_de_passe)
             VALUES (:date_mb,:nom,:prenom,:slug,:email,:mot_de_passe)";

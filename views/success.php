@@ -16,7 +16,7 @@ require_once 'layout/header.php';
                 <div class="ts-box text-center">
                     <img src="<?=$asset?>/media/sss.png" class="animate__animated animate__fadeIn w-25" alt=""/>
                     <h4 class="p-3">Votre inscription pour la réunion à été effectué avec succes</h4>
-                    <p>Vous allez recevoir le lien de la réunion demain sur votre email</p>
+                    <p>Vous allez recevoir le lien de la réunion le dimanche sur votre email et Whatsapp</p>
                     <a href="<?=$domaine?>/" class="btn-orange" style="border-radius: 5px;padding: 10px 20px !important;">Ok c'est compris</a>
                 </div>
             </div>

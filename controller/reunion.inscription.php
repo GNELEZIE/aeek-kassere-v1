@@ -25,11 +25,7 @@ if(isset($_SESSION['myformkey']) and isset($_POST['nom']) and isset($_POST['pren
         $verifMail = $membre->getMembreByEmail($email);
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors['register'] = 'Votre adresse email n\'est pas correct';
-        } elseif ($verifMail->rowCount() > 0) {
-            $errors['register'] = 'Votre adresse email existe déjà';
-        } else {
-
-            $idUser = $membre->addMmebre($dateGmt,$nom,$prenom,$slug, $email, $phone,$isoPhone,$dialPhone,$ville,$bloquer);
+        }else {
 
             $idUser = $membre->addMmebreReunion($dateGmt,$nom,$prenom,$slug, $email, $phone,$isoPhone,$dialPhone,$ville);
 

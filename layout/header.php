@@ -1516,6 +1516,8 @@ header.style-3 div.menu-fixed::before {
                                 <li><a href="<?=$domaine?>/events"  class="<?php if($lien == 'events'){echo 'current';} ;?>">Galerie</a></li>
                                 <li><a href="https://www.youtube.com/channel/UCDhp_Sepv7QJEmiTdCRAuXg" target="_blank" class="">Aeek tv</a></li>
                                 <li><a href="<?=$domaine?>/sortie-detente-2023"  class="<?php if($lien == 'sortie-detente-2023'){echo 'current';} ;?>"> Sortie détente</a></li>
+                                <li><a href="<?=$domaine?>/reunion"  class="<?php if($lien == 'reunion'){echo 'current';} ;?>"> Réunion </a></li>
+
                                 <!--                                <li><a href="--><?//=$domaine?><!--/les-cv"  class="--><?php //if($lien == 'les-cv'){echo 'current';} ;?><!--"> Les CV</a></li>-->
 
                             </ul>
