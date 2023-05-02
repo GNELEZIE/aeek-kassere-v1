@@ -26,8 +26,7 @@ if(isset($_SESSION['myformkey']) and isset($_POST['nom']) and isset($_POST['pren
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors['register'] = 'Votre adresse email n\'est pas correct';
         }else {
-
-            $idUser = $membre->addMmebreReunion($dateGmt,$nom,$prenom,$slug, $email, $phone,$isoPhone,$dialPhone,$ville);
+            $idUser = $membre->addMmebreReunion($dateGmt,$nom,$prenom,$email,$phone,$ville);
 
             if ($idUser > 0) {
                 header('location:' .$domaine.'/success');

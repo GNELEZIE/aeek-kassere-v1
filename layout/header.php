@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="keywords" content="Boundiali,Côte d'Ivoire, Etudiant, Elève,Kouto, Kasséré,Association">
+<meta name="keywords" content="Boundiali,Côte d'Ivoire, Etudiant, Elève,Kouto, Kasséré,Association,Formation,Bagoué">
 <meta name="description" content="L'Association des Elèves et Etudiants de Kasséré en abrégé AEEK est l'assocition la plus influente dans la région de la Bagoué">
 <meta name="author" content="Ouattara Gnelezie Arouna">
 <meta name="email" content="zie.nanien@gmail.com">
 <title>AEEK - <?=ucfirst($page)?></title>
-<meta property="og:image"  content="https://aeek-kassere.com/uploads/primma.png" />
+<meta property="og:image"  content="<?=$asset?>/media/logoAEEK.png" />
 <link rel="icon" href="<?=$asset?>/media/logoAEEK.png" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 <link href="<?=$asset?>/css/bootstrap.min.css" rel="stylesheet">
@@ -1516,7 +1516,7 @@ header.style-3 div.menu-fixed::before {
                                 <li><a href="<?=$domaine?>/events"  class="<?php if($lien == 'events'){echo 'current';} ;?>">Galerie</a></li>
                                 <li><a href="https://www.youtube.com/channel/UCDhp_Sepv7QJEmiTdCRAuXg" target="_blank" class="">Aeek tv</a></li>
                                 <li><a href="<?=$domaine?>/sortie-detente-2023"  class="<?php if($lien == 'sortie-detente-2023'){echo 'current';} ;?>"> Sortie détente</a></li>
-                                <li><a href="<?=$domaine?>/reunion"  class="<?php if($lien == 'reunion'){echo 'current';} ;?>"> Réunion </a></li>
+                                <!--<li><a href="<?/*=$domaine*/?>/reunion"  class="<?php /*if($lien == 'reunion'){echo 'current';} ;*/?>"> Réunion </a></li>-->
 
                                 <!--                                <li><a href="--><?//=$domaine?><!--/les-cv"  class="--><?php //if($lien == 'les-cv'){echo 'current';} ;?><!--"> Les CV</a></li>-->
 
