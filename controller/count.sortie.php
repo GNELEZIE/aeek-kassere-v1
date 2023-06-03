@@ -3,7 +3,7 @@ $count_sortie ='';
 
 
     $nbSort = $sortie->getNbrSortie()->fetch();
-    $count_sortie .= 30 - $nbSort['nb'];
+    $count_sortie .= 35 - $nbSort['nb'];
 
 
 

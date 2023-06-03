@@ -19,22 +19,22 @@ if(isset($doc[1]) and !isset($doc[2]) || isset($_GET['page'])) {
         $eventId =  $eventsData['id_events'];
         $res = $gallerie->nbPhotoByEvents($eventsData['id_events']);
         if($nbre = $res->fetch()){
-            $pages = ceil($nbre['nb']/6);
+            $pages = ceil($nbre['nb']/20);
 //            echo $pages;
 //            exit;
         }else{
             $pages = 1;
         }
         $pagination_list = '';
-        $myPage = '/gallerie/'.$doc[1].'/';
-        $liste = $gallerie->getGallerieById($eventsData['id_events'],$debut,$fin);
+        $myPage = '/galerie/'.$doc[1].'/';
+        $listeG = $gallerie->getGallerieById($eventsData['id_events'],$debut,$fin);
     } else {
-        header('location:' . $domaine_admin . '/error');
+        header('location:' . $domaine . '/error');
         exit();
     }
 
 }else{
-    header('location:' . $domaine_admin . '/error');
+    header('location:' . $domaine . '/error');
     exit();
 }
 require_once 'layout/header.php';
@@ -52,7 +52,7 @@ require_once 'layout/header.php';
             <div class="gallery-items grid">
                 <div class="gallery-item grid-sizer"></div>
                 <?php
-                while($galData = $liste->fetch()){
+                while($galData = $listeG->fetch()){
                     ?>
                 <div class="gallery-item grid-item">
                     <div class="gallery-thumb wow bounceInUp center">
