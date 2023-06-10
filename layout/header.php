@@ -916,6 +916,13 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(319%) !important;
 }
 
+.banner-caofa {
+    background-image: url(<?=$asset?>/media/ca.png) !important;
+    background-position: 50% 50%;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
 .banner-sortie {
     background-image: url(<?=$asset?>/media/aeek-2.jpeg) !important;
     background-position: 50% 50%;
@@ -1514,8 +1521,9 @@ header.style-3 div.menu-fixed::before {
                                 <li><a href="<?=$domaine?>/contact"  class="<?php if($lien == 'contact'){echo 'current';} ;?>">Contact</a></li>
                                 <li><a href="<?=$domaine?>/blog"  class="<?php if($lien == 'blog'){echo 'current';} ;?>">Actualité</a></li>
                                 <li><a href="<?=$domaine?>/events"  class="<?php if($lien == 'events'){echo 'current';} ;?>">Galerie</a></li>
+                                <li><a href="<?=$domaine?>/caofa-2023"  class="<?php if($lien == 'caofa-2023'){echo 'current';} ;?>">C.A.O.F.A</a></li>
                                 <li><a href="https://www.youtube.com/channel/UCDhp_Sepv7QJEmiTdCRAuXg" target="_blank" class="">Aeek tv</a></li>
-                                <li><a href="<?=$domaine?>/sortie-detente-2023"  class="<?php if($lien == 'sortie-detente-2023'){echo 'current';} ;?>"> Sortie détente</a></li>
+<!--                                <li><a href="--><?//=$domaine?><!--/sortie-detente-2023"  class="--><?php //if($lien == 'sortie-detente-2023'){echo 'current';} ;?><!--"> Sortie détente</a></li>-->
                                 <!--<li><a href="<?/*=$domaine*/?>/reunion"  class="<?php /*if($lien == 'reunion'){echo 'current';} ;*/?>"> Réunion </a></li>-->
 
                                 <!--                                <li><a href="--><?//=$domaine?><!--/les-cv"  class="--><?php //if($lien == 'les-cv'){echo 'current';} ;?><!--"> Les CV</a></li>-->
