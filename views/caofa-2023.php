@@ -15,7 +15,7 @@ require_once 'layout/header.php';
             <div class="col-md-6 offset-3">
                 <div class="ts-box wow bounceInUp center">
                     <h1 class="text-center font-25 text-dark" style="font-weight: bold;line-height: 1.5;">Concours d’Art Oratoire féminin </h1>
-                    <h3 class="text-center font-17 py-2">Infoline : 00 00 00 00 00</h3>
+                    <h3 class="text-center font-17 py-2">Infoline : 05 56 05 44 66 / 05 86 68 30 50</h3>
                     <form method="post" class="pt-3" id="CAOFAInscription" style="text-align: left;">
                         <?php
                         if(!empty($errors)) { ?>
@@ -42,7 +42,7 @@ require_once 'layout/header.php';
                             </div>
                             <div class="col-md-12 pt-3">
                                 <label for="message">Pourquoi voulez-vous participez ?</label>
-                                <textarea name="message" class="input-register" id="message" rows="2" required></textarea>
+                                <textarea name="message" class="input-register" id="message" rows="2" placeholder="Message" required></textarea>
                             </div>
 
 
