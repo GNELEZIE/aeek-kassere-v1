@@ -34,6 +34,10 @@
 <link href="<?=$asset?>/plugins/lity/dist/lity.css" rel="stylesheet"/>
 <link rel="stylesheet" href="<?=$asset?>/plugins/ani/animate.css"/>
 <link rel="stylesheet" href="<?=$asset?>/plugins/intltelinput/css/intlTelInput.min.css"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6245556878555982"
+        crossorigin="anonymous"></script>
+
+
 <style>
 
 .awards-up .event-count-sect .event-countdown-counter-sec .counter-item .single-cont {

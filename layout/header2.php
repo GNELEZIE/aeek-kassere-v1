@@ -31,6 +31,8 @@
 <!--<link href="--><?//=$asset?><!--/plugins/lity/assets/prism.css" media="all" rel="stylesheet" type="text/css">-->
 <link href="<?=$asset?>/plugins/lity/dist/lity.css" rel="stylesheet"/>
 <link rel="stylesheet" href="<?=$asset?>/plugins/ani/animate.css"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6245556878555982"
+        crossorigin="anonymous"></script>
 <style>
 .h1, .h2, .h3, .h4, .h5, .h6, body, h1, h2, h3, h4, h5, h5.title, h6, ol, ul {
     font-family: Roboto,sans-serif !important;
