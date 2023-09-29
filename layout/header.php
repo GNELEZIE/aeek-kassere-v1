@@ -37,7 +37,27 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6245556878555982"
         crossorigin="anonymous"></script>
 
-
+<style>
+    .blink {
+        animation: blinker 0.6s linear infinite;
+        color: #1c87c9;
+    }
+    @keyframes blinker {
+        50% { opacity: 0; }
+    }
+    .blink-one {
+        animation: blinker-one 1s linear infinite;
+    }
+    @keyframes blinker-one {
+        0% { opacity: 0; }
+    }
+    .blink-two {
+        animation: blinker-two 1.4s linear infinite;
+    }
+    @keyframes blinker-two {
+        100% { opacity: 0; }
+    }
+</style>
 <style>
 
 .awards-up .event-count-sect .event-countdown-counter-sec .counter-item .single-cont {
@@ -100,6 +120,11 @@
 .box-cover {
     height: 150px;
     object-fit: cover;
+    width: 100%;
+}
+.vter{
+    padding: 7px;
+    border-radius: 6px;
 }
 .box-data {
     padding: 0 10px 15px 10px;
@@ -165,14 +190,33 @@
     font-size: 20px !important;
 }
 
+.header-div{
+    border-radius: 6px 6px 0 0;
+}
 
+.header-div h2{
+   color: #fff;
+    padding: 8px;
+    font-size: 24px;
+}
 
+.formVoter{
+    padding: 8px;
+}
 
-
-
-
-
-
+.body-div{
+   background: #fff;
+    padding: 10px;
+}
+.body-div h3{
+    font-size: 20px;
+    padding: 5px;
+}
+.voterBtn{
+    background: #008000;
+    border-right: 6px;
+    margin-top: 15px;
+}
 
 
 
@@ -1525,8 +1569,9 @@ header.style-3 div.menu-fixed::before {
                                 <li><a href="<?=$domaine?>/contact"  class="<?php if($lien == 'contact'){echo 'current';} ;?>">Contact</a></li>
                                 <li><a href="<?=$domaine?>/blog"  class="<?php if($lien == 'blog'){echo 'current';} ;?>">Actualité</a></li>
                                 <li><a href="<?=$domaine?>/events"  class="<?php if($lien == 'events'){echo 'current';} ;?>">Galerie</a></li>
-                                <li><a href="<?=$domaine?>/caofa-2023"  class="<?php if($lien == 'caofa-2023'){echo 'current';} ;?>">C.A.O.F.A</a></li>
+<!--                                <li><a href="--><?//=$domaine?><!--/caofa-2023"  class="--><?php //if($lien == 'caofa-2023'){echo 'current';} ;?><!--">C.A.O.F.A</a></li>-->
                                 <li><a href="https://www.youtube.com/channel/UCDhp_Sepv7QJEmiTdCRAuXg" target="_blank" class="">Aeek tv</a></li>
+                                <li><a  class="<?php if($lien == 'awards'){echo 'current';} ;?>" href="<?=$domaine?>/awards">PRIM'MA</a></li>
 <!--                                <li><a href="--><?//=$domaine?><!--/sortie-detente-2023"  class="--><?php //if($lien == 'sortie-detente-2023'){echo 'current';} ;?><!--"> Sortie détente</a></li>-->
                                 <!--<li><a href="<?/*=$domaine*/?>/reunion"  class="<?php /*if($lien == 'reunion'){echo 'current';} ;*/?>"> Réunion </a></li>-->
 
