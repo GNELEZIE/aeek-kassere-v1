@@ -30,7 +30,8 @@
 <link href="<?=$asset?>/css/font-size.css" rel="stylesheet">
 <link href="<?=$asset?>/css/btn.css" rel="stylesheet">
 <link href="<?=$asset?>/plugins/ticker/css/main.css" rel="stylesheet">
-<link href="<?=$asset?>/plugins/sweetalert/sweet-alert.css" rel="stylesheet" />
+<link rel="stylesheet" href="<?=$asset?>/plugins/sweetalert/sweetalert.css" type="text/css">
+<!--<link href="--><?//=$asset?><!--/plugins/sweetalert/sweet-alert.css" rel="stylesheet" />-->
 <link href="<?=$asset?>/plugins/lity/dist/lity.css" rel="stylesheet"/>
 <link rel="stylesheet" href="<?=$asset?>/plugins/ani/animate.css"/>
 <link rel="stylesheet" href="<?=$asset?>/plugins/intltelinput/css/intlTelInput.min.css"/>

@@ -37,6 +37,14 @@ class Candidat {
         $rs = $this->bdd->query($query);
         return $rs;
     }
+
+        public function getAllCandidats(){
+        $query = "SELECT * FROM candidat";
+        $rs = $this->bdd->query($query);
+        return $rs;
+    }
+
+
     public function getAllCandidat(){
         $query = "SELECT * FROM candidat ORDER BY RAND()";
         $rs = $this->bdd->query($query);

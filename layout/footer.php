@@ -95,7 +95,10 @@
 
 	<!--easing-->
 	<script src="<?=$asset?>/js/jquery.easing.min.js"></script>
-    <script src="<?=$asset?>/plugins/sweetalert/sweet-alert.min.js"></script>
+
+    <script src="<?=$asset?>/plugins/sweetalert/sweetalert2.min.js" type="text/javascript"></script>
+
+<!--    <script src="--><?//=$asset?><!--/plugins/sweetalert/sweet-alert.min.js"></script>-->
     <script src="<?=$asset?>/js/custom.js"></script>
 
 

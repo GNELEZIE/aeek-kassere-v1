@@ -7,6 +7,24 @@ class Voter {
 
 // Create
 
+    public function voterSave($dateVote ,$candidat_id,$nom,$dial_phone,$phone){
+        $query = "INSERT INTO voter(date_vote,candidat_id ,nom,dial_phone,phone)
+            VALUES (:dateVote,:candidat_id,:nom,:dial_phone,:phone)";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "dateVote" => $dateVote,
+            "candidat_id" => $candidat_id,
+            "nom" => $nom,
+            "dial_phone" => $dial_phone,
+            "phone" => $phone
+        ));
+        $nb = $rs->rowCount();
+        if($nb > 0){
+            $r = $this->bdd->lastInsertId();
+            return $r;
+        }
+    }
+
     public function voterAdd($dateVote ,$id_candidat){
         $ip   = $_SERVER['REMOTE_ADDR']; // L'adresse IP du visiteur
         $query = "INSERT INTO voter(date_vote,ip ,id_candidat)
@@ -25,6 +43,20 @@ class Voter {
     }
     // Read
 
+
+
+    public function getVoterByPhone($phone){
+
+        $query = "SELECT * FROM voter
+        WHERE phone = :phone";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "phone" => $phone
+        ));
+
+        return $rs;
+    }
+
     public function getVoterByIp($id){
 
         $query = "SELECT * FROM voter
@@ -36,6 +68,8 @@ class Voter {
 
         return $rs;
     }
+
+
     public function getAllvoters(){
         $query = "SELECT * FROM voter
           ORDER BY id_voter DESC ";
@@ -51,6 +85,17 @@ class Voter {
 
 
     //Count
+    public function getNbrVoteByCandidat($id){
+        $query = "SELECT COUNT(*) as nb FROM voter
+                  WHERE candidat_id =:id";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "id" => $id
+        ));
+
+        return $rs;
+    }
+
     public function getNbrVote(){
         $query = "SELECT COUNT(*) as nb FROM voter";
         $rs = $this->bdd->query($query);
