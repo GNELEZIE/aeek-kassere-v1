@@ -12,8 +12,12 @@ if(isset($_POST['nom']) and isset($_POST['phone']) and isset($_POST['candId']) a
         if($dataNimb = $numb->fetch()){
             echo '2';
         }else{
+
             $save  = $voter->voterSave($dateGmt ,$candId,$nom,$dialPhone,$phone,$an);
             if($save > 0){
+                $nbv = $candidat->getNvote($candId)->fetch();
+                $val = $nbv['nbvote'] + 1;
+                $nbv = $candidat->updateVote($val,$candId);
                 echo 'ok';
             }
         }

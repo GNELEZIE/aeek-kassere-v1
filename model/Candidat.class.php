@@ -38,9 +38,27 @@ class Candidat {
         return $rs;
     }
 
-        public function getAllCandidats(){
+
+
+    public function getNbVoteByCandidat(){
+        $query = "SELECT COUNT(*) as nb FROM voter";
+        $rs = $this->bdd->query($query);
+        return $rs;
+    }
+
+    public function getNvote($val){
         $query = "SELECT * FROM candidat
-                  WHERE an = 23";
+                  WHERE an = 23 AND id_candidat = :val";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "val" => $val
+        ));
+
+        return $rs;
+    }
+    public function getAllCandidats(){
+        $query = "SELECT * FROM candidat
+                  WHERE an = 23 ORDER BY nbvote DESC";
         $rs = $this->bdd->query($query);
         return $rs;
     }
@@ -53,6 +71,7 @@ class Candidat {
     }
 
     //Count
+
     public function getNbCandidat(){
         $query = "SELECT COUNT(*) as nb FROM candidat";
         $rs = $this->bdd->query($query);
