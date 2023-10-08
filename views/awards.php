@@ -27,13 +27,13 @@ $_SESSION['myformkey'] = $token;
 require_once 'layout/header.php';
 
 ?>
-<section class="container-fluid" style="background: #a6c2a626;">
+<section class="container-fluid" style="background: #a6c2a626;padding: 0">
 <?php
 if(isset($doc[0]) and !isset($doc[1])) {
 
 
     ?>
-    <section class="container-fluid bg-award he-300" style="margin-top: 75px">
+    <section class="container-fluid bg-award23 he-300" style="margin-top: 75px">
         <div class="container">
             <h1 class="prim-text">PRIM<span class="text-green">’</span>MA </h1>
             <p class="text-center prim-textSous text-white">Prix du meilleur membre de l'AEEK</p>
@@ -42,9 +42,9 @@ if(isset($doc[0]) and !isset($doc[1])) {
 
 
     <section class="about about-two sec-award">
-        <div class="container py-5 my-5 text-center">
-            <!-- <h1 class="text-danger font-weight-bold py-3" style="text-transform: uppercase; font-weight: bold">Deuxième édition</h1>
-                    <h1 class="blink text-danger font-weight-bold" style="text-transform: uppercase; font-weight: bold"> Bientôt</h1>-->
+        <div class="container text-center">
+            <h1 class="text-danger font-weight-bold py-3" style="text-transform: uppercase; font-weight: bold">Le vote prend fin dans <span class="blink">25</span> jours</h1>
+                    <h1 class="blink text-danger font-weight-bold" style="text-transform: uppercase; font-weight: bold"> </h1>
             <div class="row pt-5">
                 <?php
                 $list = $candidat->getAllCandidats();
@@ -71,7 +71,7 @@ if(isset($doc[0]) and !isset($doc[1])) {
                                 </div>
 
                                 <a href="<?=$domaine?>/awards/" class="h6-award box-title ">
-                                    <p class="mb-0" style="line-height: 17px;"><?=html_entity_decode(stripslashes($dataL['fonction']))?></p>
+                                    <p class="mb-0 mbs" style="line-height: 17px;"><?=html_entity_decode(stripslashes($dataL['fonction']))?></p>
                                 </a>
                                 <div class="box-action-content">
                                     <span class="box-action-star" id="reload">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 <meta charset="utf-8">
@@ -41,7 +41,7 @@
 <style>
     .blink {
         animation: blinker 0.6s linear infinite;
-        color: #1c87c9;
+        color: #008000;
     }
     @keyframes blinker {
         50% { opacity: 0; }
@@ -495,6 +495,11 @@
     background: url("<?=$asset?>/media/aeek-2.jpeg") !important;
     background-size: cover !important;
     background-position: top !important;
+}
+.bg-award23{
+    background: url("<?=$asset?>/media/bn1.png") !important;
+    background-size: cover !important;
+    background-position: center !important;
 }
 .bg-award{
     background: url("<?=$asset?>/media/bg1.png") !important;
@@ -1375,6 +1380,12 @@ header.style-3 div.menu-fixed::before {
         overflow-x: hidden !important;
     }
 
+    .vter,.voi,.mbs{
+        font-size: 9px;
+    }
+    .vter {
+        padding: 5px;
+    }
     .mobile-none{
         display: none;
     }

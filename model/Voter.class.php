@@ -7,16 +7,17 @@ class Voter {
 
 // Create
 
-    public function voterSave($dateVote ,$candidat_id,$nom,$dial_phone,$phone){
-        $query = "INSERT INTO voter(date_vote,candidat_id ,nom,dial_phone,phone)
-            VALUES (:dateVote,:candidat_id,:nom,:dial_phone,:phone)";
+    public function voterSave($dateVote ,$candidat_id,$nom,$dial_phone,$phone,$an){
+        $query = "INSERT INTO voter(date_vote,candidat_id ,nom,dial_phone,phone,an)
+            VALUES (:dateVote,:candidat_id,:nom,:dial_phone,:phone,:an)";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "dateVote" => $dateVote,
             "candidat_id" => $candidat_id,
             "nom" => $nom,
             "dial_phone" => $dial_phone,
-            "phone" => $phone
+            "phone" => $phone,
+            "an" => $an
         ));
         $nb = $rs->rowCount();
         if($nb > 0){
@@ -87,7 +88,7 @@ class Voter {
     //Count
     public function getNbrVoteByCandidat($id){
         $query = "SELECT COUNT(*) as nb FROM voter
-                  WHERE candidat_id =:id";
+                  WHERE candidat_id =:id AND an = 23";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "id" => $id
@@ -97,7 +98,8 @@ class Voter {
     }
 
     public function getNbrVote(){
-        $query = "SELECT COUNT(*) as nb FROM voter";
+        $query = "SELECT COUNT(*) as nb FROM voter
+                  WHERE an = 23";
         $rs = $this->bdd->query($query);
 
         return $rs;

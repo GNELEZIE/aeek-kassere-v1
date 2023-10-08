@@ -6,13 +6,13 @@ if(isset($_POST['nom']) and isset($_POST['phone']) and isset($_POST['candId']) a
     $phone = htmlentities(trim(addslashes(strip_tags($phone))));
     $candId = htmlentities(trim(addslashes($candId)));
     $dialPhone = htmlentities(trim(addslashes($dialPhone)));
-
+    $an = 23;
     if(strlen($phone) == 10){
         $numb = $voter->getVoterByPhone($phone);
         if($dataNimb = $numb->fetch()){
             echo '2';
         }else{
-            $save  = $voter->voterSave($dateGmt ,$candId,$nom,$dialPhone,$phone);
+            $save  = $voter->voterSave($dateGmt ,$candId,$nom,$dialPhone,$phone,$an);
             if($save > 0){
                 echo 'ok';
             }

@@ -39,7 +39,8 @@ class Candidat {
     }
 
         public function getAllCandidats(){
-        $query = "SELECT * FROM candidat";
+        $query = "SELECT * FROM candidat
+                  WHERE an = 23";
         $rs = $this->bdd->query($query);
         return $rs;
     }
