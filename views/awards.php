@@ -44,6 +44,7 @@ if(isset($doc[0]) and !isset($doc[1])) {
 
 
     <section class="about about-two sec-award">
+
         <div class="container text-center">
             <h1 class="text-dark font-weight-bold py-3 font-20" style="text-transform: ; font-weight: bold">Le vote prend fin dans
                 <span style="background: #ff0000;padding: 5px; border-radius: 6px;"><span class="blink"><?=$fins?></span></span> jours</h1>
@@ -139,7 +140,7 @@ else{
                                 <h5 style="    color: #696969; padding-top: 10px">Voix obtenu : <b style="color: #008000"><span class="getnbrevotebycand"></span></b></h5>
 
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 pt-2">
                                 <img src="<?=$domaine?>/uploads/<?=$dataCan['photo']?>" alt="" class="">
                             </div>
                         </div>
