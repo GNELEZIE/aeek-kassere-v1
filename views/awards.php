@@ -5,6 +5,8 @@ if(isset($doc[1])){
     $return = $doc[0];
 }
 
+//$fins = 20 - date('d');
+$fins = 15;
 if(isset($doc[1]) and !isset($doc[2])) {
 
     $list = $candidat->getCandidatBySlug($doc[1]);
@@ -43,9 +45,10 @@ if(isset($doc[0]) and !isset($doc[1])) {
 
     <section class="about about-two sec-award">
         <div class="container text-center">
-            <h1 class="text-danger font-weight-bold py-3" style="text-transform: uppercase; font-weight: bold">Le vote prend fin dans <span class="blink">25</span> jours</h1>
+            <h1 class="text-dark font-weight-bold py-3 font-20" style="text-transform: ; font-weight: bold">Le vote prend fin dans
+                <span style="background: #ff0000;padding: 5px; border-radius: 6px;"><span class="blink"><?=$fins?></span></span> jours</h1>
                     <h1 class="blink text-danger font-weight-bold" style="text-transform: uppercase; font-weight: bold"> </h1>
-            <div class="row pt-5">
+            <div class="row">
                 <?php
                 $list = $candidat->getAllCandidats();
 

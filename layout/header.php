@@ -41,7 +41,7 @@
 <style>
     .blink {
         animation: blinker 0.6s linear infinite;
-        color: #008000;
+        color: #ffffff;
     }
     @keyframes blinker {
         50% { opacity: 0; }
