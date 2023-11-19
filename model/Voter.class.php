@@ -8,8 +8,9 @@ class Voter {
 // Create
 
     public function voterSave($dateVote ,$candidat_id,$nom,$dial_phone,$phone,$an){
-        $query = "INSERT INTO voter(date_vote,candidat_id ,nom,dial_phone,phone,an)
-            VALUES (:dateVote,:candidat_id,:nom,:dial_phone,:phone,:an)";
+        $ip   = $_SERVER['REMOTE_ADDR'];
+        $query = "INSERT INTO voter(date_vote,candidat_id ,nom_votant,dial_votant,phone_votant,an,ip)
+            VALUES (:dateVote,:candidat_id,:nom,:dial_phone,:phone,:an,:ip)";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "dateVote" => $dateVote,
@@ -17,7 +18,8 @@ class Voter {
             "nom" => $nom,
             "dial_phone" => $dial_phone,
             "phone" => $phone,
-            "an" => $an
+            "an" => $an,
+            "ip" => $ip
         ));
         $nb = $rs->rowCount();
         if($nb > 0){
@@ -49,7 +51,7 @@ class Voter {
     public function getVoterByPhone($phone){
 
         $query = "SELECT * FROM voter
-        WHERE phone = :phone";
+        WHERE phone_votant = :phone";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "phone" => $phone

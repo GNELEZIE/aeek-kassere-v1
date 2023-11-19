@@ -25,7 +25,7 @@
                         <ul>
                             <li><a href="#">Nos statuts</a> </li>
                             <li><a href="#">Bureau</a> </li>
-                            <li><a href="#">MUDESKA</a> </li>
+                            <li><a href="<?=$domaine?>/mention-legale">Mention légale</a> </li>
                         </ul>
                     </div>
                     <div class="col-md-3">
