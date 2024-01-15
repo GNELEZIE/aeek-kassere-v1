@@ -5,8 +5,8 @@ if(isset($doc[1])){
     $return = $doc[0];
 }
 
-//$fins = 20 - date('d');
-$fins = 15;
+$fins = 20 - date('d');
+
 if(isset($doc[1]) and !isset($doc[2])) {
 
     $list = $candidat->getCandidatBySlug($doc[1]);
@@ -30,73 +30,73 @@ require_once 'layout/header.php';
 
 ?>
 <section class="container-fluid" style="background: #a6c2a626;padding: 0">
-<?php
-if(isset($doc[0]) and !isset($doc[1])) {
+    <?php
+    if(isset($doc[0]) and !isset($doc[1])) {
 
 
-    ?>
-    <section class="container-fluid bg-award23 he-300" style="margin-top: 75px">
-        <div class="container">
-            <h1 class="prim-text">PRIM<span class="text-green">’</span>MA </h1>
-            <p class="text-center prim-textSous text-white">Prix du meilleur membre de l'AEEK</p>
-        </div>
-    </section>
+        ?>
+        <section class="container-fluid bg-award23 he-300" style="margin-top: 75px">
+            <div class="container">
+                <h1 class="prim-text">PRIM<span class="text-green">’</span>MA </h1>
+                <p class="text-center prim-textSous text-white">Prix du meilleur membre de l'AEEK</p>
+            </div>
+        </section>
 
 
-    <section class="about about-two sec-award">
+        <section class="about about-two sec-award">
 
-        <div class="container text-center">
-            <h1 class="text-dark font-weight-bold py-3 font-20" style="text-transform: ; font-weight: bold">Le vote prend fin dans
-                <span style="background: #ff0000;padding: 5px; border-radius: 6px;"><span class="blink"><?=$fins?></span></span> jours</h1>
-                    <h1 class="blink text-danger font-weight-bold" style="text-transform: uppercase; font-weight: bold"> </h1>
-            <div class="row">
-                <?php
-                $list = $candidat->getAllCandidats();
+            <div class="container text-center">
+                <h1 class="text-dark font-weight-bold py-3 font-20" style="text-transform: ; font-weight: bold">Le vote prend fin dans
+                    <span style="background: #ff0000;padding: 5px; border-radius: 6px;"><span class="blink"><?=$fins?></span></span> jour</h1>
+                <h1 class="blink text-danger font-weight-bold" style="text-transform: uppercase; font-weight: bold"> </h1>
+                <div class="row">
+                    <?php
+                    $list = $candidat->getAllCandidats();
 
-                while($dataL = $list->fetch()){
-                    $nbre = $voter->getNbrVote()->fetch();
-                    $nbrebyCand = $voter->getNbrVoteByCandidat($dataL['id_candidat'])->fetch();
-                    $pourcents = pourcentage($nbre['nb'],$nbrebyCand['nb']);
+                    while($dataL = $list->fetch()){
+                        $nbre = $voter->getNbrVote()->fetch();
+                        $nbrebyCand = $voter->getNbrVoteByCandidat($dataL['id_candidat'])->fetch();
+                        $pourcents = pourcentage($nbre['nb'],$nbrebyCand['nb']);
 
-                    $pourcent = number_format($pourcents,2).'%';
-                ?>
+                        $pourcent = number_format($pourcents,2).'%';
+                        ?>
 
-                <div class="col-md-3 col3-award">
-                    <div class="grid-item">
-                        <div class="card_with_image">
-                            <div class="blog_card_image">
-                                <a href="<?=$domaine?>/awards/">
-                                    <img src="<?=$domaine?>/uploads/<?=$dataL['photo']?>" alt="" class="img-responsive box-cover">
-                                </a>
-                            </div>
-                            <div class="box-data">
-                                <div class="">
-                                    <p class="mb-0 py-2"><?=html_entity_decode(stripslashes($dataL['nom'])).' '.html_entity_decode(stripslashes($dataL['prenom']))?></p>
-                                </div>
+                        <div class="col-md-3 col3-award">
+                            <div class="grid-item">
+                                <div class="card_with_image">
+                                    <div class="blog_card_image">
+                                        <a href="<?=$domaine?>/awards/">
+                                            <img src="<?=$domaine?>/uploads/<?=$dataL['photo']?>" alt="" class="img-responsive box-cover">
+                                        </a>
+                                    </div>
+                                    <div class="box-data">
+                                        <div class="">
+                                            <p class="mb-0 py-2"><?=html_entity_decode(stripslashes($dataL['nom'])).' '.html_entity_decode(stripslashes($dataL['prenom']))?></p>
+                                        </div>
 
-                                <a href="<?=$domaine?>/awards/" class="h6-award box-title ">
-                                    <p class="mb-0 mbs" style="line-height: 17px;"><?=html_entity_decode(stripslashes($dataL['fonction']))?></p>
-                                </a>
-                                <div class="box-action-content">
+                                        <a href="<?=$domaine?>/awards/" class="h6-award box-title ">
+                                            <p class="mb-0 mbs" style="line-height: 17px;"><?=html_entity_decode(stripslashes($dataL['fonction']))?></p>
+                                        </a>
+                                        <div class="box-action-content">
                                     <span class="box-action-star" id="reload">
                                        <input type="hidden" id="voix" name="voix" value="20"/>
                                         <span class="voi"><?=$pourcent?></span>
                                     </span>
-                                    <div class="changeEt"><a href="<?=$domaine?>/awards/<?=html_entity_decode(stripslashes($dataL['slug']))?>" class="btn-transparence-orange vter">Cliquer pour voter</a></div>
+                                            <div class="changeEt"><a href="<?=$domaine?>/awards/<?=html_entity_decode(stripslashes($dataL['slug']))?>" class="btn-transparence-orange vter">Cliquer pour voter</a></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php
+                    }
+                    ?>
                 </div>
-                <?php
-                }
-                ?>
-            </div>
 
-        </div>
-    </section>
-<?php  }
-else{
+            </div>
+        </section>
+    <?php  }
+    else{
     ?>
     <section class="about about-two sec-award">
         <div class="container py-5 my-5 ">
@@ -137,7 +137,7 @@ else{
                                 <h3 style="line-height: 1.5;color: #696969"><b><?=html_entity_decode(stripslashes($dataCan['nom'])).' '.html_entity_decode(stripslashes($dataCan['prenom']))?></b></h3>
                                 <h5 class="mb-0" style="line-height: 1.3 ;color: #696969; padding-top: 10px"><?=html_entity_decode(stripslashes($dataCan['fonction']))?></h5>
                                 <h5 style="    color: #696969; padding-top: 10px">Total votant : <b style="color: #ff0000"> <span class="getnbrevote"></span> </b></h5>
-                                <h5 style="    color: #696969; padding-top: 10px">Voix obtenu : <b style="color: #008000"><span class="getnbrevotebycand"></span></b></h5>
+                                <h5 style="    color: #696969; padding-top: 10px">Voix obtenues : <b style="color: #008000"><span class="getnbrevotebycand"></span></b></h5>
 
                             </div>
                             <div class="col-md-6 pt-2">
@@ -149,7 +149,7 @@ else{
             </div>
         </div>
     </section>
-    </section>
+</section>
 <?php
 }
 ?>

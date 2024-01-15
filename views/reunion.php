@@ -23,7 +23,7 @@ require_once 'layout/header.php';
             <div class="col-md-6 offset-3">
                 <div class="ts-box wow bounceInUp center">
                     <h1 class="text-center text-dark">Inscription pour la réunion</h1>
-                    <p class="text-center m-0 pt-3 text-danger"><b>Date : dimanche 30 Avril 2023</b></p>
+                    <p class="text-center m-0 pt-3 text-danger"><b>Date : dimanche 17 Décembre 2023</b></p>
                     <p class="text-center m-0"><b>Heure : 08h00-12h00</b></p>
                     <div class="tab-content" id="nav-tabContent">
                             <form method="post" class="text-center pt-5" id="formInscription">

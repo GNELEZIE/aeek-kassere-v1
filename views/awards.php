@@ -5,7 +5,7 @@ if(isset($doc[1])){
     $return = $doc[0];
 }
 
-$fins = 20 - date('d');
+$fins = date('d') - 20  ;
 
 if(isset($doc[1]) and !isset($doc[2])) {
 
@@ -46,8 +46,8 @@ require_once 'layout/header.php';
         <section class="about about-two sec-award">
 
             <div class="container text-center">
-                <h1 class="text-dark font-weight-bold py-3 font-20" style="text-transform: ; font-weight: bold">Le vote prend fin dans
-                    <span style="background: #ff0000;padding: 5px; border-radius: 6px;"><span class="blink"><?=$fins?></span></span> jour</h1>
+                <h1 class="text-dark font-weight-bold py-3 font-20" style="text-transform: ; font-weight: bold">Le vote a pris fin il y'a
+                    <span style="background: #ff0000;padding: 5px; border-radius: 6px;"><span class="blink"><?=$fins?></span></span> jours</h1>
                 <h1 class="blink text-danger font-weight-bold" style="text-transform: uppercase; font-weight: bold"> </h1>
                 <div class="row">
                     <?php
@@ -65,7 +65,7 @@ require_once 'layout/header.php';
                             <div class="grid-item">
                                 <div class="card_with_image">
                                     <div class="blog_card_image">
-                                        <a href="<?=$domaine?>/awards/">
+                                        <a href="<?=$domaine?>/awards/<?=html_entity_decode(stripslashes($dataL['slug']))?>">
                                             <img src="<?=$domaine?>/uploads/<?=$dataL['photo']?>" alt="" class="img-responsive box-cover">
                                         </a>
                                     </div>
@@ -74,15 +74,15 @@ require_once 'layout/header.php';
                                             <p class="mb-0 py-2"><?=html_entity_decode(stripslashes($dataL['nom'])).' '.html_entity_decode(stripslashes($dataL['prenom']))?></p>
                                         </div>
 
-                                        <a href="<?=$domaine?>/awards/" class="h6-award box-title ">
+                                        <a href="<?=$domaine?>/awards/<?=html_entity_decode(stripslashes($dataL['slug']))?>" class="h6-award box-title ">
                                             <p class="mb-0 mbs" style="line-height: 17px;"><?=html_entity_decode(stripslashes($dataL['fonction']))?></p>
                                         </a>
                                         <div class="box-action-content">
                                     <span class="box-action-star" id="reload">
                                        <input type="hidden" id="voix" name="voix" value="20"/>
-                                        <span class="voi"><?=$pourcent?></span>
+                                        <span class="voi btn-greens-transparent px-2 py-1"><b><?=$pourcent?></b></span>
                                     </span>
-                                            <div class="changeEt"><a href="<?=$domaine?>/awards/<?=html_entity_decode(stripslashes($dataL['slug']))?>" class="btn-transparence-orange vter">Cliquer pour voter</a></div>
+<!--                                            <div class="changeEt"><a href="--><?//=$domaine?><!--/awards/--><?//=html_entity_decode(stripslashes($dataL['slug']))?><!--" class="btn-transparence-orange vter">Cliquer pour voter</a></div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -101,32 +101,7 @@ require_once 'layout/header.php';
     <section class="about about-two sec-award">
         <div class="container py-5 my-5 ">
             <div class="row">
-                <div class="col-md-6" style= "padding-bottom: 30px" >
-                    <div class="header-div" style=" background: #037f03;">
-                        <h2 class="pl-2">Remplir le formulaire</h2>
-                    </div>
-                    <div class="body-div">
-                        <form method="post" class="pl-3 formVoter" id="formVote">
-                            <div class="form-group">
-                                <label for="nom">Nom et prénom </label>
-                                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom et prénom" required/>
-                            </div>
-                            <div class="form-group pt-2">
-                                <label for="phone">Numéro</label>
-                                <input type="tel" class="form-control input-registers" id="phone" name="phone" required>
-                                <input type="hidden"  name="isoPhone" id="isoPhone" value="">
-                                <input type="hidden"  name="dialPhone" id="dialPhone" value="">
-
-                            </div>
-                            <div class="form-group">
-                                <input type="hidden"  name="candId" id="candId" value="<?=$dataCan['id_candidat']?>">
-                                <input type="hidden" name="token" value="<?=$token?>"/>
-                                <button class="voterBtn"><span class="loader">Voter maintenant</span></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-6 offset-3">
                     <div class="header-div" style=" background: #ff4500;">
                         <h2>Informations</h2>
                     </div>
