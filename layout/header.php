@@ -73,6 +73,9 @@
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
 }
+.text-orange{
+color: #ff4500 !important;
+}
 .awards-up .event-count-sect .event-countdown-counter-sec .counter-item .single-cont {
     font-size: 18px;
     line-height: 1;
@@ -486,7 +489,11 @@
     color: #008000!important;
     border-radius: 6px !important;
 }
-
+.bgrcan{
+    background: url("<?=$asset?>/media/can.jpg") !important;
+    background-size: cover !important;
+    background-position: top !important;
+}
 .bgr3{
     background: url("<?=$asset?>/media/r3.jpg") !important;
     background-size: cover !important;
@@ -1589,17 +1596,12 @@ header.style-3 div.menu-fixed::before {
                         <div class="menu-left">
                             <ul>
                                 <li><a href="<?=$domaine?>" class="<?php if($lien == 'home' || $lien == ''){echo 'current';} ;?>">Accueil</a></li>
-                                <!--                                <li><a href="--><?//=$domaine?><!--/a-propos"  class="--><?php //if($lien == 'a-propos'){echo 'current';} ;?><!--">A propos</a></li>-->
                                 <li><a href="<?=$domaine?>/contact"  class="<?php if($lien == 'contact'){echo 'current';} ;?>">Contact</a></li>
                                 <li><a href="<?=$domaine?>/blog"  class="<?php if($lien == 'blog'){echo 'current';} ;?>">Actualité</a></li>
                                 <li><a href="<?=$domaine?>/events"  class="<?php if($lien == 'events'){echo 'current';} ;?>">Galerie</a></li>
-<!--                                <li><a href="--><?//=$domaine?><!--/caofa-2023"  class="--><?php //if($lien == 'caofa-2023'){echo 'current';} ;?><!--">C.A.O.F.A</a></li>-->
+                                <li><a href="<?=$domaine?>/aeek-plume"  class="<?php if($lien == 'aeek-pulme'){echo 'current';} ;?>">AEEK PLUME</a></li>
                                 <li><a href="https://www.youtube.com/channel/UCDhp_Sepv7QJEmiTdCRAuXg" target="_blank" class="">Aeek tv</a></li>
-                                <li><a  class="<?php if($lien == 'awards'){echo 'current';} ;?>" href="<?=$domaine?>/awards">PRIM'MA</a></li>
-<!--                                <li><a href="--><?//=$domaine?><!--/sortie-detente-2023"  class="--><?php //if($lien == 'sortie-detente-2023'){echo 'current';} ;?><!--"> Sortie détente</a></li>-->
-                                <!--<li><a href="<?/*=$domaine*/?>/reunion"  class="<?php /*if($lien == 'reunion'){echo 'current';} ;*/?>"> Réunion </a></li>-->
 
-                                <!--                                <li><a href="--><?//=$domaine?><!--/les-cv"  class="--><?php //if($lien == 'les-cv'){echo 'current';} ;?><!--"> Les CV</a></li>-->
 
                             </ul>
                         </div>

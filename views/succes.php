@@ -5,9 +5,7 @@ if(!isset($_SESSION['_valid'])){
     exit();
 }
 
-$token = openssl_random_pseudo_bytes(16);
-$token = bin2hex($token);
-$_SESSION['myformkey'] = $token;
+
 require_once 'layout/header.php';
 ?>
 <section class="contact padding-120 banner-caofa">
