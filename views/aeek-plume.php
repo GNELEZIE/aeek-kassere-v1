@@ -48,7 +48,7 @@ require_once 'layout/header.php';
                                         <input type="hidden"  name="dialPhone" id="dialPhone" value="">
                                     </div>
                                     <div class="col-md-12 pt-3">
-                                        <input type="tel" class="form-control input-register" id="ville" name="ville" placeholder="Ville" required>
+                                        <input type="text" class="form-control input-register" id="ville" name="ville" placeholder="Ville" required>
                                     </div>
                                 </div>
                                 <button class="btn-orange font-sery radius-6 mt-3"> <i class="laodForm"></i> S'inscrire maintenant</button>

@@ -1004,6 +1004,23 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     overflow: hidden;
 }
+.banner-can {
+    background: url('<?=$asset?>/media/ebimp.jpg') rgba(255, 0, 150, 0.3) !important;
+/*    background:linear-gradient(1deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url(*/<?//=$asset?>/*/media/ebimp.jpg) !important;*/
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 600px !important;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
 .banner-blog {
     background-image: url(<?=$asset?>/media/sl1.jpg) !important;
     background-position: 50% 50%;
@@ -1599,7 +1616,7 @@ header.style-3 div.menu-fixed::before {
                                 <li><a href="<?=$domaine?>/contact"  class="<?php if($lien == 'contact'){echo 'current';} ;?>">Contact</a></li>
                                 <li><a href="<?=$domaine?>/blog"  class="<?php if($lien == 'blog'){echo 'current';} ;?>">Actualité</a></li>
                                 <li><a href="<?=$domaine?>/events"  class="<?php if($lien == 'events'){echo 'current';} ;?>">Galerie</a></li>
-                                <li><a href="<?=$domaine?>/aeek-plume"  class="<?php if($lien == 'aeek-pulme'){echo 'current';} ;?>">AEEK PLUME</a></li>
+                                <li><a href="<?=$domaine?>/aeek-plume"  class="<?php if($lien == 'aeek-plume'){echo 'current';} ;?>">AEEK PLUME</a></li>
                                 <li><a href="https://www.youtube.com/channel/UCDhp_Sepv7QJEmiTdCRAuXg" target="_blank" class="">Aeek tv</a></li>
 
 

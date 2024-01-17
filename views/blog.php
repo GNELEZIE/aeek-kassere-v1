@@ -63,7 +63,7 @@ $_SESSION['myformkey'] = $token;
 
 require_once 'layout/header.php';
 ?>
-<section class="banner banner-blog banner-five">
+<section class="banner banner-can banner-five">
     <div class="banner-overlay"></div>
 
     <div class="p-3 text-center position-text"><h2><span class="bg-orange px-3 mb-3 text-white"> Actualité</span></h2>
