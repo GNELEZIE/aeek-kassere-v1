@@ -25,7 +25,7 @@ if($lastArticle = $lastArticl->fetch()){
                                 <span class="font-10"><?= date_fr($results['date_article']).'| '.time_fr($results['date_article']) ?></span>
                             </div>
                             <div class="infos-bars">
-                                <?=$inf?><a href="<?=$domaine?>/show/<?=$results['slug']?>" style="color: #ff4500"> Voir plus...</a>
+                                <?=$inf?><a href="<?=$domaine?>/blog/<?=$results['slug']?>" style="color: #ff4500"> Voir plus...</a>
                             </div>
                             <div class="text-center bar"></div>
                         </li>

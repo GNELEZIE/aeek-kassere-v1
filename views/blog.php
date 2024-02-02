@@ -86,8 +86,9 @@ require_once 'layout/header.php';
 <div class="row">
 <?php
 if(isset($doc[1]) and !isset($doc[2])) {
+
     ?>
-    <div class="col-lg-8 col-md-12 col-xs-12 sticky-widget">
+    <div class="col-md-8 sticky-widget">
         <div class="blog-item single">
             <div class="image wow bounceInUp center">
                 <img src="<?=$domaine?>/uploads/<?=$data['couverture'];?>" alt="Blog image" class="img-responsive">
@@ -97,7 +98,7 @@ if(isset($doc[1]) and !isset($doc[2])) {
                 <div>
                     <ul class="post-meta">
                         <li><a href="#"><?=date_lettre($data['date_article'])?></a></li>
-                        <li><span class="icon flaticon-user"></span><a href="#">Par <?=$authors['nom']?></a></li>
+                        <li><span class="icon flaticon-user"></span><a href="#">Par <?=$authors['nom']?> <?=$authors['prenom']?></a></li>
                         <!--                            <li><span class="icon flaticon-like"></span><a href="#">12 Like</a></li>-->
                         <li><span class="icon flaticon-chat"></span>
                             <a href="<?=$domaine?>/blog/<?=$data['slug']?>">
@@ -282,8 +283,9 @@ if(isset($doc[1]) and !isset($doc[2])) {
     </div>
 <?php
 }else{
+
     ?>
-    <div class="col-lg-8 col-md-12 col-xs-12 sticky-widget">
+    <div class="col-md-8 sticky-widget">
     <?php
     while($data = $liste->fetch()){
         $authors = $admin->getAdminById($data['user_id'])->fetch();
@@ -305,13 +307,13 @@ if(isset($doc[1]) and !isset($doc[2])) {
         ?>
         <div class="blog-item wow bounceInUp center">
             <div class="image">
-                <a href="<?=$domaine?>/blog/<?=$data['slug']?>"><img src="<?=$domaine?>/uploads/<?=$data['couverture'];?>" alt="Blog image" class="img-responsive"></a>
+                <a href="<?=$domaine?>/blog/<?=$data['slug']?>"><img src="<?=$domaine?>/uploads/<?=$data['couverture'];?>" alt="Blog image" class="img-responsive cover-350"></a>
             </div>
             <div class="blog-content">
                 <div>
                     <ul class="post-meta">
                         <li><a href="#"><?=date_lettre($data['date_article'])?></a></li>
-                        <li><span class="icon flaticon-user"></span><a href="#">Par <?=$authors['nom']?></a></li>
+                        <li><span class="icon flaticon-user"></span><a href="#">Par <?=$authors['nom']?>  <?=$authors['prenom']?></a></li>
                         <!--                    <li><span class="icon flaticon-like"></span><a href="#">12 Like</a></li>-->
                         <li><span class="icon flaticon-chat"></span>
                             <a href="<?=$domaine?>/blog/<?=$data['slug']?>">
@@ -329,26 +331,13 @@ if(isset($doc[1]) and !isset($doc[2])) {
                         </li>
                     </ul>
                     <div class="content">
-                        <h4><a href="<?=$domaine?>/show/<?=$data['slug']?>"><?=reduit_text(html_entity_decode(stripslashes($data['titre'])),'70');?></a></h4>
+                        <h4><a href="<?=$domaine?>/blog/<?=$data['slug']?>"><?=reduit_text(html_entity_decode(stripslashes($data['titre'])),'70');?></a></h4>
                         <div class="cont pt-3"> <?=reduit_text(html_entity_decode(stripslashes($data['description'])),'500');?></div>
-                        <div class="read"><a href="<?=$domaine?>/blog/<?=$data['slug']?>" class="btn-transparence-orange" style="border-radius: 3px; padding: 10px 20px;">Lire la suite <i class="fa fa-arrow-right" aria-hidden="true"></i> </a></div>
+                        <div class="read mt-3"><a href="<?=$domaine?>/blog/<?=$data['slug']?>" class="btn-transparence-orange" style="border-radius: 3px; padding: 10px 20px;">Lire la suite <i class="fa fa-arrow-right" aria-hidden="true"></i> </a></div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6245556878555982"
-                crossorigin="anonymous"></script>
-        <!-- Actu -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-6245556878555982"
-             data-ad-slot="7007291977"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
     <?php
     }
     ?>
@@ -549,6 +538,11 @@ if(isset($doc[1]) and !isset($doc[2])) {
 </div>
 
 </div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6245556878555982" crossorigin="anonymous"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6245556878555982" data-ad-slot="7007291977" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 </section>
 
 

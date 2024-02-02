@@ -60,6 +60,14 @@
     }
 </style>
 <style>
+
+.cover-350{
+    object-fit: cover;
+    height: 350px;
+}
+
+
+
 #overlay {
     position: fixed; /* Sit on top of the page content */
     display: none; /* Hidden by default */
