@@ -45,6 +45,25 @@ class Sortie {
 
 
 
+    public function addSortie25($dateSortie,$nom,$phone,$mbre,$an){
+        $query = "INSERT INTO sortie(date_sortie,nom,phone,membre,an)
+            VALUES (:dateSortie,:nom,:phone,:mbre,:an)";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "dateSortie" => $dateSortie,
+            "nom" => $nom,
+            "phone" => $phone,
+            "mbre" => $mbre,
+            "an" => $an
+        ));
+        $nb = $rs->rowCount();
+        if($nb > 0){
+            $r = $this->bdd->lastInsertId();
+            return $r;
+        }
+    }
+
+
 
 
 
@@ -74,7 +93,7 @@ class Sortie {
 
     //Count
     public function getNbrSortie(){
-        $query = "SELECT COUNT(*) as nb FROM sortie";
+        $query = "SELECT COUNT(*) as nb FROM sortie WHERE an = 2025";
         $rs = $this->bdd->query($query);
 
         return $rs;
@@ -83,7 +102,7 @@ class Sortie {
     // Verification valeur existant
     public function verifInscrit($propriete,$val){
 
-        $query = "SELECT * FROM sortie WHERE $propriete = :val";
+        $query = "SELECT * FROM sortie WHERE $propriete = :val and an = 2025";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "val" => $val

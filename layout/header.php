@@ -1005,7 +1005,7 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
 }
 .banner-sortie {
-    background-image: url(<?=$asset?>/media/aeek-2.jpeg) !important;
+    background-image: url(<?=$asset?>/media/pl1.jpg) !important;
     background-position: 50% 50%;
     background-size: cover;
     height: 600px !important;
@@ -1624,10 +1624,8 @@ header.style-3 div.menu-fixed::before {
                                 <li><a href="<?=$domaine?>/contact"  class="<?php if($lien == 'contact'){echo 'current';} ;?>">Contact</a></li>
                                 <li><a href="<?=$domaine?>/blog"  class="<?php if($lien == 'blog'){echo 'current';} ;?>">Actualité</a></li>
                                 <li><a href="<?=$domaine?>/events"  class="<?php if($lien == 'events'){echo 'current';} ;?>">Galerie</a></li>
-                                <li><a href="<?=$domaine?>/aeek-plume"  class="<?php if($lien == 'aeek-plume'){echo 'current';} ;?>">AEEK PLUME</a></li>
+                                <li><a href="<?=$domaine?>/sortie-detente-2025"  class="<?php if($lien == 'sortie-detente-2025'){echo 'current';} ;?>"> Sortie Détente 2025</a></li>
                                 <li><a href="https://www.youtube.com/channel/UCDhp_Sepv7QJEmiTdCRAuXg" target="_blank" class="">Aeek tv</a></li>
-
-
                             </ul>
                         </div>
                     </div>
