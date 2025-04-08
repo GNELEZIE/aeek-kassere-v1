@@ -41,6 +41,19 @@ class Sortie {
 
 
 
+    public function updateSortieById($val,$id){
+        $query = "UPDATE sortie
+            SET trans_id = :val
+            WHERE id_sortie  = :id";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "val" => $val,
+            "id" => $id
+        ));
+
+        $nb = $rs->rowCount();
+        return $nb;
+    }
 
 
 

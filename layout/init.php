@@ -8,6 +8,7 @@ include_once "function/mailing.php";
 include_once "function/function.php";
 include_once "function/detectdevice/Mobile_Detect.php";
 include_once "function/detectdevice/detect.php";
+include_once "function/paydunya/paydunya.php";
 
 
 //Include Connexion

@@ -1,6 +1,28 @@
 <?php
-$dateGmt = gmdate('Y-m-d H:i');
-$date1 = str_replace('-', '/', $dateGmt);
-$tomorrow = date('m-d-Y',strtotime($date1 . "+26 days"));
+// Chargement manuel du SDK
 
-echo $tomorrow;
+
+// === CONFIGURATION DE L'API ===
+
+include_once "function/paydunya/KEYS.php";
+
+// Montant total (en FCFA)
+$co->setTotalAmount(200);
+$co->setDescription("Paiement pour une commande chez Chez Sandra");
+
+// Champs personnalisés
+$co->addCustomData("Prénom", "Badara");
+$co->addCustomData("Nom", "Alioune");
+$co->addCustomData("CartId", '45555');
+$co->addCustomData("Coupon", "NOEL");
+
+// CRÉATION DE LA FACTURE & REDIRECTION
+if($co->create()) {
+    // Redirige vers la page de paiement PayDunya
+    header("Location: " . $co->getInvoiceUrl());
+    exit;
+} else {
+    // Affiche une erreur si échec
+    echo "Erreur lors de la création de la facture : " . $co->response_text;
+}
+?>

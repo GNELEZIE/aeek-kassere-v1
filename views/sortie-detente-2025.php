@@ -25,7 +25,6 @@ require_once 'layout/header.php';
                     <h1 class="text-center font-22 text-dark" style="font-weight: bold;line-height: 1.5;">Inscription pour la sortie détente AEEK 2025</h1>
                     <h3 class="text-center font-17 py-2">Places restantes : <span class=""><b class="text-danger count_sortie"></b></span></h3>
                     <h3 class="text-center font-17 py-2">Infoline : 05 56 05 44 66</h3>
-                    <a href="https://pay.wave.com/m/M_ci_OrcTWFAwliqL/c/ci/?amount=100">payer</a>
                     <form method="post" class="pt-3" id="SortieInscription" style="text-align: left;">
                         <?php
                         if(!empty($errors)) { ?>
@@ -44,6 +43,7 @@ require_once 'layout/header.php';
                                 <p class="frais m-0 pt-2"></p>
                             </div>
                             <div class="col-md-12 pt-3">
+                                <label for="phone">Téléphone</label>
                                 <input type="tel" class="form-control input-registers" id="phone" name="phone" required>
                                 <input type="hidden"  name="isoPhone" id="isoPhone" value="">
                                 <input type="hidden"  name="dialPhone" id="dialPhone" value="">
@@ -53,10 +53,7 @@ require_once 'layout/header.php';
                                 <button class="btn-orange font-sery radius-6 mt-3"> <i class="laodForm"></i> S'inscrire maintenant</button>
                             </div>
                         </div>
-
-
                     </form>
-
 
                 </div>
             </div>
@@ -80,7 +77,7 @@ require_once 'layout/footer.php';
         }
 
         $('#SortieInscription').submit(function(e){
-            $('.laodForm').html('<i class="fa fa-circle-notch fa-spin"></i>')
+            $('.laodForm').html('<i class="loader-btn"></i>')
         });
 
 
