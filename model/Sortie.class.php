@@ -58,15 +58,14 @@ class Sortie {
 
 
 
-    public function addSortie25($dateSortie,$nom,$phone,$mbre,$an){
-        $query = "INSERT INTO sortie(date_sortie,nom,phone,membre,an)
-            VALUES (:dateSortie,:nom,:phone,:mbre,:an)";
+    public function addSortie25($dateSortie,$nom,$phone,$an){
+        $query = "INSERT INTO sortie(date_sortie,nom,phone,an)
+            VALUES (:dateSortie,:nom,:phone,:an)";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "dateSortie" => $dateSortie,
             "nom" => $nom,
             "phone" => $phone,
-            "mbre" => $mbre,
             "an" => $an
         ));
         $nb = $rs->rowCount();
